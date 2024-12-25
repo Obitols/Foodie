@@ -1,0 +1,558 @@
+* {
+    margin: 0rem;
+    padding: 0rem;
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+.navtop {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0px;
+}
+
+.side {
+    backdrop-filter: blur(20px);
+    background: transparent;
+    padding: 3%;
+    box-shadow: inset 0 -2px 10px brown;
+    flex-direction: column;
+    width: 120px;
+    height: 100vh;
+    display: flex;
+    gap: 1em;
+    position: absolute;
+    inset: 0 0 auto auto;
+    z-index: 3;
+}
+
+.side button {
+    margin: 0 0 0 auto;
+}
+
+.side #find {
+    margin-left: 0;
+    padding: 0.5em 1em;
+    width: 9rem;
+}
+
+.SService {
+    display: grid;
+    grid-template-rows: repeat(5, 2.5em);
+}
+
+#has,
+.side {
+    display: none;
+}
+.navtop input {
+    width: 20vw;
+    padding: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
+.topic {
+    color: rgb(250, 92, 7);
+}
+
+.Service {
+    display: flex;
+    width: 40%;
+    gap: 5%;
+}
+
+li {
+    list-style: none;
+}
+
+li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.active,
+button:hover {
+    background-color: brown;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+button {
+    background-color: white;
+    border: 1.5px solid black;
+    padding: 1em 1.5rem;
+    color: rgb(0, 0, 0);
+    border-radius: .5em;
+    font-size: 0.7em;
+    width: fit-content;
+}
+
+#page1,
+#page2,
+#page5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50%);
+}
+
+#page1 header {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: auto 0;
+    padding-left: 5%;
+}
+
+.desion {
+    display: grid;
+    margin: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(30vh, 1fr));
+    gap: 5%;
+}
+
+.desion .card {
+    box-shadow: 2px 2px 2px rgb(220, 200, 200),-2px -2px 2px rgb(220, 200, 200);
+    background-color: white;
+    padding: 2rem;
+    gap: 5%;
+    height: 25vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+}
+.desion .card:hover{
+    .rotate{
+        display: block;
+    }
+}
+.rotate{
+   position: absolute;
+   top: -4px;
+   left: 0px;
+   width: 101%;
+   background-color: brown;
+   height: 103%;
+   border-radius: 5px;
+   z-index: -1;
+   display: none;
+   transform: rotate(3deg);
+}
+
+#page2 header {
+    position: relative;
+    margin: 5% 0%;
+    height: 59vh;
+}
+
+#page2 aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5%;
+    height: 50vh;
+    position: relative;
+}
+
+#page2 aside img {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 0px;
+}
+
+#topreview {
+    background-color: rgb(121, 121, 129);
+    width: 30%;
+    height: 20vh;
+    overflow: hidden;
+    padding: 2%;
+    border-radius: 0.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: justify;
+    gap: 5%;
+}
+
+#topreview p {
+    font-size: smaller;
+}
+
+#profile,
+#arrow button {
+    border-radius: 50%;
+}
+
+#review {
+    background-color: rgb(135, 135, 146);
+    width: 30%;
+    height: 8vh;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    border-radius: 0.5em;
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+}
+
+#sep {
+    display: flex;
+    justify-content: space-between;
+}
+
+#page3 {
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    gap: 2%;
+    background-color: rgb(241, 241, 241);
+    height: 140vh;
+}
+
+.choice li {
+    display: inline-block;
+    margin-right: 4%;
+}
+
+.choicebtn {
+    display:flex;
+   flex-wrap: wrap;
+    gap: 1rem;
+}
+
+hr {
+    background-color: black;
+    margin: 1% 0;
+}
+
+.choice a {
+    color: black;
+    text-decoration: none;
+}
+
+.choice a:hover {
+    color: brown;
+    /* text-underline-offset:17px; */
+    /* text-decoration:underline brown 2px; */
+    filter: drop-shadow(2px 2px 2px #d32f0f);
+}
+
+.choicebtn button {
+    text-align: center;
+    width: 6rem;
+}
+
+.itemgroup {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 255px);
+    justify-content: center;
+    overflow-y: auto;
+    padding-top: 5%;
+    position: relative;
+    z-index: 1;
+    gap: 2rem;
+}
+
+.itemgroup .orderitem{
+    box-shadow: 2px 2px 2px rgb(220, 200, 200),-2px -2px 2px rgb(220, 200, 200);
+    background-color: white;
+    border-radius: 0.5em;
+    height: 40vh;
+    /* width:30vh; */
+    display: flex;
+    gap: 0.5em;
+    margin-top: 5%;
+    flex-direction: column;
+    justify-content:end;
+    padding: 5%;
+    position: relative;
+}
+.orderitem:hover{
+    .rot{
+        display:block;
+    }
+}
+.rot{
+    position:absolute;
+    top: -4px;
+    left: 0px;
+    width: 101%;
+    background-color: brown;
+    height: 103%;
+    border-radius: 5px;
+    display:none;
+    z-index: -1;
+    transform: rotate(3deg);
+ }
+ .image{
+    position:absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-50%,-15%);
+    filter: drop-shadow(-2px -2px 5px black);   
+ }
+.rr {
+    display: grid;
+    gap: 5%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.ac {
+    display: grid;
+    width: inherit;
+    align-items: center;
+    grid-template-columns: 1fr 4fr;
+}
+.ac button{
+    width: inherit;
+}
+.addbtn{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:2%;
+}
+.addtc{
+    display: none;
+}
+.noi{
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+  height: 2.3rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  align-self: center;
+
+}
+.noi button{
+    border: none;
+    padding: 10px 10px;
+    background-color: transparent;
+    color: black;
+}
+#page3 button {
+    margin: 5%;
+    align-self: center;
+}
+
+#page4 {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    height: 70vh;
+    padding: 5%;
+    align-items: center;
+    position: relative;
+}
+
+#page4 #extra {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#destra {
+    position: absolute;
+    bottom: -10rem;
+    right: 0;
+}
+
+#page4 p {
+    width: 40%;
+    font-size: smaller;
+    text-align: center;
+}
+
+.About {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 5%;
+}
+
+.About div {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 40vh;
+    padding: 2% 2% 3% 2%;
+    box-shadow: 1px 1px 2px 2px rgb(180, 176, 176);
+    gap: 6%;
+    z-index: 5;
+}
+
+.About div b {
+    text-align: center;
+}
+
+#page5 aside,
+header {
+    margin-top: 3%;
+    position: relative;
+    margin: 3%;
+    height: 50vh;
+}
+
+#page5 aside {
+    display: flex;
+    padding: 3%;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#arrow {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5%;
+    width: fit-content;
+}
+
+#btreview {
+    background-color: rgb(135, 135, 146);
+    width: 35%;
+    height: 8vh;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    border-radius: 0.5em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#page6 {
+    margin: 5% 4%;
+    padding: 4%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    background-color: aqua;
+    border-radius: 1em;
+    justify-content: space-around;
+}
+
+#page6 a {
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+
+#inputs {
+    display: flex;
+    width: 30vw;
+    background-color: white;
+    width: fit-content;
+    align-self: center;
+    border-radius: 5px;
+    height: 3rem;
+}
+
+input {
+    border: none;
+    margin-left: 0.8rem;
+    outline: none;
+    padding: 0.7rem 0;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+}
+
+#inputs button {
+    line-height: 1.7rem;
+    border-radius: 5px;
+}
+
+#page7 {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    background-color: #ea7058;
+}
+
+#page7 address {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 20vh;
+}
+
+address a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+#page7 table {
+    width: 60%;
+}
+
+#page8 {
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 5%;
+    background-color: #ea7058;
+}
+
+@media (max-width:390px) {
+    #page7 {
+        flex-direction: column;
+    }
+
+    #page7 table,
+    #page8 h5 {
+        width: 100%;
+        font-size: 0.6em;
+        align-self: center;
+    }
+
+    #inputs button {
+        padding: 0;
+        width: 5rem;
+    }
+}
+
+@media (max-width:450px) {
+
+    #page4 .About div {
+        height: 35vh;
+    }
+
+    .choice li {
+        margin: 0.5em;
+    }
+
+    #page2 header {
+        margin-top: 5rem;
+    }
+    .choicebtn{
+        justify-content: center;
+    }
+
+}
+
+@media (max-width:700px) {
+
+    #page1,
+    #page2,
+    #page5 {
+        grid-template-columns: repeat(auto-fit, 100%);
+    }
+}
+
+@media (max-width:900px) {
+    #has {
+        display: block;
+    }
+
+    .Service,
+    .find,
+    .cart {
+        display: none;
+
+    }
+
+    .navtop {
+        justify-content: space-between;
+        margin: 2rem 2.8rem;
+    }
+}
