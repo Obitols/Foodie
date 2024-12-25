@@ -33,7 +33,8 @@
 .side #find {
     margin-left: 0;
     padding: 0.5em 1em;
-    width: 9rem;
+    width: 7.7rem;
+    border-radius: 3px;
 }
 
 .SService {
@@ -43,7 +44,7 @@
 
 #has,
 .side {
-    display: none;
+    display:none;
 }
 .navtop input {
     width: 20vw;
