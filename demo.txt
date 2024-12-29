@@ -1,0 +1,168 @@
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <samp class="rot"></samp>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button class="addtc">Add To Cart</button>
+                        <div class="addbtn">
+                            <div class="noi">
+                                <button class="sub">-</button>
+                                <h5 style="margin: auto;">1</h5>
+                                <button class="add">+</button>
+                            </div>
+                            <button class="Cart">cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>
+                <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="logo.jpg" alt="image" width="50%" height="50%" class="image">
+                    <h4>McDonaid Cheeseburger</h4>
+                    <h6>Hamburger Veggie burger</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(68 Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$3.5</h3>
+                        <button>Add To Cart</button>
+                    </div>
+                </div>

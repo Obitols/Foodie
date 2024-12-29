@@ -7,15 +7,23 @@
 
 .navtop {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin: 1rem 2rem;
     align-items: center;
 }
 
-.navtop input {
+.search {
     width: 30%;
-    padding: 10px;
-    background-color: rgb(235, 235, 235);
+    padding-left: 1rem;
+    border-radius: 2rem;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+}
+
+.search input {
+    flex-grow: 1;
+    margin-left: 0;
+    background: transparent;
 }
 
 .topic {
@@ -37,11 +45,38 @@ li a {
     text-decoration: none;
 }
 
-.active,
-button:hover {
+#cart {
+    background-color: #d32f0f;
+    border-radius: 5px;
+    padding: 0.5%;
+    position: relative;
+}
+
+#cart h6 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-40%, 30%);
+    padding: 0 6%;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.act {
+    background-color: brown;
+    color: #ffffff;
+    border: none;
+}
+
+#touch {
+    background-color: white;
+}
+
+#touch:hover,.active {
     background-color: brown;
     color: #ffffff;
     border-color: transparent;
+    filter: drop-shadow(1px 3px 5px rgb(236, 84, 84));
 }
 
 button {
@@ -65,7 +100,7 @@ button {
     display: flex;
     gap: 1.5em;
     position: absolute;
-    inset:0 0;
+    inset: 0 0;
     z-index: 3;
 }
 
@@ -74,17 +109,17 @@ button {
     justify-content: space-between;
     align-items: center;
 }
-.side footer button{
-    padding: 1em 1.5em;
-}
+
 .SService {
     display: grid;
     grid-template-rows: repeat(5, 2.5em);
 }
 
-.side,#has {
-    display:none;
+.side,
+#has {
+    display: none;
 }
+
 #page1,
 #page2,
 #page5 {
@@ -108,7 +143,7 @@ button {
 }
 
 .desion .card {
-    box-shadow: 2px 2px 2px rgb(220, 200, 200),-2px -2px 2px rgb(220, 200, 200);
+    box-shadow: 2px 2px 2px rgb(220, 200, 200), -2px -2px 2px rgb(220, 200, 200);
     background-color: white;
     padding: 2rem;
     gap: 5%;
@@ -118,22 +153,24 @@ button {
     flex-direction: column;
     border-radius: 2%;
 }
-.desion .card:hover{
-    .rotate{
+
+.desion .card:hover {
+    .rotate {
         display: block;
     }
 }
-.rotate{
-   position: absolute;
-   top: -4px;
-   left: 0px;
-   width: 101%;
-   background-color: brown;
-   height: 103%;
-   border-radius: 5px;
-   z-index: -1;
-   display: none;
-   transform: rotate(3deg);
+
+.rotate {
+    position: absolute;
+    top: -4px;
+    left: 0px;
+    width: 101%;
+    background-color: brown;
+    height: 103%;
+    border-radius: 5px;
+    z-index: -1;
+    display: none;
+    transform: rotate(3deg);
 }
 
 #page2 header {
@@ -214,8 +251,8 @@ button {
 }
 
 .choicebtn {
-    display:flex;
-   flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -224,12 +261,7 @@ hr {
     margin: 1% 0;
 }
 
-.choice a {
-    color: black;
-    text-decoration: none;
-}
-
-.choice a:hover {
+.choice li:hover{
     color: brown;
     /* text-underline-offset:17px; */
     /* text-decoration:underline brown 2px; */
@@ -237,8 +269,9 @@ hr {
 }
 
 .choicebtn button {
-    text-align: center;
     width: 6rem;
+    padding: 1em 0;
+    font-size: 0.8em;
 }
 
 #page3 .itemgroup {
@@ -246,15 +279,15 @@ hr {
     grid-template-columns: repeat(auto-fit, 255px);
     justify-content: center;
     overflow-y: auto;
-    padding-top:1em;
+    padding-top: 1em;
     position: relative;
     z-index: 1;
     gap: 2rem;
     height: 160vh;
 }
 
-.itemgroup .orderitem{
-    box-shadow: 2px 2px 2px rgb(220, 200, 200),-2px -2px 2px rgb(220, 200, 200);
+.itemgroup .orderitem {
+    box-shadow: 2px 2px 2px rgb(220, 200, 200), -2px -2px 2px rgb(220, 200, 200);
     background-color: white;
     border-radius: 0.5em;
     height: 40vh;
@@ -263,34 +296,40 @@ hr {
     gap: 0.5em;
     margin-top: 5%;
     flex-direction: column;
-    justify-content:end;
+    justify-content: end;
     padding: 5%;
     position: relative;
 }
-.orderitem:hover{
-    .rot{
-        display:block;
+
+.orderitem:hover {
+    .rot {
+        display: block;
     }
 }
-.rot{
-    position:absolute;
+
+.rot {
+    position: absolute;
     top: -4px;
     left: 0px;
     width: 101%;
     background-color: brown;
     height: 103%;
     border-radius: 5px;
-    display:none;
+    display: none;
     z-index: -1;
     transform: rotate(3deg);
- }
- .image{
-    position:absolute;
+}
+
+.image {
+    position: absolute;
     right: 0;
     top: 0;
-    transform: translate(-50%,-15%);
-    filter: drop-shadow(-2px -2px 5px black);   
- }
+    width:50%;
+    height:50%;
+    transform: translate(-50%, -15%);
+    filter: drop-shadow(-2px -2px 5px black);
+}
+
 .rr {
     display: grid;
     gap: 5%;
@@ -303,32 +342,33 @@ hr {
     align-items: center;
     grid-template-columns: 1fr 4fr;
 }
-.ac button{
+
+.ac button {
     width: inherit;
 }
-.addbtn{
-    display: grid;
+
+.addbtn {
     grid-template-columns: 1fr 1fr;
-    gap:2%;
-}
-.addtc{
+    gap: 2%;
     display: none;
 }
-.noi{
-  display: grid;
-  grid-template-columns:1fr 1fr 1fr;
-  height: 2.3rem;
-  border: 1px solid black;
-  border-radius: 5px;
-  align-self: center;
+.noi {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 2.3rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-self: center;
 
 }
-.noi button{
+
+.noi button {
     border: none;
     padding: 10px 10px;
     background-color: transparent;
     color: black;
 }
+
 #page3 button {
 
     align-self: center;
@@ -476,11 +516,6 @@ input {
     height: 20vh;
 }
 
-address a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
 #page7 table {
     width: 60%;
 }
@@ -523,7 +558,8 @@ address a {
     #page2 header {
         margin-top: 5rem;
     }
-    .choicebtn{
+
+    .choicebtn {
         justify-content: center;
     }
 
@@ -540,18 +576,21 @@ address a {
 
 @media (max-width:900px) {
 
-    .Service,.cart
-    {
+    .Service,
+    .cart {
         display: none;
     }
-    #has{
+
+    #has {
         display: block;
     }
+
     .navtop {
-        column-gap:0.8em;
+        column-gap: 0.8em;
         margin: 1rem;
     }
-    .navtop input{
-        width:100%;
+
+    .search {
+        width: 100%;
     }
 }
