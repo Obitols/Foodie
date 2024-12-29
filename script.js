@@ -33,20 +33,37 @@ function displayProducts(filter = "SetMenu") {
                     </div>
                     <div class="ac">
                         <h3>$${p.price}</h3>
-                        <button class="addtc" onclick="showcart()">Add To Cart</button>
-                        <div class="addbtn">
+                        <button class="addtc" onclick="showcart(this)">Add To Cart</button>
+                        <div class="addbtn" style="display:none;">
                             <div class="noi">
-                                <button class="sub">-</button>
+                                <button class="sub" onclick="updateQuantity(this, -1)">-</button>
                                 <h5 style="margin: auto;">1</h5>
-                                <button class="add">+</button>
+                                <button class="add" onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                            <button class="Cart">cart</button>
+                             <button class="Cart" onclick="displayQuantity(this)">Cart</button>
                         </div>
                     </div>
                 </div>
         `).join("");
 }
 
+function showcart(button){
+    const parent = button.closest(".ac");
+    parent.querySelector(".addtc").style.display = "none";
+    parent.querySelector(".addbtn").style.display = "grid";
+}
+
+function updateQuantity(button, value) {
+    const quantityTag = button.closest(".noi").querySelector("h5");
+    const quantity = Math.max(1, parseInt(quantityTag.textContent) + value);
+    quantityTag.textContent = quantity;
+}
+
+function displayQuantity(button) {
+    const quantityTag = button.closest(".addbtn").querySelector("h5");
+    const quantity = quantityTag.textContent;
+    alert(`Quantity: ${quantity}`); // Display the quantity in an alert or handle it as needed
+}
 
 function filterProducts(category) {
     document.querySelectorAll(".choicebtn button").forEach(btn => btn.classList.remove("active"));
@@ -67,9 +84,54 @@ function filterProducts(category) {
 //         `).join("");
 // });
 
+
+document.querySelector('.find').addEventListener('keyup', (e) => {
+    const searchdata = e.target.value.toLowerCase();
+    const filterdata = products.filter((item) => 
+        item.name.toLowerCase().includes(searchdata)
+    );
+    displayItem(filterdata);
+});
+
+// Function to display items
+const displayItem = (items) => {
+    const container = document.querySelector(".itemgroup");
+    container.innerHTML = items.map((item) => {
+        const { name , title  , review , category , price , image } = item;
+        return `
+            <div class="orderitem">
+                    <div class="rot"></div>
+                    <img src="${image}" alt="${name}" class="image">
+                    <h4>${name}</h4>
+                    <h6>${title}</h6>
+                    <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(${review} Reviews)</h6>
+                    </div>
+                    <div class="ac">
+                        <h3>$${price}</h3>
+                        <button class="addtc" onclick="showcart(this)">Add To Cart</button>
+                        <div class="addbtn" style="display:none;">
+                            <div class="noi">
+                                <button class="sub" onclick="updateQuantity(this, -1)">-</button>
+                                <h5 style="margin: auto;">1</h5>
+                                <button class="add" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                             <button class="Cart" onclick="displayQuantity(this)">Cart</button>
+                        </div>
+                    </div>
+            </div>`;
+    }).join('');
+};
+
 window.onload = () => displayProducts();
 
-function showcart(){
-    document.querySelector(".addtc").style.display = 'none';
-    document.querySelector(".addbtn").style.display = 'grid';
-}
+
+
+                   

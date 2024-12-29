@@ -348,9 +348,9 @@ hr {
 }
 
 .addbtn {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2%;
-    display: none;
 }
 .noi {
     display: grid;
