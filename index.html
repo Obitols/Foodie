@@ -125,21 +125,28 @@
             <nav id="navbottom">
                 <hr>
                 <ul class="choice">
-                    <li>All</li>
-                    <li>Breakfast</li>
-                    <li>Dinner</li>
-                    <li>Lunch</li>
-                    <li>Dessert</li>
-                    <li>Beverage</li>
+                    <li onclick="filterProducts('all');changeMenu('all');">All</li>
+                    <li onclick="filterProducts('breakfast');changeMenu('breakfast')">Breakfast</li>
+                    <li onclick="filterProducts('dinner');changeMenu('dinner')">Dinner</li>
+                    <li onclick="filterProducts('lunch');changeMenu('lunch');">Lunch</li>
+                    <li onclick="filterProducts('dessert');changeMenu('dessert');">Dessert</li>
+                    <li onclick="filterProducts('beverage');changeMenu('beverage');">Beverage</li>
                 </ul>
                 <hr>
                 <div class="choicebtn">
-                    <button onclick="filterProducts('SetMenu')" class="active"><i class='bx bx-baguette'></i>SetMenu</button>
+                <button onclick="filterByCategory('a6')" class="active"><i class='bx bx-baguette'></i>>SetMenu</button>   
+                <button onclick="filterByCategory('a1')"><i class='bx bx-bowl-rice '></i>Bread</button>
+                <button onclick="filterByCategory('a2')"><i class='bx bx-baguette '></i>Sandwich</button>
+                <button onclick="filterByCategory('a3')"><i class='bx bx-bowl-rice '></i>Burger</button>
+                <button onclick="filterByCategory('a4')"><i class='bx bx-baguette '></i>Pasta</button>
+                <button onclick="filterByCategory('a5')"><i class='bx bx-bowl-rice '></i>Pizza</button>
+                
+                    <!-- <button onclick="filterProducts('SetMenu')" class="active"><i class='bx bx-baguette'></i>SetMenu</button>
                     <button onclick="filterProducts('Bread')"><i class='bx bx-bowl-rice '></i>Bread</button>
                     <button onclick="filterProducts('Sandwich')"><i class='bx bx-baguette '></i>Sandwich</button>
                     <button onclick="filterProducts('Burger')"><i class='bx bx-bowl-rice '></i>Burger</button>
                     <button onclick="filterProducts('Pasta')"><i class='bx bx-baguette '></i>Pasta</button>
-                    <button onclick="filterProducts('Pizza')"><i class='bx bx-bowl-rice '></i>Pizza</button>
+                    <button onclick="filterProducts('Pizza')"><i class='bx bx-bowl-rice '></i>Pizza</button> -->
                 </div>
             </nav>
             <div class="itemgroup">

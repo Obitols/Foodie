@@ -1,0 +1,163 @@
+<!-- <ul class="choice">
+    <li>All</li>
+    <li>Breakfast</li>
+    <li>Dinner</li>
+    <li>Lunch</li>
+    <li>Dessert</li>
+    <li>Beverage</li>
+</ul>
+<hr>
+<div class="choicebtn">
+    <button >SetMenu</button> 
+    <button >Bread</button> 
+    <button >Sandwich</button> 
+    <button >Burger</button>
+    <button >Pasta</button>
+    <button >Pizza</button> 
+</div>
+
+const products = {
+    data1: [
+      { ptname: "regular shirt", category: "topware", price: "30", image: "bubble.png" },
+      { ptname: "regular shirt2", category: "bottomware", price: "40", image: "bubble.png" },
+      { ptname: "regular shirt", category: "topware", price: "30", image: "bubble.png" },
+      { ptname: "regular shirt2", category: "bottomware", price: "40", image: "bubble.png" },
+  ],
+    data2: [
+      { ptname: "regular shirt", category: "topware", price: "30", image: "bubble.png" },
+      { ptname: "regular shirt2", category: "bottomware", price: "40", image: "bubble.png" },
+      { ptname: "regular shirt", category: "topware", price: "30", image: "bubble.png" },
+      { ptname: "regular shirt2", category: "bottomware", price: "40", image: "bubble.png" },
+    ],
+    data3: [
+      { ptname: "regular shirt", category: "topware", price: "30", image: "bubble.png" },
+      { ptname: "regular shirt2", category: "bottomware", price: "40", image: "bubble.png" },
+      { ptname: "regular shirt", category: "topware", price: "30", image: "bubble.png" },
+      { ptname: "regular shirt2", category: "bottomware", price: "40", image: "bubble.png" },
+    ],
+  }; -->
+
+  // function filterProducts(){
+    //         renderProducts([...products.data1, ...products.data2, ...products.data3, ...products.data4, ...products.data5, ...products.data6]);
+    // }
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Menu</title>
+    <style>
+        .choice, .choicebtn {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .choice li {
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            list-style: none;
+        }
+        .choicebtn button {
+            padding: 5px 10px;
+        }
+        .products {
+            margin-top: 20px;
+        }
+        .product {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="choice">
+    <li onclick="filterProducts('all')">All</li>
+    <li onclick="changeMenu('breakfast')">Breakfast</li>
+    <li onclick="changeMenu('dinner')">Dinner</li>
+    <li onclick="filterProducts('lunch')">Lunch</li>
+    <li onclick="filterProducts('dessert')">Dessert</li>
+    <li onclick="filterProducts('beverage')">Beverage</li>
+</ul>
+
+<hr>
+
+<div class="choicebtn">
+    <button onclick="filterByCategory('all')">SetMenu</button>
+    <button onclick="filterByCategory('bread')">Bread</button>
+    <button onclick="filterByCategory('sandwich')">Sandwich</button>
+    <button onclick="filterByCategory('burger')">Burger</button>
+    <button onclick="filterByCategory('pasta')">Pasta</button>
+    <button onclick="filterByCategory('pizza')">Pizza</button>
+</div>
+
+<div class="products"></div>
+
+<script>
+    const products = {
+        data1: [
+            { ptname: "Bread Item 1", category: "bread", price: "30", image: "bubble.png" },
+            { ptname: "Bread Item 2", category: "bread", price: "40", image: "bubble.png" },
+            { ptname: "Topware Item", category: "topware", price: "50", image: "bubble.png" }
+        ],
+        data2: [
+            { ptname: "Dinner Idly", category: "idly", price: "10", image: "bubble.png" },
+            { ptname: "Dinner Dosa", category: "dosa", price: "20", image: "bubble.png" },
+            { ptname: "Dinner Vada", category: "vada", price: "15", image: "bubble.png" }
+        ]
+    };
+
+    let currentMenu = 'data1';
+
+    const renderProducts = (data) => {
+        const productsDiv = document.querySelector('.products');
+        productsDiv.innerHTML = '';
+        data.forEach(item => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.innerHTML = `
+                <strong>${item.ptname}</strong> - ${item.category} - $${item.price}
+            `;
+            productsDiv.appendChild(productDiv);
+        });
+    };
+
+    const filterProducts = (type) => {
+        if (type === 'all') {
+            renderProducts([...products.data1, ...products.data2]);
+        } else {
+            renderProducts(products[currentMenu]);
+        }
+    };
+
+    const filterByCategory = (category) => {
+        const filteredData = products[currentMenu].filter(item => category === 'all' || item.category === category);
+        renderProducts(filteredData);
+    };
+
+    const changeMenu = (type) => {
+        if (type === 'breakfast') {
+            currentMenu = 'data1';
+            updateButtonNames(['SetMenu', 'Bread', 'Sandwich', 'Burger', 'Pasta', 'Pizza']);
+        } else if (type === 'dinner') {
+            currentMenu = 'data2';
+            updateButtonNames(['Idly', 'Dosa', 'Vada', 'Pongal', 'Chappathi', 'Parotta']);
+        }
+        filterProducts('all');
+    };
+
+    const updateButtonNames = (names) => {
+        const buttons = document.querySelectorAll('.choicebtn button');
+        buttons.forEach((button, index) => {
+            button.textContent = names[index];
+            button.setAttribute('onclick', `filterByCategory('${names[index].toLowerCase()}')`);
+        });
+    };
+
+    // Initial load
+    filterProducts('all');
+</script>
+
+</body>
+</html>
