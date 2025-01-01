@@ -70,7 +70,7 @@ catch (error) {
 
 const filterByCategory = (category) => {
     try{
-    const filteredData = products[currentMenu].filter(item => item.btname === category);
+    const filteredData = products[currentMenu].filter(item => item.category === category);
     renderProducts(filteredData);
     }
     catch (error) {
@@ -84,14 +84,14 @@ const changeMenu = (type) => {
     const buttons = document.querySelectorAll('.choicebtn button');
     buttons.forEach((button, index) => { 
         button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
-        button.setAttribute('onclick', `filterByCategory('${names[index].btname.toLowerCase()}')`);
+        button.setAttribute('onclick', `filterByCategory('${names[index].category.toLowerCase()}')`);
     });
 };
 
 document.querySelector('.find').addEventListener('keyup', (e) => {
     const searchdata = e.target.value.toLowerCase();
     const filterdata = [...products.breakfast, ...products.dinner, ...products.lunch, ...products.dessert, ...products.beverage].filter((item) => 
-        item.price.toLowerCase().includes(searchdata)
+        item.name.toLowerCase().includes(searchdata)
     );
     displayItem(filterdata);
 });
@@ -100,7 +100,7 @@ document.querySelector('.find').addEventListener('keyup', (e) => {
 const displayItem = (items) => {
     const container = document.querySelector(".itemgroup");
     container.innerHTML = items.map((item) => {
-        const { name , title  , review  , price , image } = item;
+        const { name , title  , review , category , price , image } = item;
         return `
             <div class="orderitem">
                     <div class="rot"></div>

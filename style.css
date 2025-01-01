@@ -72,7 +72,7 @@ li a {
     background-color: white;
 }
 
-#touch:hover,.active {
+#touch:hover{
     background-color: brown;
     color: #ffffff;
     border-color: transparent;
