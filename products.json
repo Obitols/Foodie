@@ -1,50 +1,50 @@
-{
+  {
     "breakfast": [
-      { "ptname": "Bread 1", "category": "br1", "price": "30", "image": "bubble.png" },
-      { "ptname": "Bread 2", "category": "br2", "price": "40", "image": "bubble.png" },
-      { "ptname": "Bread 3", "category": "br3", "price": "30", "image": "bubble.png" },
-      { "ptname": "Bread 4", "category": "br4", "price": "40", "image": "bubble.png" },
-      { "ptname": "Bread 5", "category": "br5", "price": "40", "image": "bubble.png" },
-      { "ptname": "Bread 5", "category": "br6", "price": "40", "image": "bubble.png" }
-    ],
-    "dinner": [
-      { "ptname": "Sandwich 1", "category": "di1", "price": "30", "image": "bubble.png" },
-      { "ptname": "Sandwich 2", "category": "di2", "price": "40", "image": "bubble.png" },
-      { "ptname": "Sandwich 3", "category": "di3", "price": "30", "image": "bubble.png" },
-      { "ptname": "Sandwich 4", "category": "di4", "price": "40", "image": "bubble.png" },
-      { "ptname": "Sandwich 5", "category": "di5", "price": "40", "image": "bubble.png" },
-      { "ptname": "Sandwich 5", "category": "di6", "price": "40", "image": "bubble.png" }
-    ],
-    "lunch": [
-      { "ptname": "Burger 1", "category": "l1", "price": "30", "image": "bubble.png" },
-      { "ptname": "Burger 2", "category": "l2", "price": "40", "image": "bubble.png" },
-      { "ptname": "Burger 3", "category": "l3", "price": "30", "image": "bubble.png" },
-      { "ptname": "Burger 4", "category": "l4", "price": "40", "image": "bubble.png" },
-      { "ptname": "Burger 5", "category": "l5", "price": "40", "image": "bubble.png" },
-      { "ptname": "Burger 5", "category": "l6", "price": "40", "image": "bubble.png" }
-    ],
-    "dessert": [
-      { "ptname": "Pasta 1", "category": "de1", "price": "30", "image": "bubble.png" },
-      { "ptname": "Pasta 2", "category": "de2", "price": "40", "image": "bubble.png" },
-      { "ptname": "Pasta 3", "category": "de3", "price": "30", "image": "bubble.png" },
-      { "ptname": "Pasta 4", "category": "de4", "price": "40", "image": "bubble.png" },
-      { "ptname": "Pasta 5", "category": "de5", "price": "40", "image": "bubble.png" },
-      { "ptname": "Pasta 5", "category": "de6", "price": "40", "image": "bubble.png" }
-    ],
-    "beverage": [
-      { "ptname": "Pizza 1", "category": "be1", "price": "10", "image": "bubble.png" },
-      { "ptname": "Pizza 2", "category": "be2", "price": "20", "image": "bubble.png" },
-      { "ptname": "Pizza 3", "category": "be3", "price": "30", "image": "bubble.png" },
-      { "ptname": "Pizza 4", "category": "be4", "price": "40", "image": "bubble.png" },
-      { "ptname": "Pizza 5", "category": "be5", "price": "40", "image": "bubble.png" },
-      { "ptname": "Pizza 5", "category": "be6", "price": "40", "image": "bubble.png" }
-    ],
-    "all": [
-      { "ptname": "A", "category": "a1", "price": "10", "image": "bubble.png" },
-      { "ptname": "B", "category": "a2", "price": "20", "image": "bubble.png" },
-      { "ptname": "C", "category": "a3", "price": "30", "image": "bubble.png" },
-      { "ptname": "D", "category": "a4", "price": "40", "image": "bubble.png" },
-      { "ptname": "E", "category": "a5", "price": "40", "image": "bubble.png" },
-      { "ptname": "E", "category": "a6", "price": "40", "image": "bubble.png" }
-    ]
+      {"name":"McDonaid Cheeseburger",  "btname": "Bread-1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":3.5,  "image":"logo.jpg"},
+      {"name":"Cheeseburger",  "btname": "Bread-2",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.0,  "image":"logo.jpg"},
+      {"name":"Three Patty Burger",  "btname": "Bread-3",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":8.5,  "image":"logo.jpg"},
+      {"name":"Burger with Lettuce",  "btname": "Bread-4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.9,  "image":"logo.jpg"},
+      {"name":"Three Partty",  "btname": "Bread-5",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":2.5,  "image":"logo.jpg"},
+      {"name":"Brown Hamburger",  "btname": "Bread-6",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.7,  "image":"logo.jpg"}
+     ],
+     "dinner": [
+      {"name":"McDonaid Cheeseburger",  "btname": "Sandwich-1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":9.5,  "image":"logo.jpg"},
+      {"name":"Cheeseburger",  "btname": "Sandwich-2",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.0,  "image":"logo.jpg"},
+      {"name":"Three Patty Burger",  "btname": "Sandwich-3",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":4.5,  "image":"logo.jpg"},
+      {"name":"Burger with Lettuce",  "btname": "Sandwich-4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.5,  "image":"logo.jpg"},
+      {"name":"Three Partty",  "btname": "Sandwich-5",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":1.5,  "image":"logo.jpg"},
+      {"name":"Brown Hamburger",  "btname": "Sandwich-6",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.5,  "image":"logo.jpg"}
+     ],
+     "lunch": [
+      {"name":"McDonaid Cheeseburger",  "btname": "Burger-1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":3.1,  "image":"logo.jpg"},
+      {"name":"Cheeseburger",  "btname": "Burger-2",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.9,  "image":"logo.jpg"},
+      {"name":"Three Patty Burger",  "btname": "Burger-3",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":4.5,  "image":"logo.jpg"},
+      {"name":"Burger with Lettuce",  "btname": "Burger-4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.2,  "image":"logo.jpg"},
+      {"name":"Three Partty",  "btname": "Burger-5",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":4.5,  "image":"logo.jpg"},
+      {"name":"Brown Hamburger",  "btname": "Burger-6",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.6,  "image":"logo.jpg"}
+     ],
+     "dessert": [
+      {"name":"McDonaid Cheeseburger",  "btname":"Pasta-1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":8.5,  "image":"logo.jpg"},
+      {"name":"Cheeseburger",  "btname": "Pasta-2",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.5,  "image":"logo.jpg"},
+      {"name":"Three Patty Burger",  "btname": "Pasta-3",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":1.5,  "image":"logo.jpg"},
+      {"name":"Burger with Lettuce",  "btname": "Pasta-4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.6,  "image":"logo.jpg"},
+      {"name":"Three Partty",  "btname": "Pasta-5",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":4.8,  "image":"logo.jpg"},
+      {"name":"Brown Hamburger",  "btname": "Pasta-6",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":8.5,  "image":"logo.jpg"}
+     ],
+     "beverage":  [
+      {"name":"McDonaid Cheeseburger",  "btname": "Pizza-1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":3.6,  "image":"logo.jpg"},
+      {"name":"Cheeseburger",  "btname": "Pizza-2",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":9.0,  "image":"logo.jpg"},
+      {"name":"Three Patty Burger",  "btname": "Pizza-3",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":7.5,  "image":"logo.jpg"},
+      {"name":"Burger with Lettuce",  "btname": "Pizza-4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.8,  "image":"logo.jpg"},
+      {"name":"Three Partty",  "btname": "Pizza-5",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":1.5,  "image":"logo.jpg"},
+      {"name":"Brown Hamburger",  "btname": "Pizza-5",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.7,  "image":"logo.jpg"}
+     ],
+     "all": [
+      {"name":"McDonaid Cheeseburger",  "btname": "SetMenu", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":3.5,  "image":"logo.jpg"},
+      {"name":"Cheeseburger",  "btname": "Bread",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.0,  "image":"logo.jpg"},
+      {"name":"Three Patty Burger",  "btname": "Sandwich",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":7.5,  "image":"logo.jpg"},
+      {"name":"Burger with Lettuce",  "btname": "Burger", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.5,  "image":"logo.jpg"},
+      {"name":"Three Partty",  "btname": "Pasta",  "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":8.5,  "image":"logo.jpg"},
+      {"name":"Brown Hamburger",  "btname": "Pizza",  "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.5,  "image":"logo.jpg"}
+     ]
   }
