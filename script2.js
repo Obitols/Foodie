@@ -83,7 +83,7 @@ const changeMenu = (type) => {
     const names = products[currentMenu]; 
     const buttons = document.querySelectorAll('.choicebtn button');
     buttons.forEach((button, index) => { 
-        button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].ptname}`;
+        button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
         button.setAttribute('onclick', `filterByCategory('${names[index].btname.toLowerCase()}')`);
     });
 };
