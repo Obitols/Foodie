@@ -88,7 +88,16 @@ button {
     font-size: 0.7em;
     width: fit-content;
 }
-
+.aside{
+    background:transparent;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    
+    inset: 0 0;
+    z-index: 3;
+    display: none;
+}
 .side {
     backdrop-filter: blur(20px);
     background: transparent;
@@ -101,7 +110,7 @@ button {
     gap: 1.5em;
     position: absolute;
     inset: 0 0;
-    z-index: 3;
+    z-index: 4;
 }
 
 .side div {
@@ -119,7 +128,6 @@ button {
 #has {
     display: none;
 }
-
 #page1,
 #page2,
 #page5 {
@@ -274,7 +282,7 @@ hr {
     font-size: 0.8em;
 }
 
-#page3 .itemgroup {
+.itemgroup {
     display: grid;
     grid-template-columns: repeat(auto-fit, 255px);
     justify-content: center;

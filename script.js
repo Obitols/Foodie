@@ -1,26 +1,14 @@
-const products = [
-    { name: "McDonaid Cheeseburger", title: "Hamburger Veggie burger", review: "68", category: "Bread", price: 3.5, image: "logo.jpg" },
-    { name: "Cheeseburger", title: "Whapper Veggle burger", review: "77", category: "Sandwich", price: 6 , image: "logo.jpg" },
-    { name: "Three patty burger", title: "Hamburger Veggie burger", review: "55", category: "Burger", price: 7.5, image: "logo.jpg" },
-    { name: "Burger with lettuce", title: "Whapper Veggle burger", review: "57", category: "Pasta", price:2.5 , image: "logo.jpg" },
-    { name: "Three partty", title: "Hamburger Veggie burger", review: "58", category: "Pizza", price: 8.5, image: "logo.jpg" },
-    { name: "Brown hamburger", title: "Whapper Veggle burger", review: "75", category: "Bread", price: 3.5, image: "logo.jpg" },
-    { name: "Hamburger", title: "Hamburger Veggie burger", review: "62", category: "Sandwich", price: 3.0, image: "logo.jpg" },
-    { name: "Black hamburger", title: "Whapper Veggle burger", review: "64", category: "Burger", price: 3.5, image: "logo.jpg" }
-];
-
+let currentMenu = 'all';
+let products = {}; // Will hold the fetched data
 const productsContainer = document.querySelector(".itemgroup");
-// const searchInput = document.getElementById("search-input");
-
-function displayProducts(filter = "SetMenu") {
-    productsContainer.innerHTML = products
-        .filter(p => filter === "SetMenu" || p.category === filter)
-        .map(p => `
-            <div class="orderitem">
+const renderProducts = (data) => {
+    productsContainer.innerHTML =
+        data.map(item =>
+            `   <div class="orderitem">
                     <div class="rot"></div>
-                    <img src="${p.image}" alt="${p.name}" class="image">
-                    <h4>${p.name}</h4>
-                    <h6>${p.title}</h6>
+                    <img src="${item.image}" alt="${item.name}" class="image">
+                    <h4>${item.name}</h4>
+                    <h6>${item.title}</h6>
                     <div class="rr">
                         <div>
                             <i class='bx bxs-star'></i>
@@ -29,10 +17,10 @@ function displayProducts(filter = "SetMenu") {
                             <i class='bx bxs-star-half'></i>
                             <i class='bx bx-star'></i>
                         </div>
-                        <h6>(${p.review} Reviews)</h6>
+                        <h6>(${item.review} Reviews)</h6>
                     </div>
                     <div class="ac">
-                        <h3>$${p.price}</h3>
+                        <h3>$${item.price}</h3>
                         <button class="addtc" onclick="showcart(this)">Add To Cart</button>
                         <div class="addbtn" style="display:none;">
                             <div class="noi">
@@ -43,11 +31,11 @@ function displayProducts(filter = "SetMenu") {
                              <button class="Cart" onclick="displayQuantity(this)">Cart</button>
                         </div>
                     </div>
-                </div>
-        `).join("");
-}
+            </div>`
+        ).join("");
+};
 
-function showcart(button){
+function showcart(button) {
     const parent = button.closest(".ac");
     parent.querySelector(".addtc").style.display = "none";
     parent.querySelector(".addbtn").style.display = "grid";
@@ -65,40 +53,69 @@ function displayQuantity(button) {
     alert(`Quantity: ${quantity}`); // Display the quantity in an alert or handle it as needed
 }
 
-function filterProducts(category) {
-    document.querySelectorAll(".choicebtn button").forEach(btn => btn.classList.remove("active"));
-    event.target.classList.add("active");
-    displayProducts(category);
-}
+const filterProducts = (type) => {
+    try {
+        if (type === 'all') {
 
-// document.getElementById("search-btn").addEventListener("click", () => {
-//     const searchValue = searchInput.value.toLowerCase();
-//     productsContainer.innerHTML = products
-//         .filter(p => p.name.toLowerCase().includes(searchValue))
-//         .map(p => `
-//             <div class="card" style="display: block;">
-//                 <img src="${p.image}" alt="${p.name}">
-//                 <h5>${p.name}</h5>
-//                 <p>$${p.price}</p>
-//             </div>
-//         `).join("");
-// });
+            renderProducts([...products.breakfast, ...products.dinner, ...products.lunch, ...products.dessert, ...products.beverage]);
+        } else {
 
+            renderProducts([...products[type]]);
+        }
+    }
+    catch (error) {
+        console.error('Error filtering products:', error);
+    }
+};
+
+const filterByCategory = (category) => {
+    try {
+        const filteredData = products[currentMenu].filter(item => item.category === category);
+        renderProducts(filteredData);
+    }
+    catch (error) {
+        console.error('Error filtering products:', error);
+    }
+};
+
+const changeMenu = (type) => {
+    currentMenu = type;
+    const names = products[currentMenu];
+    const buttons = document.querySelectorAll('.choicebtn button');
+    buttons.forEach((button, index) => {
+        button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
+        button.setAttribute('onclick', `filterByCategory('${names[index].category.toLowerCase()}')`);
+    });
+};
 
 document.querySelector('.find').addEventListener('keyup', (e) => {
-    const searchdata = e.target.value.toLowerCase();
-    const filterdata = products.filter((item) => 
-        item.name.toLowerCase().includes(searchdata)
-    );
-    displayItem(filterdata);
+    const searchdata = e.target.value.trim().toLowerCase();
+    const container = document.getElementById("searchitems");
+    if (searchdata !== "") {
+        const filterdata = [...products.breakfast, ...products.dinner, ...products.lunch, ...products.dessert, ...products.beverage].filter((item) =>
+            item.name.toLowerCase().includes(searchdata)
+        );
+        filterdata.length > 0 ? displayItem(filterdata) : container.innerHTML=`<p style="text-align:center";>No Result found</p>`;
+        
+    }
+    else {
+        container.style.display = "none";
+        document.querySelector("main").style.display = "block";
+    }
+
 });
 
 // Function to display items
 const displayItem = (items) => {
-    const container = document.querySelector(".itemgroup");
-    container.innerHTML = items.map((item) => {
-        const { name , title  , review , category , price , image } = item;
-        return `
+    document.querySelector("main").style.display = "none";
+    const container = document.getElementById("searchitems");
+    if (items.length > 0) {
+        container.style.display = "grid";
+        container.style.padding = "5% 0";
+        container.className = 'itemgroup';
+        container.innerHTML = items.map((item) => {
+            const { name, title, review, price, image } = item;
+            return `
             <div class="orderitem">
                     <div class="rot"></div>
                     <img src="${image}" alt="${name}" class="image">
@@ -127,11 +144,19 @@ const displayItem = (items) => {
                         </div>
                     </div>
             </div>`;
-    }).join('');
+        }).join('');
+    }
+    else {
+        document.querySelector("main").style.display = "block";
+    }
 };
 
-window.onload = () => displayProducts();
 
-
-
-                   
+// Fetch the JSON file and initialize the products data
+fetch('products.json')
+    .then(response => response.json())
+    .then(data => {
+        products = data; // Assign fetched data to the products variable
+        filterProducts('all'); // Render all products initially
+    })
+    .catch(error => console.error('Error fetching the product data:', error));

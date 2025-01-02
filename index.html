@@ -12,7 +12,8 @@
 
 <body>
     <nav class="navtop">
-        <i class='bx bx-menu bx-md' id="has" onclick="document.querySelector('.side').style.display ='flex';"></i>
+        <i class='bx bx-menu bx-md' id="has"
+            onclick="document.querySelector('.side').style.display ='flex';document.querySelector('.aside').style.display ='block';"></i>
         <h3 class="topic">Foodie</h3>
         <ul class="Service">
             <li><a href="#">Categories</a></li>
@@ -23,16 +24,20 @@
         </ul>
         <div class="search">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
-            <input type="text" name="" class="find" placeholder="search">
+            <input type="text" class="find" placeholder="search">
         </div>
         <i class='bx bx-shopping-bag bx-sm' id="cart">
             <h6>0</h6>
         </i>
     </nav>
+    <section class="aside"
+        onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">
+    </section>
     <nav class="side">
         <div>
             <h3 class="topic">Foodie</h3>
-            <i class='bx bx-x bx-md' onclick="document.querySelector('.side').style.display ='none';"></i>
+            <i class='bx bx-x bx-md'
+                onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';"></i>
         </div>
         <ul class="SService">
             <li><a href="#">Categories</a></li>
@@ -48,6 +53,7 @@
             <i class='bx bxl-linkedin bx-sm bx-border' id="touch"></i>
         </footer>
     </nav>
+    <section id="searchitems" style="display: none;"></section>
     <main>
         <section id="page1">
             <header>
@@ -134,12 +140,12 @@
                 </ul>
                 <hr>
                 <div class="choicebtn">
-                <button onclick="filterByCategory('a1')"><i class='bx bx-baguette'></i>SetMenu</button>   
-                <button onclick="filterByCategory('a2')"><i class='bx bx-bowl-rice '></i>Bread</button>
-                <button onclick="filterByCategory('a3')"><i class='bx bx-baguette '></i>Sandwich</button>
-                <button onclick="filterByCategory('a4')"><i class='bx bx-bowl-rice '></i>Burger</button>
-                <button onclick="filterByCategory('a5')"><i class='bx bx-baguette '></i>Pasta</button>
-                <button onclick="filterByCategory('a6')"><i class='bx bx-bowl-rice '></i>Pizza</button>
+                    <button onclick="filterByCategory('a1')"><i class='bx bx-baguette'></i>SetMenu</button>
+                    <button onclick="filterByCategory('a2')"><i class='bx bx-bowl-rice '></i>Bread</button>
+                    <button onclick="filterByCategory('a3')"><i class='bx bx-baguette '></i>Sandwich</button>
+                    <button onclick="filterByCategory('a4')"><i class='bx bx-bowl-rice '></i>Burger</button>
+                    <button onclick="filterByCategory('a5')"><i class='bx bx-baguette '></i>Pasta</button>
+                    <button onclick="filterByCategory('a6')"><i class='bx bx-bowl-rice '></i>Pizza</button>
                 </div>
             </nav>
             <div class="itemgroup"></div>
@@ -206,7 +212,7 @@
             </div>
             <a href="">I'm new member</a>
         </section>
-    </section>
+    </main>
     <footer id="page7">
         <address>
             <b>
@@ -256,7 +262,7 @@
         <h5>&copy 2025 Foodie.All rights reseved</h5>
         <img src="logo.jpg" alt="image" width="40%" height="40px">
     </footer>
-    <script src="script2.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
