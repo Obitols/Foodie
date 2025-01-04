@@ -35,6 +35,23 @@ const renderProducts = (data) => {
         ).join("");
 };
 
+function login(){
+    document.querySelector(".forgot").style.display="none";
+    document.querySelector(".signup").style.display="none";
+    document.querySelector('.login').style.display="flex";
+}
+
+function signin(){
+     document.querySelector('.lsr').style.display="flex";
+    document.querySelector('.login').style.display="none";
+    document.querySelector(".forgot").style.display="none";
+    document.querySelector(".signup").style.display="flex";
+}
+function forgot(){
+    document.querySelector('.login').style.display="none";
+    document.querySelector(".forgot").style.display="flex";
+}
+
 function showcart(button) {
     const parent = button.closest(".ac");
     parent.querySelector(".addtc").style.display = "none";
