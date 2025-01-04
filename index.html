@@ -27,8 +27,9 @@
             <input type="text" class="find" placeholder="search">
         </div>
         <i class='bx bx-shopping-bag bx-sm' id="cart">
-            <h6>0</h6>
+            <h6 id="count">0</h6>
         </i>
+        <button>SIGN IN</button>
     </nav>
     <section class="aside"
         onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">
@@ -59,9 +60,9 @@
             <header>
                 <h5>Get 25% off your First order</h5>
                 <h1>Welcome to our <br><b>Cuisine restaurant</b></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam debitis tempora optio amet nihil
-                    tenetur autem ipsa? Nisi, animi enim!</p>
-                <button class="act">Explore Food Menu</button>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam debitis <br>
+                     tempora optio amet nihil tenetur autem ipsa? Nisi, animi enim!</p>
+                <button class="act"><a href="#page3" style="color: white;">Explore Food Menu</a></button>
             </header>
             <aside>
                 <img src="logo.jpg" alt="image" width="100%" height="100%">
@@ -98,7 +99,7 @@
                 <img src="logo.jpg" alt="image" height="100%" width="100%">
                 <div id="topreview">
                     <div id="sep"><img src="logo.jpg" alt="image" width="20%" id="profile">
-                        <h6>See All</h6>
+                        <a href="#page5">See All</a>
                     </div>
                     <h5>Sontu Gantu</h5>
                     <img src="logo.jpg" alt="image" width="100px" height="10px" id="ratting">
@@ -120,7 +121,7 @@
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br> Aspernatur optio incidunt molestiae
                     dolorum hic
                     facilis, soluta ea ducimus fugiat odit quia dicta odio, ad porro?</p>
-                <button class="act">Explore Our Story</button>
+                <button class="act"><a href="#page4" style="color: white;">Explore Our Story</a></button>
                 <img src="logo.jpg" alt="image" width="20%" height="30%">
             </aside>
         </section>
@@ -148,7 +149,7 @@
                 </div>
             </nav>
             <div class="itemgroup"></div>
-            <button class="act">Explore More</button>
+            <button class="act" onclick="toggleheight()">Explore More</button>
         </section>
         <section id="page4">
             <img src="logo.jpg" alt="image" width="15%" id="extra">
@@ -185,7 +186,7 @@
                 </div>
             </header>
             <aside>
-                <h6>Testimonial</h6>
+                <h5>Testimonial</h5>
                 <b>
                     <h2>Our lovely Customer loves <br><span>our restaurant</span></h2>
                 </b>

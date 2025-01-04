@@ -24,11 +24,11 @@ const renderProducts = (data) => {
                         <button class="addtc" onclick="showcart(this)">Add To Cart</button>
                         <div class="addbtn" style="display:none;">
                             <div class="noi">
-                                <button class="sub" onclick="updateQuantity(this, -1)">-</button>
+                                <button onclick="updateQuantity(this, -1)">-</button>
                                 <h5 style="margin: auto;">1</h5>
-                                <button class="add" onclick="updateQuantity(this, 1)">+</button>
+                                <button onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="displayQuantity(this)">Cart</button>
+                             <button class="Cart" onclick="displayQuantity()">Cart</button>
                         </div>
                     </div>
             </div>`
@@ -46,11 +46,10 @@ function updateQuantity(button, value) {
     const quantity = Math.max(1, parseInt(quantityTag.textContent) + value);
     quantityTag.textContent = quantity;
 }
-
-function displayQuantity(button) {
-    const quantityTag = button.closest(".addbtn").querySelector("h5");
-    const quantity = quantityTag.textContent;
-    alert(`Quantity: ${quantity}`); // Display the quantity in an alert or handle it as needed
+let count=0;
+function displayQuantity () {
+    const quantityTag = document.getElementById("count").innerText = ++count;
+    // alert(`Quantity: ${quantity}`); // Display the quantity in an alert or handle it as needed
 }
 
 const filterProducts = (type) => {
@@ -87,7 +86,10 @@ const changeMenu = (type) => {
         button.setAttribute('onclick', `filterByCategory('${names[index].category.toLowerCase()}')`);
     });
 };
-
+ function toggleheight(){
+   const explore = document.getElementById("page3");
+   explore.style.height = explore.style.height === "140vh" ? "max-content" : "140vh";
+ }
 document.querySelector('.find').addEventListener('keyup', (e) => {
     const searchdata = e.target.value.trim().toLowerCase();
     const container = document.getElementById("searchitems");
@@ -111,7 +113,6 @@ const displayItem = (items) => {
     const container = document.getElementById("searchitems");
     if (items.length > 0) {
         container.style.display = "grid";
-        container.style.padding = "5% 0";
         container.className = 'itemgroup';
         container.innerHTML = items.map((item) => {
             const { name, title, review, price, image } = item;
