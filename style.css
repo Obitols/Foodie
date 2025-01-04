@@ -601,4 +601,8 @@ input {
     .search {
         width: 100%;
     }
+
+    #page7 table{
+        font-size: 0.7em;
+    }
 }
