@@ -101,19 +101,27 @@ function updateCartCount() {
 
 function displayCart() {
     const cartTableBody = document.getElementById('cartTableBody');
+    const semitotal =document.getElementById('semitotal');
+    const total =document.getElementById('total');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    cartTableBody.innerHTML = cart.map((item, index) => `
+    let totalprice = 0;
+    let delivery = 5;
+    cartTableBody.innerHTML = cart.map((item, index) =>{
+        const itemtotal = item.price * item.quantity;
+        totalprice += itemtotal;
+        return `
         <tr>
             <td><img src="${item.image}" alt="${item.name}" style="width:50px;height:50px;"></td>
             <td>${item.name}</td>
             <td>${item.title}</td>
             <td>$${item.price.toFixed(2)}</td>
             <td>${item.quantity}</td>
-            <td>$${(item.price * item.quantity).toFixed(2)}</td>
-            <td><button onclick="removeItem(${index})">X</button></td>
+            <td>$${(itemtotal).toFixed(2)}</td>
+            <td><b onclick="removeItem(${index})">X</b></td>
         </tr>
-    `).join('');
+    `;}).join('');
+    semitotal.innerHTML += `<span>$${totalprice.toFixed(2)}</span>`;
+    total.innerHTML += `<span>$${(totalprice+ delivery).toFixed(2) }</span>`;
 }
 
 function removeItem(index) {
