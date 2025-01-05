@@ -20,6 +20,10 @@ const headder = document.querySelector(".navigation");
         </i>
         <button onclick="signin()">SIGN IN</button>
     </nav>
+    <div class="searchalt">
+            <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
+            <input type="text" class="find" placeholder="search">
+        </div>
     <section class="aside"
         onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">
     </section>

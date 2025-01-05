@@ -14,7 +14,7 @@
 .navtop button{
     padding: 0.9em;
 }
-.search {
+.search,.searchalt {
     width: 30%;
     padding-left: 1rem;
     border-radius: 2rem;
@@ -22,12 +22,14 @@
     display: flex;
 }
 
-.search input {
+.search input,.searchalt input {
     flex-grow: 1;
     margin-left: 0;
     background: transparent;
 }
-
+.searchalt{
+    display: none;
+}
 .topic {
     color: rgb(250, 92, 7);
 }
@@ -573,7 +575,14 @@ input {
     #page2 header {
         margin-top: 5rem;
     }
-
+    .search{
+        display: none;
+    }
+    .searchalt{
+        display: flex;
+        width: 90%;
+        justify-self: center;
+    }
     .choicebtn {
         justify-content: center;
     }

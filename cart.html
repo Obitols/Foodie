@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +11,60 @@
     <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        main{
-            height: clamp( fit-content,100vh,max-content);
+        main {
+            height: clamp(fit-content, 100vh, max-content);
         }
-        main table{
-            width:90%;
+
+        main table {
+            width: 90%;
             margin: 5%;
             overflow-y: auto;
             text-align: center;
             border-collapse: collapse;
-         }
-         main table tr td{
+        }
+
+        main table tr td {
             padding: 0.5em 0;
             border-bottom: 2px solid antiquewhite;
-         }
-         main a {
-        margin-left:75%;
-         }
-        .bill{
-         display: flex;
-         flex-direction: column;
-          height: 30vh;
-          width:43vw;
-          margin:3%;
-          justify-content: space-evenly;
         }
-        .bill div{
+
+        main a {
+            margin-left: 70%;
+        }
+
+        .bill {
+            display: flex;
+            flex-direction: column;
+            height: 35vh;
+            width: 43vw;
+            margin: 3%;
+            justify-content: space-evenly;
+        }
+
+        .bill div {
             display: flex;
             justify-content: space-between;
         }
+
+        @media (max-width:900px) {
+
+            main a {
+                margin-left: 55%;
+            }
+        }
+
+        @media (max-width:550px) {
+
+         main{
+            font-size: 0.6em;
+         }
+         .bill{
+            height: 20vh;
+         }
+        }
     </style>
 </head>
+
 <body>
     <header class="navigation"></header>
     <main>
@@ -58,12 +82,17 @@
             </thead>
             <tbody id="cartTableBody"></tbody>
         </table>
-        <a href="index.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to Products</button></a>
+        <a href="index.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to
+                Products</button></a>
         <section class="bill">
-            <h1>cart Totals</h1>
-            <div id="semitotal"><p>subtotal</p></div> 
-            <hr> 
-            <div><p>Delivery Fee</p><span>$5</span></div>
+            <h2>cart Totals</h2>
+            <div id="semitotal">
+                <p>subtotal</p>
+            </div>
+            <hr>
+            <div>
+                <p>Delivery Fee</p><span>$5</span>
+            </div>
             <hr>
             <div id="total"><b>Total</b></div>
             <button style="background-color: rgb(255, 0, 0);border: none; color: white;">PROCESSED TO CHECKOUT</button>
@@ -73,4 +102,5 @@
     <footer class="contact"></footer>
     <script src="headfoot.js"></script>
 </body>
+
 </html>
