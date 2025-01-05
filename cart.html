@@ -6,6 +6,7 @@
     <title>Foodie</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style1.css">
+    <script src="search.js" defer></script>
     <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
@@ -25,14 +26,22 @@
     <header class="navigation"></header>
     <main>
         <table class="table">
-            <th>Image</th>
-            <th>Item Name</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th>Remove</th>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Item Name</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody"></tbody>
         </table>
+        <a href="index.html">
+            <button>Back to Products</button>
+        </a>
         <!-- <table>
             <h2>Cart Table</h2>
             <tr>
@@ -52,6 +61,5 @@
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
     <footer class="contact"></footer>
     <script src="headfoot.js"></script>
-    <script src="search.js"></script>
 </body>
 </html>

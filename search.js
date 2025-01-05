@@ -6,15 +6,14 @@ document.querySelector('.find').addEventListener('keyup', (e) => {
             item.name.toLowerCase().includes(searchdata)
         );
         filterdata.length > 0 ? displayItem(filterdata) : container.innerHTML = `<p style="text-align:center";>No Result found</p>`;
-
     }
     else {
         container.style.display = "none";
+        displayCart();
         document.querySelector("main").style.display = "block";
     }
-
 });
-// Function to display items
+
 const displayItem = (items) => {
     document.querySelector("main").style.display = "none";
     const container = document.getElementById("searchitems");
@@ -70,11 +69,6 @@ function updateQuantity(button, value) {
     const quantity = Math.max(1, parseInt(quantityTag.textContent) + value);
     quantityTag.textContent = quantity;
 }
-// let count = 0;
-// function displayQuantity() {
-    // displayQuantity();
-//     document.getElementById("count").innerText = ++count;
-// }
 
 function addToCart(button) {
     const itemContainer = button.closest('.orderitem');
@@ -85,45 +79,59 @@ function addToCart(button) {
         price: parseFloat(itemContainer.querySelector('h3').innerText.replace('$', '')),
         quantity: parseInt(itemContainer.querySelector('.noi h5').innerText)
     };
-    updateCartTable(item);
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(cartItem => cartItem.name === item.name);
+
+    if (existingItem) {
+        existingItem.quantity += item.quantity;
+    } else {
+        cart.push(item);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(`${item.name} added to cart!`);
 }
 
-function updateCartTable(item) {
-    const table = document.querySelector(".table");
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('count').innerText = cart.reduce((total, item) => total + item.quantity, 0);
+}
 
-    let existingRow = [...table.querySelectorAll('tr')].find(row =>
-        row.querySelector('td:nth-child(2)')?.innerText === item.name
-    );
+function displayCart() {
+    const cartTableBody = document.getElementById('cartTableBody');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    if (existingRow) {
-        // Update the existing row's quantity and total price
-        let currentQuantity = parseInt(existingRow.querySelector('td:nth-child(5)').innerText);
-        currentQuantity += item.quantity;
-        existingRow.querySelector('td:nth-child(5)').innerText = currentQuantity;
-        existingRow.querySelector('td:nth-child(6)').innerText = `$${(item.price * currentQuantity).toFixed(2)}`;
-    } else {
-        // Create a new row for a new item
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
+    cartTableBody.innerHTML = cart.map((item, index) => `
+        <tr>
             <td><img src="${item.image}" alt="${item.name}" style="width:50px;height:50px;"></td>
             <td>${item.name}</td>
             <td>${item.title}</td>
             <td>$${item.price.toFixed(2)}</td>
             <td>${item.quantity}</td>
             <td>$${(item.price * item.quantity).toFixed(2)}</td>
-            <td><b onclick="removeItem(this)">X</b></td>
-        `;
-        table.appendChild(newRow);
-    }
-}
-function removeItem(b) {
-    b.closest('tr').remove();
+            <td><button onclick="removeItem(${index})">X</button></td>
+        </tr>
+    `).join('');
 }
 
-// Fetch the JSON file and initialize the products data
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+    updateCartCount();
+}
+
+if (window.location.pathname.includes('cart.html')) {
+    displayCart();
+    updateCartCount();
+}
+ 
 fetch('products.json')
     .then(response => response.json())
     .then(data => {
-        products = data; // Assign fetched data to the products variable
+        products = data; 
     })
     .catch(error => console.error('Error fetching the product data:', error));
