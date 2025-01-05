@@ -22,7 +22,7 @@ const headder = document.querySelector(".navigation");
     </nav>
     <div class="searchalt">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
-            <input type="text" class="find" placeholder="search">
+            <input type="text" class="altfind" placeholder="search">
         </div>
     <section class="aside"
         onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">

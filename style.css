@@ -549,7 +549,7 @@ input {
         flex-direction: column;
     }
 
-    #page7 table,
+    #page7 p,table,
     #page8 h5 {
         width: 100%;
         font-size: 0.6em;

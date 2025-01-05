@@ -14,6 +14,22 @@ document.querySelector('.find').addEventListener('keyup', (e) => {
     }
 });
 
+document.querySelector('.altfind').addEventListener('keyup', (e) => {
+    const searchdata = e.target.value.trim().toLowerCase();
+    const container = document.getElementById("searchitems");
+    if (searchdata !== "") {
+        const filterdata = [...products.breakfast, ...products.dinner, ...products.lunch, ...products.dessert, ...products.beverage].filter((item) =>
+            item.name.toLowerCase().includes(searchdata)
+        );
+        filterdata.length > 0 ? displayItem(filterdata) : container.innerHTML = `<p style="text-align:center";>No Result found</p>`;
+    }
+    else {
+        container.style.display = "none";
+        displayCart();
+        document.querySelector("main").style.display = "block";
+    }
+});
+
 const displayItem = (items) => {
     document.querySelector("main").style.display = "none";
     const container = document.getElementById("searchitems");
