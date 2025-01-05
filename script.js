@@ -28,7 +28,7 @@ const renderProducts = (data) => {
                                 <h5 style="margin: auto;">1</h5>
                                 <button onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="displayQuantity()">Cart</button>
+                             <button class="Cart" onclick="onclick="addToCart(this);">Cart</button>
                         </div>
                     </div>
             </div>`

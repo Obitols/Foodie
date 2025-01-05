@@ -8,53 +8,46 @@
     <link rel="stylesheet" href="style1.css">
     <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        main table{
+            width:90%;
+            margin: 5%;
+            text-align: center;
+            border-collapse: collapse;
+         }
+         main table tr td{
+            padding: 0.5em 0;
+            border-bottom: 2px solid antiquewhite;
+         }
+    </style>
 </head>
 <body>
     <header class="navigation"></header>
     <main>
-        <table>
-            <tr>
-                <th>Items</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
-            </tr>
-            <tr>
-                <td><img src="./trash/bubble.png" alt=""></td>
-                <td>Greek salad</td>
-                <td>$12</td>
-                <td>2</td>
-                <td>$24</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td><img src="./trash/bubble.png" alt=""></td>
-                <td>Greek salad</td>
-                <td>$12</td>
-                <td>2</td>
-                <td>$24</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td><img src="./trash/bubble.png" alt=""></td>
-                <td>Greek salad</td>
-                <td>$12</td>
-                <td>2</td>
-                <td>$24</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td><img src="./trash/bubble.png" alt=""></td>
-                <td>Greek salad</td>
-                <td>$12</td>
-                <td>2</td>
-                <td>$24</td>
-                <td>X</td>
-            </tr>
-            
+        <table class="table">
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
         </table>
+        <!-- <table>
+            <h2>Cart Table</h2>
+            <tr>
+                <td>subtotal</td>
+                <td>$0</td>
+            </tr>
+            <tr>
+                <td>Delivery free</td>
+                <td> $0</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+            </tr>
+            <button>PROCEED TO CHECKOUT</button>
+        </table> -->
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
     <footer class="contact"></footer>
