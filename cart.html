@@ -86,16 +86,16 @@
                 Products</button></a>
         <section class="bill">
             <h2>cart Totals</h2>
-            <div id="semitotal">
-                <p>subtotal</p>
+            <div>
+                <p>subtotal</p><span id="semitotal">$</span>
             </div>
             <hr>
             <div>
                 <p>Delivery Fee</p><span>$5</span>
             </div>
             <hr>
-            <div id="total"><b>Total</b></div>
-            <button style="background-color: rgb(255, 0, 0);border: none; color: white;">PROCESSED TO CHECKOUT</button>
+            <div><b>Total</b> <span id="total"></span></div>
+            <button style="background-color: rgb(255, 0, 0);border: none; color: white;" onclick="window.location.href='deliveryinfo.html';">PROCESSED TO CHECKOUT</button>
         </section>
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>

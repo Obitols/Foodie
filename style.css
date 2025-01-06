@@ -505,7 +505,7 @@ header {
     height: 3rem;
 }
 
-input {
+#inputs input,.search input,.searchalt input {
     border: none;
     margin-left: 0.8rem;
     outline: none;

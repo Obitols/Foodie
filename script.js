@@ -36,23 +36,6 @@ const renderProducts = (data) => {
         updateCartCount();
 };
 
-function login(){
-    document.querySelector(".forgot").style.display="none";
-    document.querySelector(".signup").style.display="none";
-    document.querySelector('.login').style.display="flex";
-}
-
-function signin(){
-     document.querySelector('.lsr').style.display="flex";
-    document.querySelector('.login').style.display="none";
-    document.querySelector(".forgot").style.display="none";
-    document.querySelector(".signup").style.display="flex";
-}
-function forgot(){
-    document.querySelector('.login').style.display="none";
-    document.querySelector(".forgot").style.display="flex";
-}
-
 const filterProducts = (type) => {
     try {
         if (type === 'all') {

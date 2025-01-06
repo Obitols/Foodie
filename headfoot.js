@@ -5,11 +5,11 @@ const headder = document.querySelector(".navigation");
             onclick="document.querySelector('.side').style.display ='flex';document.querySelector('.aside').style.display ='block';"></i>
         <h3 class="topic">Foodie</h3>
         <ul class="Service">
-            <li><a href="#">Categories</a></li>
+            <li><a href="#page3">Categories</a></li>
             <li><a href="#">Recipes</a></li>
-            <li><a href="#">Restaurant</a></li>
-            <li><a href="#">Content</a></li>
-            <li><a href="#">Service</a></li>
+            <li><a href="order.html">My order</a></li>
+            <li><a href="#page7">Content</a></li>
+            <li><a href="#sev">Service</a></li>
         </ul>
         <div class="search">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
@@ -147,11 +147,11 @@ const headder = document.querySelector(".navigation");
                 onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';"></i>
         </div>
         <ul class="SService">
-            <li><a href="#">Categories</a></li>
+            <li><a href="#page3">Categories</a></li>
             <li><a href="#">Recipes</a></li>
-            <li><a href="#">Restaurant</a></li>
-            <li><a href="#">Content</a></li>
-            <li><a href="#">Service</a></li>
+            <li><a href="order.html">Myorder</a></li>
+            <li><a href="#page7">Content</a></li>
+            <li><a href="#sev">Service</a></li>
         </ul>
         <footer>
             <i class='bx bxl-facebook bx-sm bx-border' id="touch"></i>

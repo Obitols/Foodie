@@ -9,8 +9,8 @@ document.querySelector('.find').addEventListener('keyup', (e) => {
     }
     else {
         container.style.display = "none";
-        displayCart();
         document.querySelector("main").style.display = "block";
+        displayCart();
     }
 });
 
@@ -25,10 +25,28 @@ document.querySelector('.altfind').addEventListener('keyup', (e) => {
     }
     else {
         container.style.display = "none";
-        displayCart();
         document.querySelector("main").style.display = "block";
+        displayCart();
     }
 });
+
+
+function login(){
+    document.querySelector(".forgot").style.display="none";
+    document.querySelector(".signup").style.display="none";
+    document.querySelector('.login').style.display="flex";
+}
+
+function signin(){
+     document.querySelector('.lsr').style.display="flex";
+    document.querySelector('.login').style.display="none";
+    document.querySelector(".forgot").style.display="none";
+    document.querySelector(".signup").style.display="flex";
+}
+function forgot(){
+    document.querySelector('.login').style.display="none";
+    document.querySelector(".forgot").style.display="flex";
+}
 
 const displayItem = (items) => {
     document.querySelector("main").style.display = "none";
@@ -117,8 +135,6 @@ function updateCartCount() {
 
 function displayCart() {
     const cartTableBody = document.getElementById('cartTableBody');
-    const semitotal =document.getElementById('semitotal');
-    const total =document.getElementById('total');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     let totalprice = 0;
     let delivery = 5;
@@ -136,8 +152,10 @@ function displayCart() {
             <td><b onclick="removeItem(${index})">X</b></td>
         </tr>
     `;}).join('');
-    semitotal.innerHTML += `<span>$${totalprice.toFixed(2)}</span>`;
-    total.innerHTML += `<span>$${(totalprice+ delivery).toFixed(2) }</span>`;
+    localStorage.setItem('semitotal',totalprice.toFixed(2));
+    localStorage.setItem('total',(totalprice+ delivery).toFixed(2));
+    document.getElementById('semitotal').textContent = "$" + localStorage.getItem('semitotal');
+    document.getElementById('total').textContent = "$" + localStorage.getItem('total');
 }
 
 function removeItem(index) {
@@ -150,6 +168,14 @@ function removeItem(index) {
 
 if (window.location.pathname.includes('cart.html')) {
     displayCart();
+    updateCartCount();
+}
+else if(window.location.pathname.includes('deliveryinfo.html')){
+    updateCartCount();
+    document.getElementById('semitotal').textContent = "$" + localStorage.getItem('semitotal');
+    document.getElementById('total').textContent = "$" + localStorage.getItem('total');
+}
+else{
     updateCartCount();
 }
  
