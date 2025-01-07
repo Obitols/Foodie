@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        section,
+        form {
+            width: 40%;
+            height: 60vh;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+
+        form div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        form div div {
+            flex-direction: row;
+        }
+
+        input {
+            height: 2.5em;
+            border-radius: 0.3em;
+            border: none;
+            font-size: medium;
+            outline: none;
+            letter-spacing: 1px;
+        }
+
+        .card1 {
+            background-color: white;
+            border-radius: 0.3em 0.3em 0 0;
+            align-items: center;
+            border: 2px gray;
+            border-style: solid solid none solid;
+        }
+
+        .card2 {
+            background-color: white;
+            border-radius: 0 0 0.3em 0.3em;
+            border: 2px gray;
+            border-style: solid solid solid none;
+        }
+
+        .card2 input {
+            width: 50%;
+            border: 2px gray;
+            border-style: none none none solid;
+        }
+
+        input[type=submit] {
+            color: white;
+            background-color: blue;
+        }
+
+        .itemdetail {
+            margin: 5% 0;
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+        }
+
+        .itemdetail span {
+            margin: 0 0 0 auto;
+        }
+
+        @media (max-width:600px) {
+            main {
+                flex-direction: column;
+                height: 130vh;
+            }
+
+            section,
+            form {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="itemdetails">
+            <button style="margin: 5px;"><a href="deliveryinfo.html">&lt;</a></button>
+            <h5>Pay Course</h5>
+            <h1>$220.00</h1>
+            <div class="items">
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$24</span>
+                    <p>Qty 2</p><span>$12.00 each</span>
+                </div>
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$36</span>
+                    <p>Qty 3</p><span>$12.00 each</span>
+                </div>
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$12</span>
+                    <p>Qty 1</p><span>$12.00 each</span>
+                </div>
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$60</span>
+                    <p>Qty 5</p><span>$12.00 each</span>
+                </div>
+            </div>
+        </section>
+        <form action="">
+            <h3>Pay with card</h3>
+            <div>
+                <label>Email</label>
+                <input type="text" style="border: 2px solid gray;" required>
+            </div>
+            <div>
+                <label for="">Card information</label>
+                <div class="card1">
+                    <input type="text" placeholder="1234 1234 1234 1234" required>
+                    <img src="" alt="image">
+                </div>
+                <div class="card2">
+                    <input type="text" placeholder="MM/YY" required>
+                    <input type="text" placeholder="CVC" required>
+                </div>
+            </div>
+            <div>
+                <label for="">Cardholder name</label>
+                <input type="text" style="border: 2px solid gray;" placeholder="Full name on card" required>
+            </div>
+            <div>
+                <label for="">Phone number</label>
+                <input type="text" style="border: 2px solid gray;" placeholder="91+" required>
+            </div>
+            <input type="submit" value="Pay" onclick="window.location.href='order.html';">
+        </form>
+    </main>
+
+</body>
+
+</html>
