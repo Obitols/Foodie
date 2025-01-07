@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+nav{
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    border-style:none none solid none;
+}
+main{
+    display: flex;
+}
+aside{
+    display: inline-block;
+    width: 20%;
+    height:150vh;
+    padding-top: 3rem;
+    border-style:none solid none none;
+}
+aside div{
+    margin: 1rem 0 1rem 2rem;
+    padding: 1rem 0 1rem 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    border-style:solid none solid solid;
+}
+aside div:hover{
+    background-color: pink;
+}
+section{
+    margin: 5% 1%;
+}
+table{
+    width:68vw;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 1em;
+}
+tr{
+    border: 2px solid black;
+}
+.order{
+    margin-top: 2%;
+    padding: 1%;
+    border: 2px solid black;
+    display: flex;
+    width: 70vw;
+    justify-content: space-around;
+}
+#process{
+    height: 2rem;
+    background-color: pink;
+}
+.additems form{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 50vw;
+    justify-content: space-around;
+    margin-left: 5%;
+    gap: 1em;
+}
+.additems div{
+    display: flex;
+    flex-direction:column;
+    gap: 1em;
+}
+input[type=text],select{
+    line-height: 2rem;
+    height: 2rem;
+    padding-left: 1em;
+    font-size: medium;
+    letter-spacing: 1px;
+}
+.preduct input[type=submit]{
+    width: 5rem;
+    padding: 0.7em;
+    align-self: center;
+    background-color: blue;
+    color: white;
+    border-radius: 0.4em;
+}
