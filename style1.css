@@ -23,7 +23,7 @@
     justify-content: space-evenly;
     backdrop-filter: blur(12px);
     color: white;
-    width: 15rem;
+    width: fit-content;
     height: 50vh;
     padding: 1rem;
     border-radius: 1rem;

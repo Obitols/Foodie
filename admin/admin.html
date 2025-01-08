@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
     <title>Admin</title>
 </head>
+
 <body>
     <nav>
-        <div>
+        <div style="margin-left: 3%;">
             <h1>Foodie</h1>
             <h5>Admin Panel</h5>
         </div>
-        <img src="./../bubble.png" alt="">
+        <img src="./../bubble.png" alt="" style="margin-right: 3%;">
     </nav>
     <main>
         <aside>
-            <div>
+            <div onclick="showDiv('box1')">
                 <img src="" alt="+">
-                <p>Add items</p>
+                <span>Add items</span>
             </div>
-            <div>
+            <div onclick="showDiv('box2')">
                 <img src="" alt="+">
-                <p>list items</p>
+                <span>List items</span>
             </div>
-            <div>
+            <div onclick="showDiv('box3')">
                 <img src="" alt="+">
-                <p>orders</p>
+                <span>orders</span>
             </div>
         </aside>
-        <section class="additems" style="display: none;">
+        <section class="box1" style="display: none;">
             <form action="">
                 <div>
-              <label for="">Uplode image</label>
-              <input type="file" name="" id="">
-            </div>
-              <div>
-              <label for="">Product name</label>
-              <input type="text">
-            </div>
-              <div>
-              <label for="">Product description</label>
-              <textarea name="" id="" style="height: 20vh;padding: 1em;font-size: large;"></textarea>
-            </div>
-              <div class="product">
-                <div >
-                <label for="category">product category</label>
-                <select name="" id="category">
-                    <option value="">salad1</option>
-                    <option value="">salad2</option>
-                    <option value="">salad3</option>
-                    <option value="">salad4</option>
-                    <option value="">salad5</option>
-                </select>
-            </div>
-        <div>
-                <label for="">Product price</label>
-                <input type="text">
-            </div>
-              </div>
-              <input type="submit" value="ADD">
+                    <label for="">Uplode image</label>
+                    <input type="color" name="" id="">
+                </div>
+                <div>
+                    <label for="">Product name</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="">Product Title</label>
+                    <input type="text">
+                </div>
+                <div class="cat">
+                    <div>
+                        <label for="category">product category</label>
+                        <select name="" id="category">
+                            <option value="">salad1</option>
+                            <option value="">salad2</option>
+                            <option value="">salad3</option>
+                            <option value="">salad4</option>
+                            <option value="">salad5</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="type">product Type</label>
+                        <select name="" id="type">
+                            <option value="">salad1</option>
+                            <option value="">salad2</option>
+                            <option value="">salad3</option>
+                            <option value="">salad4</option>
+                            <option value="">salad5</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="">Product price</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <input type="submit" value="ADD">
+                    </div>
+                </div>
             </form>
         </section>
-        <section class="listitems" style="display: none;letter-spacing: 1px;">
-              <h5>All Food List</h5>
-              <table>
+        <section class="box2">
+            <h3 style="margin-left: 5%;">All Food List</h3>
+            <table>
                 <tr>
                     <th>image</th>
                     <th>name</th>
@@ -184,21 +200,21 @@
                     <td> $12</td>
                     <td>X</td>
                 </tr>
-              </table>
+            </table>
         </section>
-        <section class="orders" style="display: none;">
-               <h4>Order Page</h4>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+        <section class="box3" style="display: none;">
+            <h4>Order Page</h4>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -208,18 +224,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -229,18 +245,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -250,18 +266,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -271,18 +287,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -292,18 +308,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -313,18 +329,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -334,18 +350,18 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
-               <div class="order">
-                <img src="./../bubble.png"  alt="">
+            </div>
+            <div class="order">
+                <img src="./../bubble.png" alt="">
                 <div>
                     <p>greek salad x 2, peri peri rolls x 3</p>
                     <address>
                         <h5>Aravind kumar</h5>
-                       <p> GreatStreet, Whitefield,
-                        <br>Bangular Karnataka 631702
-                       </p>
-                       <p>9876543210</p>
-                
+                        <p> GreatStreet, Whitefield,
+                            <br>Bangular Karnataka 631702
+                        </p>
+                        <p>9876543210</p>
+
                     </address>
                 </div>
                 <p>item:2</p>
@@ -355,8 +371,9 @@
                     <option value="">Deliverd</option>
                     <option value="">out of order</option>
                 </select>
-               </div>
+            </div>
         </section>
     </main>
 </body>
+
 </html>
