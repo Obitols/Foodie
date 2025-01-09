@@ -335,10 +335,10 @@ hr {
     position: absolute;
     right: 0;
     top: 0;
-    width:50%;
-    height:50%;
-    transform: translate(-50%, -15%);
-    filter: drop-shadow(-2px -2px 5px black);
+    width: 70%;
+    height:70%;
+    transform: translate(-24%, -13%);
+    filter: drop-shadow(-2px -2px 5px rgb(188, 165, 165));
 }
 
 .rr {

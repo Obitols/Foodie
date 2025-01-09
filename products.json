@@ -16,12 +16,12 @@
       {"name":"Brown Hamburger",  "btname": "Sandwich-6",  "category": "di6", "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.5,  "image":"logo.jpg"}
      ],
      "lunch": [
-      {"name":"McDonaid Cheeseburger",  "btname": "Burger-1", "category": "l1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":3.1,  "image":"logo.jpg"},
-      {"name":"Cheeseburger",  "btname": "Burger-2",  "category": "l2", "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.9,  "image":"logo.jpg"},
-      {"name":"Three Patty Burger",  "btname": "Burger-3",  "category": "l3", "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":4.5,  "image":"logo.jpg"},
-      {"name":"Burger with Lettuce",  "btname": "Burger-4", "category": "l4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.2,  "image":"logo.jpg"},
-      {"name":"Three Partty",  "btname": "Burger-5",  "category": "l5", "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":4.5,  "image":"logo.jpg"},
-      {"name":"Brown Hamburger",  "btname": "Burger-6",  "category": "l6", "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.6,  "image":"logo.jpg"}
+      {"name":"McDonaid Cheeseburger",  "btname": "Burger-1", "category": "l1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":3.1,  "image":"pngegg (1).png"},
+      {"name":"Cheeseburger",  "btname": "Burger-2",  "category": "l2", "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"77",  "price":6.9,  "image":"pngegg (2).png"},
+      {"name":"Three Patty Burger",  "btname": "Burger-3",  "category": "l3", "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"55",  "price":4.5,  "image":"pngegg.png"},
+      {"name":"Burger with Lettuce",  "btname": "Burger-4", "category": "l4", "cname": "bx bx-bowl-rice",   "title":"Whapper Veggle burger",  "review":"57",  "price":2.2,  "image":"pngegg (1).png"},
+      {"name":"Three Partty",  "btname": "Burger-5",  "category": "l5", "cname": "bx bx-baguette",   "title":"Hamburger Veggie burger",  "review":"58",  "price":4.5,  "image":"pngegg (2).png"},
+      {"name":"Brown Hamburger",  "btname": "Burger-6",  "category": "l6", "cname": "bx bx-bowl-rice",  "title":"Whapper Veggle burger",  "review":"75",  "price":3.6,  "image":"pngegg (3).png"}
      ],
      "dessert": [
       {"name":"McDonaid Cheeseburger",  "btname":"Pasta-1", "category": "de1", "cname": "bx bx-baguette",    "title":"Hamburger Veggie burger",  "review":"68",  "price":8.5,  "image":"logo.jpg"},
