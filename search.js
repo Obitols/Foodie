@@ -1,8 +1,14 @@
+
+async function loadFoodMenu() {
+    const response = await fetch('http://localhost:3003/api/food_menu');
+    foodMenu = await response.json();
+}
+
 document.querySelector('.find').addEventListener('keyup', (e) => {
     const searchdata = e.target.value.trim().toLowerCase();
     const container = document.getElementById("searchitems");
     if (searchdata !== "") {
-        const filterdata = [...products.breakfast, ...products.dinner, ...products.lunch, ...products.dessert, ...products.beverage].filter((item) =>
+        const filterdata = foodMenu.filter((item) =>
             item.name.toLowerCase().includes(searchdata)
         );
         filterdata.length > 0 ? displayItem(filterdata) : container.innerHTML = `<p style="text-align:center";>No Result found</p>`;
@@ -18,7 +24,7 @@ document.querySelector('.altfind').addEventListener('keyup', (e) => {
     const searchdata = e.target.value.trim().toLowerCase();
     const container = document.getElementById("searchitems");
     if (searchdata !== "") {
-        const filterdata = [...products.breakfast, ...products.dinner, ...products.lunch, ...products.dessert, ...products.beverage].filter((item) =>
+        const filterdata = foodMenu.filter((item) =>
             item.name.toLowerCase().includes(searchdata)
         );
         filterdata.length > 0 ? displayItem(filterdata) : container.innerHTML = `<p style="text-align:center";>No Result found</p>`;
@@ -178,10 +184,4 @@ else if(window.location.pathname.includes('deliveryinfo.html')){
 else{
     updateCartCount();
 }
- 
-fetch('products.json')
-    .then(response => response.json())
-    .then(data => {
-        products = data; 
-    })
-    .catch(error => console.error('Error fetching the product data:', error));
+loadFoodMenu();

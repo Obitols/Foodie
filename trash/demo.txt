@@ -228,3 +228,45 @@
     // {"name":"Hamburger","title":"Hamburger Veggie burger","review":"62","category":"Sandwich","price":3.0,"image":"logo.jpg"},
   // {"name":"Black Hamburger","title":"Whapper Veggle burger","review":"64","category":"Burger","price":3.5,"image":"logo.jpg"}
   }
+
+
+  // function filterMenu(type) {
+//     if (type === 'all') {
+//         displayMenu(foodMenu);
+//     } 
+//     else {
+//         const filteredItems = foodMenu.filter(item => item.meal_type === type);
+//         displayMenu(filteredItems);
+//     }
+// }
+// const changeMenu = (type) => {
+//     const names = foodMenu.filter(item => item.meal_type === type);
+//     const buttons = document.querySelectorAll('.choicebtn button');
+//     buttons.forEach((button, index) => {
+//         button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
+//         button.setAttribute('onclick', `filterByCategory('${names[index].category.toLowerCase()}')`);
+//     });
+// };
+
+// fetch('products.json')
+//     .then(response => response.json())
+//     .then(data => {
+//         products = data; 
+//     })
+//     .catch(error => console.error('Error fetching the product data:', error));
+
+// db.query(query, [id], (err, results) => {
+    //     // if (err) {
+    //     //     console.error('Error deleting data:', err);
+    //     //     res.status(500).send({ message: 'Error deleting data' });
+    //     // }
+    //     // else {
+            
+    //     // }
+    // });
+
+    // if (err) {
+        //     res.status(500).send({ message: 'Error fetching data' });
+        // } else {
+            res.json(results);
+        // }
