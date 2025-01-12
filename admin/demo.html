@@ -1,0 +1,45 @@
+<form id="productForm">
+    <div>
+        <label for="productImage">Upload image</label>
+        <input type="file" id="productImage" name="productImage" accept="image/*">
+    </div>
+    <div>
+        <label for="productName">Product name</label>
+        <input type="text" id="productName" name="productName" required>
+    </div>
+    <div>
+        <label for="productTitle">Product title</label>
+        <input type="text" id="productTitle" name="productTitle" required>
+    </div>
+    <div class="cat">
+    <div>
+        <label for="productCategory">Product category</label>
+        <select id="productCategory" name="productCategory" required>
+            <option value="">Select category</option>
+            <option value="salad1">Salad 1</option>
+            <option value="salad2">Salad 2</option>
+            <option value="salad3">Salad 3</option>
+            <option value="salad4">Salad 4</option>
+            <option value="salad5">Salad 5</option>
+        </select>
+    </div>
+    <div>
+        <label for="productType">Product type</label>
+        <select id="productType" name="productType" required>
+            <option value="">Select type</option>
+            <option value="type1">Type 1</option>
+            <option value="type2">Type 2</option>
+            <option value="type3">Type 3</option>
+            <option value="type4">Type 4</option>
+            <option value="type5">Type 5</option>
+        </select>
+    </div>
+    <div>
+        <label for="productPrice">Product price</label>
+        <input type="number" id="productPrice" name="productPrice" required>
+    </div>
+    <div>
+        <button type="submit">ADD</button>
+    </div>
+</div>
+</form>

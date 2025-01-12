@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie</title>
     <style>
@@ -47,6 +48,7 @@
             font-size: medium;
             outline: none;
             letter-spacing: 1px;
+            padding-left: 1em;
         }
 
         .card1 {
@@ -81,7 +83,14 @@
             grid-template-columns: auto auto;
             justify-content: space-between;
         }
-
+        .itemdetails button {
+              margin:3% 0;
+              padding: 1% 2%;
+              border-radius: 50%;
+              border: none;
+              background-color:gray;
+              color: white;
+        }   
         .itemdetail span {
             margin: 0 0 0 auto;
         }
@@ -104,7 +113,7 @@
 <body>
     <main>
         <section class="itemdetails">
-            <button style="margin: 5px;"><a href="deliveryinfo.html">&lt;</a></button>
+            <button onclick="window.location.href='deliveryinfo.html';">&lt;</button>
             <h5>Pay Course</h5>
             <h1>$220.00</h1>
             <div class="items">

@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        main {
+        .main {
             height: 70vh;
             width: 90%;
             display: flex;
@@ -32,18 +32,18 @@
             justify-content: space-between;
         }
 
-        main section {
+        .main section {
             height: 55vh;
         }
 
-        main section address {
+        .main section address{
             display: grid;
-            grid-template-columns:1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 5%;
             width: 30%;
         }
 
-        address input {
+        input {
             padding: 0.6em;
             font-size: 1em;
         }
@@ -54,32 +54,36 @@
 
         @media (max-width:800px) {
 
-            main {
+            .main {
                 flex-direction: column;
                 height: 150vh;
             }
 
-            main .bill {
+            .main .bill {
                 width: 70%;
             }
         }
 
         @media (max-width:480px) {
 
-           main section address{
-               grid-template-columns: 1fr;
-               gap: 1%;
+            .main section address{
+                grid-template-columns: 1fr;
+                gap: 1%;
             }
+
             .items {
                 grid-column: 1/2;
             }
-            address input{
+
+            address input {
                 width: 80vw;
             }
-            main{
+
+            .main {
                 height: 170vh;
             }
-            main .bill{
+
+            .main .bill {
                 width: 100%;
             }
         }
@@ -89,9 +93,10 @@
 <body>
     <header class="navigation"></header>
     <main>
-        <section>
-            <h2 style=" margin-bottom: 5%;">Delivery information</h2>
-            <address>
+        <div class="main">
+            <section>
+                <h2 style=" margin-bottom: 5%;">Delivery information</h2>
+                <address>
                 <input type="text" placeholder="First name" required>
                 <input type="text" placeholder="Last name" required>
                 <input type="email" class="items" placeholder="Email address" required>
@@ -117,11 +122,11 @@
             <button style="background-color: rgb(255, 0, 0);border: none; color: white;"
                 onclick="window.location.href='pay.html';">PROCESSED TO PAYMENT</button>
         </aside>
+        </div>
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
     <footer class="contact"></footer>
     <script src="headfoot.js"></script>
-
 </body>
 
 </html>

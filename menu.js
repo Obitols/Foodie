@@ -1,7 +1,7 @@
 let foodMenu = [];
 
 async function loadFoodMenu() {
-    const response = await fetch('http://localhost:3003/api/food_menu');
+    const response = await fetch('http://localhost:3000/api/food_menu');
     foodMenu = await response.json();
     displayMenu(foodMenu);
 }

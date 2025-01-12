@@ -108,4 +108,7 @@ tr,td{
         width: 290px;
         height: 80vh;
     }
+    .box1 form div{
+        width: inherit;
+    }
 }
