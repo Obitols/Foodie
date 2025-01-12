@@ -49,9 +49,11 @@ function showDiv(classname) {
     const typeSelect = document.getElementById("type");
 
     const productTypes = {
-        salad1: ["Caesar", "Greek", "Garden"],
-        salad2: ["Fruit", "Pasta", "Potato"],
-        salad3: ["Chicken", "Shrimp", "Vegan"],
+        breakfast: ["bread1", "bread2", "bread3", "bread4", "bread5", "bread6"],
+        dinner: ["sandwich1", "sandwich2", "sandwich3", "sandwich4", "sandwich5", "sandwich6"],
+        lunch: ["burger1", "burger2", "burger3", "burger4", "burger5", "burger6"],
+        dessert: ["pasta1", "pasta2", "pasta3", "pasta4", "pasta5", "pasta6"],
+        beverde: ["pizza1", "pizza2", "pizza3", "pizza4", "pizza5", "pizza6"],
     };
 
     categorySelect.addEventListener("change", () => {
