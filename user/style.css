@@ -552,9 +552,10 @@ header {
     #page7 {
         flex-direction: column;
         margin: 0;
+        align-items: center;
         height: 40vh;
     }
-    #page7 table,p,h5,.socm,
+    #page7 table,p,h5,
     #page8 h5 {
         width: 100%;
         align-self: center;
