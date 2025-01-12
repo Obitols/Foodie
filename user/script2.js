@@ -212,5 +212,5 @@ footer.innerHTML =`
     <footer id="page8">
         <h5>&copy 2025 Foodie.All rights reseved</h5>
 
-        <img src="images/logo.jpg" alt="image" width="40%" height="40px">
+        <img src="/images/logo.jpg" alt="image" width="40%" height="40px">
     </footer>  `;          
