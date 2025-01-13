@@ -16,23 +16,40 @@ const db = mysql.createConnection({
     database: 'Demo'
 });
 
-db.connect(err => {
-    if (err) {
-        console.error('DB Connection Error:', err);
-    } else {
-        console.log('Connected to MySQL!');
-    }
+db.connect((err) => {
+    if (err) throw err;
+    console.log('Database connected!');
 });
 
-app.get('/api/food_menu', (req, res) => {
-    db.query('SELECT * FROM food_menu', (err, results) => {
+app.get('/menu/:category', (req, res) => {
+    const category = req.params.category;
+    let query = '';
+
+    if (category === 'all') {
+        query = `
+            SELECT * FROM breakfast
+            UNION ALL
+            SELECT * FROM lunch
+            UNION ALL
+            SELECT * FROM dinner
+            UNION ALL
+            SELECT * FROM dessert
+            UNION ALL
+            SELECT * FROM beverage
+            UNION ALL
+            SELECT * FROM all_items;
+        `;
+    } else {
+        query = `SELECT * FROM ${category};`;
+    }
+    db.query(query, (err, results) => {
             res.json(results);
     });
 });
 
-app.delete('/api/food_menu/:id', (req, res) => {
+app.delete('/menu/:id', (req, res) => {
     const { id } = req.params;
-    const query = 'DELETE FROM food_menu WHERE id = ?';
+    const query = 'DELETE FROM menu WHERE id = ?';
     res.send({ success: true, message: `Item deleted successfully!` });
 });
 
@@ -56,7 +73,7 @@ app.post("/api/products",upload.single("image"), (req, res) => {
         res.status(201).json({ message: "Product added successfully!", productId: result.insertId });
     });
 });
-
-app.listen(3000, () => {
-    console.log('Server running at http://localhost:3000');
+const port = 3002;
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });

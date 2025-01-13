@@ -1,11 +1,10 @@
 let foodMenu = [];
 let products = {};
-
-async function loadFoodMenu() {
-    const response = await fetch('http://localhost:3000/api/food_menu');
-    foodMenu = await response.json();
-    displayMenu(foodMenu);
-}
+const fetchData = async (menuType) => {
+        const response = await fetch(`http://localhost:3002/menu/${menuType}`);
+        foodMenu = await response.json();
+        displayMenu(foodMenu);
+};
 
 function displayMenu(items) {
     const productsContainer = document.querySelector(".itemgroup");
@@ -48,17 +47,11 @@ function filterMenu(type) {
         button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
         button.setAttribute('onclick', `filterByCategory('${names[index].btname}')`);
     });
-    if (type === 'all') {
-        displayMenu(foodMenu);
-    }
-    else {
-        const meal = foodMenu.filter(item => item.meal_type === type);
-        displayMenu(meal);
-    }
+        fetchData(type);
 }
 
 const filterByCategory = (category) => {
-    const filteredData = foodMenu.filter(item => item.btname === category);
+    const filteredData = foodMenu.filter(item => item.category === category);
     displayMenu(filteredData);
 };
 
@@ -74,6 +67,5 @@ fetch('products.json')
     })
     .catch(error => console.error('Error fetching the product data:', error));
 
-loadFoodMenu();
-
+fetchData('all');
 

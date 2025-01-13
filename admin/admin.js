@@ -1,9 +1,7 @@
-let foodMenu = [];
-
 async function loadFoodMenu() {
     try {
-        const response = await fetch('http://localhost:3000/api/food_menu');
-        foodMenu = await response.json();
+        const response = await fetch(`http://localhost:3002/menu/all`);
+       const foodMenu = await response.json();
         displayMenu(foodMenu);
     } catch (error) {
         console.error('Error loading menu:', error);
@@ -25,7 +23,7 @@ function displayMenu(items) {
 
 async function removeItem(id, button) {
     if (confirm('Are you sure you want to delete this item?')) {
-            const response = await fetch(`http://localhost:3000/api/food_menu/${id}`, { method: 'DELETE' });
+            const response = await fetch(`http://localhost:3002/menu/${id}`, { method: 'DELETE' });
             const data = await response.json();
             if (response.ok) {
                 const row = button.closest('.row');
