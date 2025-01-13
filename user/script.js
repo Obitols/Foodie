@@ -1,4 +1,5 @@
 let foodMenu = [];
+let products = {};
 
 async function loadFoodMenu() {
     const response = await fetch('http://localhost:3000/api/food_menu');
@@ -41,27 +42,23 @@ function displayMenu(items) {
 }
 
 function filterMenu(type) {
+    const names=products[type];
     const buttons = document.querySelectorAll('.choicebtn button');
+    buttons.forEach((button, index) => {
+        button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
+        button.setAttribute('onclick', `filterByCategory('${names[index].btname}')`);
+    });
     if (type === 'all') {
-        const names = foodMenu.filter(item => item.meal_type === type);
-        buttons.forEach((button, index) => {
-            button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
-            button.setAttribute('onclick', `filterByCategory('${names[index].category.toLowerCase()}')`);
-        });
         displayMenu(foodMenu);
     }
     else {
-        const names = foodMenu.filter(item => item.meal_type === type);
-        buttons.forEach((button, index) => {
-            button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
-            button.setAttribute('onclick', `filterByCategory('${names[index].category.toLowerCase()}')`);
-        });
-        displayMenu(names);
+        const meal = foodMenu.filter(item => item.meal_type === type);
+        displayMenu(meal);
     }
 }
 
 const filterByCategory = (category) => {
-    const filteredData = foodMenu.filter(item => item.category === category);
+    const filteredData = foodMenu.filter(item => item.btname === category);
     displayMenu(filteredData);
 };
 
@@ -69,6 +66,14 @@ function toggleheight() {
     const explore = document.getElementById("page3");
     explore.style.height = explore.style.height === "140vh" ? "max-content" : "140vh";
 }
+
+fetch('products.json')
+    .then(response => response.json())
+    .then(data => {
+        products = data;
+    })
+    .catch(error => console.error('Error fetching the product data:', error));
+
 loadFoodMenu();
 
 
