@@ -65,7 +65,7 @@ const displayItem = (items) => {
             return `
             <div class="orderitem">
                     <div class="rot"></div>
-                    <img src="${image}" alt="${name}" class="image">
+                    <img src='http://localhost:3000/food_menu/${item.id}' alt="${name}" class="image">
                     <h4>${name}</h4>
                     <h6>${title}</h6>
                     <div class="rr">

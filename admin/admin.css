@@ -56,7 +56,7 @@ input{
     font-size: medium;
     letter-spacing: 1px;
 }
-input[type=submit]{
+button[type=submit]{
     width: 10rem;
     height: 6vh;
     border: none;

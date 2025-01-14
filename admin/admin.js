@@ -11,7 +11,7 @@ function displayMenu(items) {
     const products = document.getElementById("allitems");
     products.innerHTML = items.map(item => `
         <tr class="row">
-            <td><img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;"></td>
+            <td><img src='http://localhost:3000/food_menu/${item.id}' alt="${item.name}" style="width: 50px; height: 50px;"></td>
             <td>${item.name}</td>
             <td>${item.title}</td>
             <td>$${item.price}</td>
@@ -40,16 +40,15 @@ function showDiv(classname) {
     document.querySelector('.' + classname).style.display = 'block';
 }
 
-    const productForm = document.getElementById("productForm");
     const categorySelect = document.getElementById("category");
     const typeSelect = document.getElementById("type");
 
     const productTypes = {
-        breakfast: ["bread-1", "bread-2", "bread-3", "bread-4", "bread-5", "bread-6"],
-        dinner: ["sandwich-1", "sandwich-2", "sandwich-3", "sandwich-4", "sandwich-5", "sandwich-6"],
-        lunch: ["burger-1", "burger-2", "burger-3", "burger-4", "burger-5", "burger-6"],
-        dessert: ["pasta-1", "pasta-2", "pasta-3", "pasta-4", "pasta-5", "pasta-6"],
-        beverage: ["pizza-1", "pizza-2", "pizza-3", "pizza-4", "pizza-5", "pizza-6"]
+        breakfast: ["Bread-1", "Bread-2", "Bread-3", "Bread-4", "Bread-5", "Bread-6"],
+        dinner: ["Sandwich-1", "Sandwich-2", "Sandwich-3", "Sandwich-4", "Sandwich-5", "Sandwich-6"],
+        lunch: ["Burger-1", "Burger-2", "Burger-3", "Burger-4", "Burger-5", "Burger-6"],
+        dessert: ["Pasta-1", "Pasta-2", "Pasta-3", "Pasta-4", "Pasta-5", "Pasta-6"],
+        beverage: ["Pizza-1", "Pizza-2", "Pizza-3", "Pizza-4", "Pizza-5", "Pizza-6"]
     };
 
     categorySelect.addEventListener("change", () => {
@@ -65,42 +64,5 @@ function showDiv(classname) {
             });
         }
     });
-
-    productForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(productForm);
-        const productName = formData.get("productName").trim();
-        const productTitle = formData.get("productTitle").trim();
-        const category = formData.get("category");
-        const type = formData.get("type");
-        const price = formData.get("price");
-        const image = formData.get("image");
-
-        if (!productName || !productTitle || !category || !type || !price || isNaN(price)) {
-            alert("Please fill all fields correctly.");
-            return;
-        }
-
-        try {
-            const response = await fetch("http://localhost:3000/api/products", {
-                method: "POST",
-                body: formData,
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                alert("Product added successfully!");
-                productForm.reset();
-                categorySelect.dispatchEvent(new Event("change"));
-            } else {
-                const error = await response.json();
-                alert("Error adding product: " + error.message);
-            }
-        } catch (error) {
-            alert("Failed to add product. Please try again.");
-        }
-    });
-
 
 loadFoodMenu();

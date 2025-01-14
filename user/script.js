@@ -11,7 +11,7 @@ function displayMenu(items) {
     productsContainer.innerHTML = items.map(item => `
                 <div class="orderitem">
                     <div class="rot"></div>
-                    <img src="${item.image}" alt="${item.name}" class="image">
+                    <img src='http://localhost:3000/food_menu/${item.id}' alt="${item.name}" class="image">
                     <h4>${item.name}</h4>
                     <h6>${item.title}</h6>
                     <div class="rr">

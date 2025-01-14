@@ -33,18 +33,18 @@
             </div>
         </aside>
         <section class="box1" style="display: none;">
-            <form id="productForm">
+            <form action="http://localhost:3000/food_menu" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="image">Upload Image</label>
-                    <input type="file" id="image" name="image" accept="image/*">
+                    <input type="file" name="image" accept="image/*">
                 </div>
                 <div>
                     <label for="productName">Product Name</label>
-                    <input type="text" id="productName" name="productName" required>
+                    <input type="text" name="productName" required>
                 </div>
                 <div>
                     <label for="productTitle">Product Title</label>
-                    <input type="text" id="productTitle" name="productTitle" required>
+                    <input type="text" name="productTitle" required>
                 </div>
                 <div class="cat">
                     <div>
@@ -69,7 +69,7 @@
                         <input type="number" id="price" name="price" required>
                     </div>
                     <div>
-                        <input type="submit" value="ADD">
+                        <button type="submit">Upload</button>
                     </div>
                 </div>
             </form>
