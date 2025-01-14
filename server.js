@@ -28,16 +28,11 @@ app.get('/menu/:category', (req, res) => {
     if (category === 'all') {
         query = `
             SELECT * FROM breakfast
-            UNION ALL
-            SELECT * FROM lunch
-            UNION ALL
-            SELECT * FROM dinner
-            UNION ALL
-            SELECT * FROM dessert
-            UNION ALL
-            SELECT * FROM beverage
-            UNION ALL
-            SELECT * FROM all_items;
+            UNION ALL SELECT * FROM lunch
+            UNION ALL SELECT * FROM dinner
+            UNION ALL SELECT * FROM dessert
+            UNION ALL SELECT * FROM beverage
+            UNION ALL SELECT * FROM all_items;
         `;
     } else {
         query = `SELECT * FROM ${category};`;
@@ -73,7 +68,7 @@ app.post("/api/products",upload.single("image"), (req, res) => {
         res.status(201).json({ message: "Product added successfully!", productId: result.insertId });
     });
 });
-const port = 3002;
+const port = 3000;
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
