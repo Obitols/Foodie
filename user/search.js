@@ -1,6 +1,6 @@
 
 async function loadFoodMenu() {
-    const response = await fetch('http://localhost:3000/api/food_menu');
+    const response = await fetch('http://localhost:3000/food_menu');
     foodMenu = await response.json();
 }
 

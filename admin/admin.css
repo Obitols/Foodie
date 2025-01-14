@@ -38,14 +38,13 @@ padding: 2% 3%;
 gap: 5%;
 margin:0 auto;
 width:400px;
-height: 65vh;
+height: 60vh;
 }
 form div{
     display: grid;
 }
 .cat{
-    
-    height: 25vh;
+    height: 22vh;
     display: grid;
     grid-template-columns:1fr 1fr;
     column-gap: 5%;

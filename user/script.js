@@ -1,7 +1,7 @@
 let foodMenu = [];
 let products = {};
-const fetchData = async (menuType) => {
-        const response = await fetch(`http://localhost:3002/menu/${menuType}`);
+const fetchData = async () => {
+        const response = await fetch(`http://localhost:3000/food_menu`);
         foodMenu = await response.json();
         displayMenu(foodMenu);
 };
@@ -47,7 +47,13 @@ function filterMenu(type) {
         button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
         button.setAttribute('onclick', `filterByCategory('${names[index].btname}')`);
     });
-        fetchData(type);
+    if(type === 'all'){
+        displayMenu(foodMenu); 
+    }
+    else{
+        const filteredData = foodMenu.filter(item => item.meal_type === type);
+        displayMenu(filteredData);
+    }     
 }
 
 const filterByCategory = (category) => {
@@ -67,5 +73,5 @@ fetch('products.json')
     })
     .catch(error => console.error('Error fetching the product data:', error));
 
-fetchData('all');
+fetchData();
 

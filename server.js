@@ -21,31 +21,18 @@ db.connect((err) => {
     console.log('Database connected!');
 });
 
-app.get('/menu/:category', (req, res) => {
-    const category = req.params.category;
-    let query = '';
-
-    if (category === 'all') {
-        query = `
-            SELECT * FROM breakfast
-            UNION ALL SELECT * FROM lunch
-            UNION ALL SELECT * FROM dinner
-            UNION ALL SELECT * FROM dessert
-            UNION ALL SELECT * FROM beverage
-            UNION ALL SELECT * FROM all_items;
-        `;
-    } else {
-        query = `SELECT * FROM ${category};`;
-    }
+app.get('/food_menu', (req, res) => {
+    query = ` SELECT * FROM food_menu`;
     db.query(query, (err, results) => {
             res.json(results);
     });
 });
-
-app.delete('/menu/:id', (req, res) => {
+app.delete('/food_menu/:id', (req, res) => {
     const { id } = req.params;
-    const query = 'DELETE FROM menu WHERE id = ?';
-    res.send({ success: true, message: `Item deleted successfully!` });
+    const query = 'DELETE FROM food_menu WHERE id = ?';
+    db.query(query, [id], (err, results) => {
+            res.send({ success: true, message: `Item deleted successfully!` });
+    });
 });
 
 app.post("/api/products",upload.single("image"), (req, res) => {
