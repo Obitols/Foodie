@@ -31,6 +31,12 @@ app.get('/food_menu', (req, res) => {
             res.json(results);
     });
 });
+app.get('/address', (req, res) => {
+    query = ` SELECT * FROM address`;
+    db.query(query, (err, results) => {
+            res.json(results);
+    });
+});
 app.delete('/food_menu/:id', (req, res) => {
     const { id } = req.params;
     const query = 'DELETE FROM food_menu WHERE id = ?';

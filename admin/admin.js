@@ -1,8 +1,11 @@
 async function loadFoodMenu() {
     try {
-        const response = await fetch(`http://localhost:3000/food_menu`);
-       const foodMenu = await response.json();
+        const response1 = await fetch(`http://localhost:3000/food_menu`);
+       const foodMenu = await response1.json();
         displayMenu(foodMenu);
+        const response2 = await fetch(`http://localhost:3000/address`);
+       const orders = await response2.json();
+        displayorders(orders);
     } catch (error) {
         console.error('Error loading menu:', error);
     }
@@ -57,5 +60,29 @@ function showDiv(classname) {
             typeSelect.add(new Option(type, type));
         });
     });
+    function displayorders(items) {
+    const orderpage =document.querySelector('.orderpage');
+    orderpage.innerHTML =items.map(item => 
+        `<div class="order">
+            <img src="/images/bubble.png" alt="">
+            <div>
+                <p>greek salad x 2, peri peri rolls x 3</p>
+                <address>
+                    <h5>${item.fname}${item.lname}</h5>
+                    <p>${item.street}<br>
+                     ${item.city} ${item.state} ${item.zipcode}</p>
+                    <p>${item.pnumber}</p>
+                </address>
+            </div>
+            <p>item:2</p>
+            <span>$65</span>
+            <select name="" id="process">
+                <option value="">Food processing</option>
+                <option value="">Deliverd</option>
+                <option value="">out of order</option>
+            </select>
+        </div>
+    `).join('');
+}
 
 loadFoodMenu();

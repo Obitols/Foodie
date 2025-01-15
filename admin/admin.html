@@ -76,8 +76,8 @@
             </form>
 
         </section>
-        <section class="box2">
-            <h3 style="margin-left: 5%;display: none;">All Food List</h3>
+        <section class="box2" style="display: none;">
+            <h3 style="margin-left: 5%;">All Food List</h3>
             <table>
                 <thead>
                     <tr>
@@ -91,72 +91,9 @@
                 <tbody id="allitems"></tbody>
             </table>
         </section>
-        <section class="box3" style="display: none;">
+        <section class="box3" style="display: block;">
             <h4>Order Page</h4>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-
+            <div class="orderpage"></div>
         </section>
     </main>
     <script src="admin.js"></script>
@@ -184,6 +121,7 @@
                     alert("Error: " + err.message);
                 });
         });
+
     </script>
 </body>
 

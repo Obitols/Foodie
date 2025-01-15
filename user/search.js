@@ -176,7 +176,7 @@ if (window.location.pathname.includes('cart.html')) {
     displayCart();
     updateCartCount();
 }
-else if(window.location.pathname.includes('deliveryinfo.html')){
+else if(window.location.pathname.includes('delivery.html')){
     updateCartCount();
     document.getElementById('semitotal').textContent = "$" + localStorage.getItem('semitotal');
     document.getElementById('total').textContent = "$" + localStorage.getItem('total');
