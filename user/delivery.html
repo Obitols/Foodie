@@ -36,7 +36,7 @@
             height: 55vh;
         }
 
-        .main section address{
+        .main section form {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5%;
@@ -66,7 +66,7 @@
 
         @media (max-width:480px) {
 
-            .main section address{
+            .main section form {
                 grid-template-columns: 1fr;
                 gap: 1%;
             }
@@ -96,37 +96,74 @@
         <div class="main">
             <section>
                 <h2 style=" margin-bottom: 5%;">Delivery information</h2>
-                <address>
-                <input type="text" placeholder="First name" required>
-                <input type="text" placeholder="Last name" required>
-                <input type="email" class="items" placeholder="Email address" required>
-                <input type="text" class="items" placeholder="Street" required>
-                <input type="text" placeholder="City" required>
-                <input type="text" placeholder="State" required>
-                <input type="text" placeholder="Zip code" required>
-                <input type="text" placeholder="Contry" required>
-                <input type="tel" class="items" placeholder="Phone" required>
-            </address>
-        </section>
-        <aside class="bill">
-            <h2>cart Totals</h2>
-            <div>
-                <p>subtotal</p><span id="semitotal">$</span>
-            </div>
-            <hr>
-            <div>
-                <p>Delivery Fee</p><span>$5</span>
-            </div>
-            <hr>
-            <div><b>Total</b> <span id="total"></span></div>
-            <button style="background-color: rgb(255, 0, 0);border: none; color: white;"
-                onclick="window.location.href='/user/payment.html';">PROCESSED TO PAYMENT</button>
-        </aside>
+                <form id="uploadForm" action="http://localhost:3000/address" method="POST" enctype="multipart/form-data">
+                    <input type="text" placeholder="First name" name="fname" required>
+                    <input type="text" placeholder="Last name" name="lname" required>
+                    <input type="email" class="items" placeholder="Email address" name="email" required>
+                    <input type="text" class="items" placeholder="Street" name="street" required>
+                    <input type="text" placeholder="City" name="city" required>
+                    <input type="text" placeholder="State" name="state" required>
+                    <input type="text" placeholder="Zip code" name="zipcode" required>
+                    <input type="text" placeholder="Contry" name="contry" required>
+                    <input type="number" class="items" placeholder="Phone" name="pnumber" required>
+                </form>
+            </section>
+            <aside class="bill">
+                <h2>cart Totals</h2>
+                <div>
+                    <p>subtotal</p><span id="semitotal">$</span>
+                </div>
+                <hr>
+                <div>
+                    <p>Delivery Fee</p><span>$5</span>
+                </div>
+                <hr>
+                <div><b>Total</b> <span id="total"></span></div>
+                <button style="background-color: rgb(255, 0, 0);border: none; color: white;"
+                     id="uploadButton" type="button">PROCESSED TO PAYMENT</button>
+            </aside>
         </div>
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
     <footer class="contact"></footer>
     <script src="script2.js"></script>
+    <script>
+         document.getElementById("uploadButton").addEventListener("click", () => {
+        const form = document.getElementById("uploadForm");
+        const formData = new FormData(form);
+
+        const patterns = {
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            zipcode: /^\d{6}(-\d{4})?$/,
+            pnumber: /^\+?\d{10}$/
+        };
+
+        for (const [key, value] of formData) {
+            if (!value.trim()) {
+                alert("Please fill all the fields.");
+                return;
+            }
+
+            if (patterns[key] && !patterns[key].test(value.trim())) {
+                alert(`Please enter a valid ${key.replace('pnumber', 'phone number').replace('zipcode', 'ZIP code')}.`);
+                return;
+            }
+        }
+
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); 
+            window.location.href = '/user/payment.html';
+        })
+        .catch(err => {
+            alert("Error: " + err.message);
+        });
+    });
+    </script>
 </body>
 
 </html>

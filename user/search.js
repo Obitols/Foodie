@@ -184,4 +184,5 @@ else if(window.location.pathname.includes('deliveryinfo.html')){
 else{
     updateCartCount();
 }
+
 loadFoodMenu();

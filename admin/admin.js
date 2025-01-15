@@ -52,17 +52,10 @@ function showDiv(classname) {
     };
 
     categorySelect.addEventListener("change", () => {
-        const selectedCategory = categorySelect.value;
         typeSelect.innerHTML = '<option value="">Select Type</option>';
-
-        if (productTypes[selectedCategory]) {
-            productTypes[selectedCategory].forEach(type => {
-                const option = document.createElement("option");
-                option.value = type;
-                option.textContent = type;
-                typeSelect.appendChild(option);
-            });
-        }
+        productTypes[categorySelect.value]?.forEach(type => {
+            typeSelect.add(new Option(type, type));
+        });
     });
 
 loadFoodMenu();

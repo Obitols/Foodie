@@ -33,23 +33,24 @@
             </div>
         </aside>
         <section class="box1" style="display: none;">
-            <form action="http://localhost:3000/food_menu" method="POST" enctype="multipart/form-data">
+            <form action="http://localhost:3000/food_menu" method="POST" enctype="multipart/form-data"
+                id="foodMenuForm">
                 <div>
                     <label for="image">Upload Image</label>
                     <input type="file" name="image" accept="image/*">
                 </div>
                 <div>
                     <label for="productName">Product Name</label>
-                    <input type="text" name="productName" required>
+                    <input type="text" name="productName">
                 </div>
                 <div>
                     <label for="productTitle">Product Title</label>
-                    <input type="text" name="productTitle" required>
+                    <input type="text" name="productTitle">
                 </div>
                 <div class="cat">
                     <div>
                         <label for="category">Product Category</label>
-                        <select id="category" name="category" required>
+                        <select id="category" name="category">
                             <option value="">Select Category</option>
                             <option value="breakfast">breakfast</option>
                             <option value="dinner">dinner</option>
@@ -60,33 +61,33 @@
                     </div>
                     <div>
                         <label for="type">Product Type</label>
-                        <select id="type" name="type" required>
+                        <select id="type" name="type">
                             <option value="">Select Type</option>
                         </select>
                     </div>
                     <div>
                         <label for="price">Product Price</label>
-                        <input type="number" id="price" name="price" required>
+                        <input type="number" name="price">
                     </div>
                     <div>
-                        <button type="submit">Upload</button>
+                        <button type="button" id="uploadFoodButton">Upload</button>
                     </div>
                 </div>
             </form>
-            
+
         </section>
         <section class="box2">
             <h3 style="margin-left: 5%;display: none;">All Food List</h3>
             <table>
                 <thead>
-                <tr>
-                    <th>image</th>
-                    <th>name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+                    <tr>
+                        <th>image</th>
+                        <th>name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
                 <tbody id="allitems"></tbody>
             </table>
         </section>
@@ -155,114 +156,35 @@
                     <option value="">out of order</option>
                 </select>
             </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
 
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
-            <div class="order">
-                <img src="/images/bubble.png" alt="">
-                <div>
-                    <p>greek salad x 2, peri peri rolls x 3</p>
-                    <address>
-                        <h5>Aravind kumar</h5>
-                        <p> GreatStreet, Whitefield,
-                            <br>Bangular Karnataka 631702
-                        </p>
-                        <p>9876543210</p>
-
-                    </address>
-                </div>
-                <p>item:2</p>
-                <span>$65</span>
-                <select name="" id="process">
-                    <option value="">Food processing</option>
-                    <option value="">Deliverd</option>
-                    <option value="">out of order</option>
-                </select>
-            </div>
         </section>
     </main>
     <script src="admin.js"></script>
+    <script>
+        document.getElementById("uploadFoodButton").addEventListener("click", () => {
+            const form = document.getElementById("foodMenuForm");
+            const formData = new FormData(form);
+
+            for (let [key, value] of formData.entries()) {
+                if (typeof value === "string" && !value.trim()) {
+                    alert("Please fill all fields.");
+                    return;
+                }
+            }
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    form.reset();
+                })
+                .catch(err => {
+                    alert("Error: " + err.message);
+                });
+        });
+    </script>
 </body>
 
 </html>
