@@ -4,8 +4,10 @@ async function loadFoodMenu() {
        const foodMenu = await response1.json();
         displayMenu(foodMenu);
         const response2 = await fetch(`http://localhost:3000/address`);
-       const orders = await response2.json();
-        displayorders(orders);
+       const address = await response2.json();
+       const response3 = await fetch('http://localhost:3000/orders');
+       const orders = await response3.json();
+        displayOrders(address,orders);
     } catch (error) {
         console.error('Error loading menu:', error);
     }
@@ -60,29 +62,57 @@ function showDiv(classname) {
             typeSelect.add(new Option(type, type));
         });
     });
-    function displayorders(items) {
-    const orderpage =document.querySelector('.orderpage');
-    orderpage.innerHTML =items.map(item => 
-        `<div class="order">
-            <img src="/images/bubble.png" alt="">
-            <div>
-                <p>greek salad x 2, peri peri rolls x 3</p>
-                <address>
-                    <h5>${item.fname}${item.lname}</h5>
-                    <p>${item.street}<br>
-                     ${item.city} ${item.state} ${item.zipcode}</p>
-                    <p>${item.pnumber}</p>
-                </address>
-            </div>
-            <p>item:2</p>
-            <span>$65</span>
-            <select name="" id="process">
-                <option value="">Food processing</option>
-                <option value="">Deliverd</option>
-                <option value="">out of order</option>
-            </select>
-        </div>
-    `).join('');
-}
+    async function displayOrders(addresses, orders) {
+        const orderPage = document.querySelector('.orderpage');
+        orderPage.innerHTML = orders.map((order, index) => {
+            const userAddress = addresses[index];
+            return `
+                <div class="order" data-order-id="${order.id}">
+                    <img src="/images/bubble.png" alt="image">
+                    <div>
+                        <p>${order.items}</p>
+                        <address>
+                            <h5>${userAddress.fname} ${userAddress.lname}</h5>
+                            <p>${userAddress.street}<br>
+                            ${userAddress.city}, ${userAddress.state} ${userAddress.zipcode}</p>
+                            <p>${userAddress.pnumber}</p>
+                        </address>
+                    </div>
+                    <p>Item: ${order.total_quantity}</p>
+                    <span>$${order.total_price}</span>
+                    <select name="process" class="process-select" id="process" data-order-id="${order.id}">
+                        <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Food Processing</option>
+                        <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                        <option value="out_of_order" ${order.status === 'out_of_order' ? 'selected' : ''}>Out of Order</option>
+                    </select>
+                </div>
+            `;
+        }).join('');
+    
+        const selects = document.querySelectorAll('.process-select');
+        selects.forEach(select => {
+            select.addEventListener('change', async (event) => {
+                const orderId = event.target.dataset.orderId;
+                const newStatus = event.target.value;
+                try {
+                    const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ status: newStatus }),
+                    });
+    
+                    if (response.ok) {
+                        alert(`Order ${orderId} status updated to ${newStatus}`);
+                    } else {
+                        alert(`Failed to update order ${orderId}`);
+                    }
+                } catch (error) {
+                    console.error('Error updating order status:', error);
+                }
+            });
+        });
+    }
 
 loadFoodMenu();

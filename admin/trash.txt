@@ -107,3 +107,31 @@ async function removeItem(id, button) {
                     <option value="">out of order</option>
                 </select>
             </div>
+
+
+            app.delete("/address", (req, res) => {
+    const query = `DELETE FROM address ORDER BY id DESC LIMIT 1;`;
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error('Error deleting address:', err);
+            return res.status(500).send('Failed to delete address');
+        }
+        res.send('please Re-enter your address!');
+    });
+});
+
+ function deleteDetails() {
+        fetch('http://localhost:3000/address', {
+            method: 'DELETE',
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            window.location.href='/user/delivery.html';
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to delete recent entry');
+        });
+    }

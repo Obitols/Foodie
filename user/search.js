@@ -1,5 +1,4 @@
 let foodMenu = [];
-let items =[];
 async function loadFoodMenu() {
     const response = await fetch('http://localhost:3000/food_menu');
     foodMenu = await response.json();
@@ -111,7 +110,7 @@ function updateQuantity(button, value) {
 
 async function fetchCart() {
     const response = await fetch('http://localhost:3000/cart');
-    items = await response.json();
+    const items = await response.json();
     displayCart(items);
 }
 
@@ -123,7 +122,7 @@ function displayCart(items) {
      cartTableBody.innerHTML = items.map(item => {
         return `
             <tr>
-                <td><img src='http://localhost:3000/cart/${item.id}' alt="${item.name}" style="width:50px;height:50px;"></td>
+                <td><img src="/images/bubble.png" alt="${item.name}" style="width:50px;height:50px;"></td>
                 <td>${item.name}</td>
                 <td>$${item.price}</td>
                 <td>${item.quantity}</td>
@@ -160,6 +159,7 @@ async function removeFromCart(itemId) {
 if (window.location.pathname.includes('cart.html')) {
     fetchCart();
 }
+
 
 loadFoodMenu();
 

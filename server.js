@@ -58,7 +58,7 @@ app.post("/food_menu",upload.single("image"), (req, res) => {
             console.error('Error uploading image:', err);
             return res.status(500).send('Failed to upload image');
         } 
-            res.send('item submitted successfully')
+            res.send('Product Uploded successfully!')
     });
 });
 
@@ -78,16 +78,27 @@ app.post("/address", (req, res) => {
     const { fname, lname, email, street, city, state, zipcode, contry, pnumber } = req.body;
     const query = `
         INSERT INTO address (fname, lname, email, street, city, state, zipcode, contry, pnumber)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `;
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     db.query(query, [fname, lname, email, street, city, state, zipcode, contry, pnumber], (err, result) => {
         if (err) {
             console.error('Error uploading address:', err);
             return res.status(500).send('Failed to upload address');
         }
-        res.send('Address submitted successfully');
+        res.send('Address submitted successfully!');
     });
 });
+
+app.delete("/address", (req, res) => {
+    const query = `DELETE FROM address ORDER BY id DESC LIMIT 1;`;
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error('Error deleting address:', err);
+            return res.status(500).send('Failed to delete address');
+        }
+        res.send('please Re-enter your address!');
+    });
+});
+
 app.get('/cart', (req, res) => {
     const sql = 'SELECT * FROM cart';
     db.query(sql, (err, results) => {
@@ -97,8 +108,7 @@ app.get('/cart', (req, res) => {
         res.json(results);
     });
 });
-// 
-// Add or update item in cart
+
 app.post('/cart', (req, res) => {
     const { itemId, name, price, quantity,image } = req.body;
     const sql = `
@@ -116,7 +126,6 @@ app.post('/cart', (req, res) => {
     });
 });
 
-// Remove item from cart
 app.delete('/cart/:itemId', (req, res) => {
     const { itemId } = req.params;
     const sql = 'DELETE FROM cart WHERE itemId = ?';
@@ -137,6 +146,39 @@ app.get('/cart/:id', (req, res) => {
             res.setHeader('Content-Type', 'image/jpeg');
             res.send(result[0].image);
         }
+    });
+});
+
+app.post('/order', (req, res) => {
+    const { items, totalPrice, totalQuantity } = req.body;
+    db.query(
+        'INSERT INTO orders2 (items, total_price, total_quantity, status) VALUES (?, ?, ?, ?)',
+        [items, totalPrice, totalQuantity, 'food processing'],
+        (err, result) => {
+            if (err) throw err;
+            db.query('DELETE FROM cart', (clearErr) => {
+                if (clearErr) throw clearErr;
+                res.json({ success: true });
+            });
+        }
+    );
+});
+app.get('/orders', (req, res) => {
+    db.query('SELECT * FROM orders2', (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+app.put('/orders/:orderId', async (req, res) => {
+    const { orderId } = req.params;
+    const { status } = req.body;
+    const sql = 'UPDATE orders2 SET status = ? WHERE id = ?';
+    db.query(sql, [status, orderId], (err) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.json({ success: true });
     });
 });
 

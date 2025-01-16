@@ -83,14 +83,16 @@
             grid-template-columns: auto auto;
             justify-content: space-between;
         }
+
         .itemdetails button {
-              margin:3% 0;
-              padding: 1% 2%;
-              border-radius: 50%;
-              border: none;
-              background-color:gray;
-              color: white;
-        }   
+            margin: 3% 0;
+            padding: 1% 2%;
+            border-radius: 50%;
+            border: none;
+            background-color: gray;
+            color: white;
+        }
+
         .itemdetail span {
             margin: 0 0 0 auto;
         }
@@ -113,7 +115,7 @@
 <body>
     <main>
         <section class="itemdetails">
-            <button onclick="window.location.href='/user/delivery.html';">&lt;</button>
+            <button onclick="deleteDetails()">&lt;</button>
             <h5>Pay Course</h5>
             <h1>$220.00</h1>
             <div class="items">
@@ -160,10 +162,45 @@
                 <label for="">Phone number</label>
                 <input type="text" style="border: 2px solid gray;" placeholder="91+" required>
             </div>
-            <input type="submit" value="Pay" onclick="window.location.href='/user/order.html';">
+            <input type="submit" value="Pay" onclick="placeOrder()">
         </form>
     </main>
+    <script>
+        async function placeOrder() {
+                const response = await fetch('http://localhost:3000/cart');
+               const cart = await response.json();
+            if (cart.length === 0) {
+                alert('Cart is empty!');
+                return;
+            }
+            const items = cart.map(item => `${item.name} x ${item.quantity}`).join(', ');
+            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+            await fetch('http://localhost:3000/order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items, totalPrice, totalQuantity })
+            });
+            alert('Order placed successfully!');
+            window.location.href='/user/order.html';
+        }
+        function deleteDetails() {
+        fetch('http://localhost:3000/address', {
+            method: 'DELETE',
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            window.location.href='/user/delivery.html';
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to delete recent entry');
+        });
+    }
+    </script>
 </body>
 
 </html>
