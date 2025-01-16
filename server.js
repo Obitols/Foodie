@@ -152,7 +152,7 @@ app.get('/cart/:id', (req, res) => {
 app.post('/order', (req, res) => {
     const { items, finalprice, totalQuantity } = req.body;
     db.query(
-        'INSERT INTO orders2 (items, total_price, total_quantity, status) VALUES (?, ?, ?, ?)',
+        'INSERT INTO orders (items, total_price, total_quantity, status) VALUES (?, ?, ?, ?)',
         [items, finalprice, totalQuantity, 'food processing'],
         (err, result) => {
             if (err) throw err;
@@ -164,7 +164,7 @@ app.post('/order', (req, res) => {
     );
 });
 app.get('/orders', (req, res) => {
-    db.query('SELECT * FROM orders2', (err, results) => {
+    db.query('SELECT * FROM orders', (err, results) => {
         if (err) throw err;
         res.json(results);
     });
@@ -173,7 +173,7 @@ app.get('/orders', (req, res) => {
 app.put('/orders/:orderId', async (req, res) => {
     const { orderId } = req.params;
     const { status } = req.body;
-    const sql = 'UPDATE orders2 SET status = ? WHERE id = ?';
+    const sql = 'UPDATE orders SET status = ? WHERE id = ?';
     db.query(sql, [status, orderId], (err) => {
         if (err) {
             return res.status(500).send(err);
