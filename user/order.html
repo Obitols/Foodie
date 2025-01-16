@@ -55,7 +55,7 @@
     <main>
         <h2>My Orders</h2>
         <table id="orderitems">
-            <tr>
+            <!-- <tr>
                 <td><img src="/images/bubble.png" alt="image"></td>
                 <td>Greek salad x 2. <br> peri rolls x 3</td>
                 <td>$65.00</td>
@@ -99,12 +99,29 @@
                 <td>food processing</td>
                 <td><button style="background-color: rgb(252, 212, 190);border: none;padding: 1em;">Takeorder</button>
                 </td>
-            </tr>
+            </tr> -->
         </table>
+        <div class="orders" id="ordersList"></div>
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
     <footer class="contact"></footer>
     <script src="script2.js"></script>
+    <script>
+        async function fetchOrders() {
+            const response = await fetch('http://localhost:3000/orders2');
+            const orders = await response.json();
+            const ordersList = document.getElementById('ordersList');
+            ordersList.innerHTML = orders.map(order => `
+                <div>
+                    <p>Items: ${order.items}</p>
+                    <p>Total Price: $${order.total_price}</p>
+                    <p>Status: ${order.status}</p>
+                </div>
+            `).join('');
+        }
+        fetchOrders();
+        
+    </script>
 
 </body>
 

@@ -1,4 +1,5 @@
-
+let foodMenu = [];
+let items =[];
 async function loadFoodMenu() {
     const response = await fetch('http://localhost:3000/food_menu');
     foodMenu = await response.json();
@@ -16,7 +17,6 @@ document.querySelector('.find').addEventListener('keyup', (e) => {
     else {
         container.style.display = "none";
         document.querySelector("main").style.display = "block";
-        displayCart();
     }
 });
 
@@ -32,7 +32,6 @@ document.querySelector('.altfind').addEventListener('keyup', (e) => {
     else {
         container.style.display = "none";
         document.querySelector("main").style.display = "block";
-        displayCart();
     }
 });
 
@@ -87,7 +86,7 @@ const displayItem = (items) => {
                                 <h5 style="margin: auto;">1</h5>
                                 <button class="add" onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="addToCart(this);">Cart</button>
+                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price},'${item.image}')">Cart</button>
                         </div>
                     </div>
             </div>`;
@@ -110,79 +109,57 @@ function updateQuantity(button, value) {
     quantityTag.textContent = quantity;
 }
 
-function addToCart(button) {
-    const itemContainer = button.closest('.orderitem');
-    const item = {
-        image: itemContainer.querySelector('.image').src,
-        name: itemContainer.querySelector('h4').innerText,
-        title: itemContainer.querySelector('h6').innerText,
-        price: parseFloat(itemContainer.querySelector('h3').innerText.replace('$', '')),
-        quantity: parseInt(itemContainer.querySelector('.noi h5').innerText)
-    };
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItem = cart.find(cartItem => cartItem.name === item.name);
-
-    if (existingItem) {
-        existingItem.quantity += item.quantity;
-    } else {
-        cart.push(item);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    alert(`${item.name} added to cart!`);
+async function fetchCart() {
+    const response = await fetch('http://localhost:3000/cart');
+    items = await response.json();
+    displayCart(items);
 }
 
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    document.getElementById('count').innerText = cart.reduce((total, item) => total + item.quantity, 0);
-}
-
-function displayCart() {
+function displayCart(items) {
     const cartTableBody = document.getElementById('cartTableBody');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let totalprice = 0;
-    let delivery = 5;
-    cartTableBody.innerHTML = cart.map((item, index) =>{
-        const itemtotal = item.price * item.quantity;
-        totalprice += itemtotal;
+    const subtotalElement = document.querySelector('.total'); 
+    const totalElement = document.querySelector('.total2');  
+    const deliveryFee = 5;
+     cartTableBody.innerHTML = items.map(item => {
         return `
-        <tr>
-            <td><img src="${item.image}" alt="${item.name}" style="width:50px;height:50px;"></td>
-            <td>${item.name}</td>
-            <td>${item.title}</td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td>${item.quantity}</td>
-            <td>$${(itemtotal).toFixed(2)}</td>
-            <td><b onclick="removeItem(${index})">X</b></td>
-        </tr>
-    `;}).join('');
-    localStorage.setItem('semitotal',totalprice.toFixed(2));
-    localStorage.setItem('total',(totalprice+ delivery).toFixed(2));
-    document.getElementById('semitotal').textContent = "$" + localStorage.getItem('semitotal');
-    document.getElementById('total').textContent = "$" + localStorage.getItem('total');
+            <tr>
+                <td><img src='http://localhost:3000/cart/${item.id}' alt="${item.name}" style="width:50px;height:50px;"></td>
+                <td>${item.name}</td>
+                <td>$${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.total}</td>
+                <td><span onclick="removeFromCart(${item.itemId})">X</span></td>
+            </tr>
+        `;
+    }).join('');
+    const subtotal = items.reduce((sum, item) => sum + Number(item.total), 0);
+    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    const finalTotal = subtotal + deliveryFee;
+    totalElement.textContent = `$${finalTotal.toFixed(2)}`;
+    localStorage.setItem('totalAmount', finalTotal.toFixed(2));
 }
 
-function removeItem(index) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCart();
-    updateCartCount();
+async function addToCart(itemId, name, price, image) {
+    await fetch('http://localhost:3000/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId, name, price, quantity: 1 ,image})
+    });
+    
+    alert(`${name} added to cart`);
+    fetchCart();
+}
+
+async function removeFromCart(itemId) {
+    await fetch(`http://localhost:3000/cart/${itemId}`, {
+        method: 'DELETE'
+    });
+    fetchCart();
 }
 
 if (window.location.pathname.includes('cart.html')) {
-    displayCart();
-    updateCartCount();
-}
-else if(window.location.pathname.includes('delivery.html')){
-    updateCartCount();
-    document.getElementById('semitotal').textContent = "$" + localStorage.getItem('semitotal');
-    document.getElementById('total').textContent = "$" + localStorage.getItem('total');
-}
-else{
-    updateCartCount();
+    fetchCart();
 }
 
 loadFoodMenu();
+

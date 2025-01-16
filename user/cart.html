@@ -73,7 +73,7 @@
                 <tr>
                     <th>Image</th>
                     <th>Item Name</th>
-                    <th>Title</th>
+                    <!-- <th>Title</th> -->
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -81,21 +81,22 @@
                 </tr>
             </thead>
             <tbody id="cartTableBody"></tbody>
+            
         </table>
-        <a href="/user/index.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to
-                Products</button></a>
+        <a href="/user/index.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to Products</button></a>
         <section class="bill">
             <h2>cart Totals</h2>
             <div>
-                <p>subtotal</p><span id="semitotal">$</span>
+    
+                <p>subtotal</p><span class="total">0.00</span>
             </div>
             <hr>
             <div>
                 <p>Delivery Fee</p><span>$5</span>
             </div>
             <hr>
-            <div><b>Total</b> <span id="total"></span></div>
-            <button style="background-color: rgb(255, 0, 0);border: none; color: white;" onclick="window.location.href='/user/delivery.html';">PROCESSED TO CHECKOUT</button>
+            <div><b>Total</b> <span class="total2"></span></div>
+            <button style="background-color: rgb(255, 0, 0);border: none; color: white;"  onclick="window.location.href='/user/delivery.html';" >PROCESSED TO CHECKOUT</button>
         </section>
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>

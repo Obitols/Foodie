@@ -111,14 +111,14 @@
             <aside class="bill">
                 <h2>cart Totals</h2>
                 <div>
-                    <p>subtotal</p><span id="semitotal">$</span>
+                    <p>subtotal</p><span id="subtotal">0.00</span>
                 </div>
                 <hr>
                 <div>
                     <p>Delivery Fee</p><span>$5</span>
                 </div>
                 <hr>
-                <div><b>Total</b> <span id="total"></span></div>
+                <div><b>Total</b> <span id="totalAmount"></span></div>
                 <button style="background-color: rgb(255, 0, 0);border: none; color: white;"
                      id="uploadButton" type="button">PROCESSED TO PAYMENT</button>
             </aside>
@@ -157,12 +157,18 @@
         .then(response => response.text())
         .then(data => {
             alert(data); 
+            form.reset();
             window.location.href = '/user/payment.html';
         })
         .catch(err => {
             alert("Error: " + err.message);
         });
     });
+    const totalAmount = localStorage.getItem('totalAmount') || '0.00';
+        const subtotal = (parseFloat(totalAmount) - 5).toFixed(2);
+
+        document.getElementById('subtotal').textContent = `$${subtotal}`;
+        document.getElementById('totalAmount').textContent = `$${totalAmount}`;
     </script>
 </body>
 

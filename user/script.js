@@ -1,8 +1,7 @@
-let foodMenu = [];
 let products = {};
 const fetchData = async () => {
         const response = await fetch(`http://localhost:3000/food_menu`);
-        foodMenu = await response.json();
+        let foodMenu = await response.json();
         displayMenu(foodMenu);
 };
 
@@ -33,7 +32,7 @@ function displayMenu(items) {
                                 <h5 style="margin: auto;">1</h5>
                                 <button onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="addToCart(this);">Cart</button>
+                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price},'${item.image}')">Cart</button>
                         </div>
                     </div>
             </div>`
