@@ -116,9 +116,6 @@ async function fetchCart() {
 
 function displayCart(items) {
     const cartTableBody = document.getElementById('cartTableBody');
-    const subtotalElement = document.querySelector('.total'); 
-    const totalElement = document.querySelector('.total2');  
-    const deliveryFee = 5;
      cartTableBody.innerHTML = items.map(item => {
         return `
             <tr>
@@ -130,12 +127,13 @@ function displayCart(items) {
                 <td><span onclick="removeFromCart(${item.itemId})">X</span></td>
             </tr>
         `;
-    }).join('');
-    const subtotal = items.reduce((sum, item) => sum + Number(item.total), 0);
-    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-    const finalTotal = subtotal + deliveryFee;
-    totalElement.textContent = `$${finalTotal.toFixed(2)}`;
-    localStorage.setItem('totalAmount', finalTotal.toFixed(2));
+    }).join(''); 
+    const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    document.querySelector('.total').textContent=`$${totalPrice}`;
+    const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('count').textContent=totalQuantity;
+    document.querySelector('.dfee').textContent=`$${totalQuantity*5}`;
+    document.querySelector('.total2').textContent=`$${totalPrice +(totalQuantity*5)}`;
 }
 
 async function addToCart(itemId, name, price, image) {
@@ -159,7 +157,6 @@ async function removeFromCart(itemId) {
 if (window.location.pathname.includes('cart.html')) {
     fetchCart();
 }
-
 
 loadFoodMenu();
 

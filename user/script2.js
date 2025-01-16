@@ -213,4 +213,12 @@ footer.innerHTML =`
         <h5>&copy 2025 Foodie.All rights reseved</h5>
 
         <img src="/images/logo.jpg" alt="image" width="40%" height="40px">
-    </footer>  `;          
+    </footer>  `;   
+
+    async function fetchCount() {  
+const response5 = await fetch('http://localhost:3000/cart');
+const items = await response5.json();
+const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+document.getElementById('count').textContent=totalQuantity;
+}
+fetchCount();

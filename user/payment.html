@@ -176,11 +176,12 @@
             const items = cart.map(item => `${item.name} x ${item.quantity}`).join(', ');
             const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
             const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const finalprice = totalPrice + totalQuantity * 5;
 
             await fetch('http://localhost:3000/order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ items, totalPrice, totalQuantity })
+                body: JSON.stringify({ items, finalprice, totalQuantity })
             });
             alert('Order placed successfully!');
             window.location.href='/user/order.html';

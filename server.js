@@ -150,10 +150,10 @@ app.get('/cart/:id', (req, res) => {
 });
 
 app.post('/order', (req, res) => {
-    const { items, totalPrice, totalQuantity } = req.body;
+    const { items, finalprice, totalQuantity } = req.body;
     db.query(
         'INSERT INTO orders2 (items, total_price, total_quantity, status) VALUES (?, ?, ?, ?)',
-        [items, totalPrice, totalQuantity, 'food processing'],
+        [items, finalprice, totalQuantity, 'food processing'],
         (err, result) => {
             if (err) throw err;
             db.query('DELETE FROM cart', (clearErr) => {

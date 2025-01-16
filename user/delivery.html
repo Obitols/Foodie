@@ -111,14 +111,14 @@
             <aside class="bill">
                 <h2>cart Totals</h2>
                 <div>
-                    <p>subtotal</p><span id="subtotal">0.00</span>
+                    <p>subtotal</p><span class="subtotal">0.00</span>
                 </div>
                 <hr>
                 <div>
-                    <p>Delivery Fee</p><span>$5</span>
+                    <p>Delivery Fee</p><span class="dfee2">0.00</span>
                 </div>
                 <hr>
-                <div><b>Total</b> <span id="totalAmount"></span></div>
+                <div><b>Total</b> <span class="totalAmount"></span></div>
                 <button style="background-color: rgb(255, 0, 0);border: none; color: white;"
                      id="uploadButton" type="button">PROCESSED TO PAYMENT</button>
             </aside>
@@ -164,11 +164,16 @@
             alert("Error: " + err.message);
         });
     });
-    const totalAmount = localStorage.getItem('totalAmount') || '0.00';
-        const subtotal = (parseFloat(totalAmount) - 5).toFixed(2);
-
-        document.getElementById('subtotal').textContent = `$${subtotal}`;
-        document.getElementById('totalAmount').textContent = `$${totalAmount}`;
+    async function displayamount() {
+    const response = await fetch('http://localhost:3000/cart');
+    const items = await response.json();
+    const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    document.querySelector('.subtotal').textContent=`$${totalPrice}`;
+    const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelector('.dfee2').textContent=`$${totalQuantity*5}`;
+    document.querySelector('.totalAmount').textContent=`$${totalPrice +(totalQuantity*5)}`;
+    }
+    displayamount();
     </script>
 </body>
 
