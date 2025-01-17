@@ -32,14 +32,17 @@ function displayMenu(items) {
                                 <h5 style="margin: auto;">1</h5>
                                 <button onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price},'${item.image}')">Cart</button>
+                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price})">Cart</button>
                         </div>
                     </div>
             </div>`
     ).join("");
 }
 
-function filterMenu(type) {
+function filterMenu(element,type) {
+    const items = document.querySelectorAll(".choice li");
+    items.forEach(item => item.classList.remove("active"));
+    element.classList.add("active");
     const names=products[type];
     const buttons = document.querySelectorAll('.choicebtn button');
     buttons.forEach((button, index) => {

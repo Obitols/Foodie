@@ -110,19 +110,26 @@ app.get('/cart', (req, res) => {
 });
 
 app.post('/cart', (req, res) => {
-    const { itemId, name, price, quantity,image } = req.body;
+    const { itemId, name, price, quantity } = req.body;
+    const getImageQuery = `SELECT image FROM food_menu WHERE id = ?`;
+    db.query(getImageQuery, [itemId], (err, result) => {
+        if (err || result.length === 0) {
+            return res.status(404).send('Product not found or image missing');
+        }
+    const image = result[0].image;
     const sql = `
         INSERT INTO cart (itemId, name, price, quantity, total, image)
         VALUES (?, ?, ?, ?, ?, ?)
         ON DUPLICATE KEY UPDATE 
             quantity = quantity + VALUES(quantity),
-            total = price * (quantity + VALUES(quantity))
+            total = price * quantity
     `;
     db.query(sql, [itemId, name, price, quantity, price * quantity, image], (err) => {
         if (err) {
             return res.status(500).send(err);
         }
         res.json({ success: true });
+    });
     });
 });
 

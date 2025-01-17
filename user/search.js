@@ -85,7 +85,7 @@ const displayItem = (items) => {
                                 <h5 style="margin: auto;">1</h5>
                                 <button class="add" onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price},'${item.image}')">Cart</button>
+                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price})">Cart</button>
                         </div>
                     </div>
             </div>`;
@@ -119,7 +119,7 @@ function displayCart(items) {
      cartTableBody.innerHTML = items.map(item => {
         return `
             <tr>
-                <td><img src="/images/bubble.png" alt="${item.name}" style="width:50px;height:50px;"></td>
+                <td><img src='http://localhost:3000/cart/${item.id}' alt="${item.name}" style="width:50px;height:50px;"></td>
                 <td>${item.name}</td>
                 <td>$${item.price}</td>
                 <td>${item.quantity}</td>
@@ -137,11 +137,11 @@ function displayCart(items) {
     document.querySelector('.total2').textContent=`$${final.toFixed(2)}`;
 }
 
-async function addToCart(itemId, name, price, image) {
+async function addToCart(itemId, name, price) {
     await fetch('http://localhost:3000/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ itemId, name, price, quantity: 1 ,image})
+        body: JSON.stringify({ itemId, name, price, quantity: 1})
     });
     alert(`${name} added to cart`);
     fetchCount();
