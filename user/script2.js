@@ -215,7 +215,7 @@ footer.innerHTML =`
         <img src="/images/logo.jpg" alt="image" width="40%" height="40px">
     </footer>  `;   
 
-    async function fetchCount() {  
+async function fetchCount() {  
 const response5 = await fetch('http://localhost:3000/cart');
 const items = await response5.json();
 const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);

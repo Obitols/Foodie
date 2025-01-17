@@ -135,3 +135,20 @@ async function removeItem(id, button) {
             alert('Failed to delete recent entry');
         });
     }
+
+    <div class="itemdetail">
+                    <p>Greek salad</p><span>$24</span>
+                    <p>Qty 2</p><span>$12.00 each</span>
+                </div>
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$36</span>
+                    <p>Qty 3</p><span>$12.00 each</span>
+                </div>
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$12</span>
+                    <p>Qty 1</p><span>$12.00 each</span>
+                </div>
+                <div class="itemdetail">
+                    <p>Greek salad</p><span>$60</span>
+                    <p>Qty 5</p><span>$12.00 each</span>
+                </div>

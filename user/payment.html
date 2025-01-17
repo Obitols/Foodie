@@ -9,11 +9,12 @@
     <style>
         * {
             margin: 0;
+            padding: 0;
         }
 
         main {
-            width: 100vw;
-            height: 100vh;
+            width: 95vw;
+            height: 70vh;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -85,8 +86,8 @@
         }
 
         .itemdetails button {
-            margin: 3% 0;
-            padding: 1% 2%;
+            margin-bottom: 3%;
+            padding: 2% 3%;
             border-radius: 50%;
             border: none;
             background-color: gray;
@@ -117,25 +118,8 @@
         <section class="itemdetails">
             <button onclick="deleteDetails()">&lt;</button>
             <h5>Pay Course</h5>
-            <h1>$220.00</h1>
-            <div class="items">
-                <div class="itemdetail">
-                    <p>Greek salad</p><span>$24</span>
-                    <p>Qty 2</p><span>$12.00 each</span>
-                </div>
-                <div class="itemdetail">
-                    <p>Greek salad</p><span>$36</span>
-                    <p>Qty 3</p><span>$12.00 each</span>
-                </div>
-                <div class="itemdetail">
-                    <p>Greek salad</p><span>$12</span>
-                    <p>Qty 1</p><span>$12.00 each</span>
-                </div>
-                <div class="itemdetail">
-                    <p>Greek salad</p><span>$60</span>
-                    <p>Qty 5</p><span>$12.00 each</span>
-                </div>
-            </div>
+            <h1 class="total">000.00</h1>
+            <div class="items"></div>
         </section>
         <form action="">
             <h3>Pay with card</h3>
@@ -166,9 +150,23 @@
         </form>
     </main>
     <script>
+        let cart = [];
+        async function fetchcart() {
+            const response = await fetch('http://localhost:3000/cart');
+            cart = await response.json();
+            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const final =totalPrice + totalQuantity*5;
+            document.querySelector('.total').textContent=`$${final.toFixed(2)}`;
+            document.querySelector('.items').innerHTML = cart.map(item => `
+                <div class="itemdetail">
+                    <p>${item.name}</p><span>$${item.total}</span>
+                    <p>Qty: ${item.quantity}</p><span>$${item.price} each</span>
+                </div>
+            `).join("");
+        }
+
         async function placeOrder() {
-                const response = await fetch('http://localhost:3000/cart');
-               const cart = await response.json();
             if (cart.length === 0) {
                 alert('Cart is empty!');
                 return;
@@ -184,23 +182,23 @@
                 body: JSON.stringify({ items, finalprice, totalQuantity })
             });
             alert('Order placed successfully!');
-            window.location.href='/user/order.html';
+            window.location.href = '/user/order.html';
         }
         function deleteDetails() {
-        fetch('http://localhost:3000/address', {
-            method: 'DELETE',
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(data);
-            window.location.href='/user/delivery.html';
-
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to delete recent entry');
-        });
-    }
+            fetch('http://localhost:3000/address', {
+                method: 'DELETE',
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    window.location.href = '/user/delivery.html';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to delete recent entry');
+                });
+        }
+        fetchcart();
     </script>
 </body>
 

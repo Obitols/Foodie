@@ -11,10 +11,11 @@
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <header class="navigation"></header>
     <main>
-        <section id="page1" >
+        <section id="page1">
             <header>
                 <h5>Get 25% off your First order</h5>
                 <h1>Welcome to our <br><b>Cuisine restaurant</b></h1>
@@ -22,8 +23,8 @@
                     tempora optio amet nihil tenetur autem ipsa? Nisi, animi enim!</p>
                 <button class="act" id="sev"><a href="#page3" style="color: white;">Explore Food Menu</a></button>
             </header>
-            <aside >
-                <img src="/images/logo.jpg" alt="image" width="100%" height="100%" >
+            <aside>
+                <img src="/images/logo.jpg" alt="image" width="100%" height="100%">
             </aside>
         </section>
         <section class="desion">
@@ -119,7 +120,7 @@
                 </div>
             </nav>
             <div class="itemgroup"></div>
-            <button class="act" onclick="toggleheight()">Explore More</button>
+            <button class="act" id="explore" onclick="toggleheight()">Explore More</button>
         </section>
         <section id="page4">
             <img src="/images/logo.jpg" alt="image" width="15%" id="extra">
@@ -191,9 +192,24 @@
         </section>
     </main>
     <footer class="contact"></footer>
-    <!-- <script src="menu.js"></script> -->
     <script src="script.js"></script>
     <script src="script2.js"></script>
+    <script>
+       function toggleheight() {
+    const products = document.getElementById("page3");
+    const explore = document.getElementById("explore");
+
+    if (products.style.height === "140vh") {
+        products.style.height = "max-content";
+        explore.textContent = 'Explore Less';
+    } else {
+        products.style.height = "140vh";
+        explore.textContent = 'Explore More';
+        window.location.href = 'index.html#page3';
+    }
+}
+
+    </script>
 </body>
 
 </html>

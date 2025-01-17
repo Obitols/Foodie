@@ -129,11 +129,12 @@ function displayCart(items) {
         `;
     }).join(''); 
     const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    document.querySelector('.total').textContent=`$${totalPrice}`;
+    document.querySelector('.total').textContent=`$${totalPrice.toFixed(2)}`;
     const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
     document.getElementById('count').textContent=totalQuantity;
     document.querySelector('.dfee').textContent=`$${totalQuantity*5}`;
-    document.querySelector('.total2').textContent=`$${totalPrice +(totalQuantity*5)}`;
+    const final =totalPrice + totalQuantity*5;
+    document.querySelector('.total2').textContent=`$${final.toFixed(2)}`;
 }
 
 async function addToCart(itemId, name, price, image) {
@@ -142,8 +143,8 @@ async function addToCart(itemId, name, price, image) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ itemId, name, price, quantity: 1 ,image})
     });
-    
     alert(`${name} added to cart`);
+    fetchCount();
     fetchCart();
 }
 

@@ -60,11 +60,6 @@ const filterByCategory = (category) => {
     displayMenu(filteredData);
 };
 
-function toggleheight() {
-    const explore = document.getElementById("page3");
-    explore.style.height = explore.style.height === "140vh" ? "max-content" : "140vh";
-}
-
 fetch('products.json')
     .then(response => response.json())
     .then(data => {
