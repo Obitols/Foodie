@@ -170,7 +170,7 @@ footer.innerHTML =`
                 <h5>Foodie</h5>
             </b>
             <p>Make a connection<br>with Social media</p>
-            <div class="socm>
+            <div class="socm">
                 <i class='bx bxl-facebook bx-sm bx-border' id="touch"></i>
                 <i class='bx bxl-twitter bx-sm bx-border' id="touch"></i>
                 <i class='bx bxl-instagram bx-sm bx-border' id="touch"></i>

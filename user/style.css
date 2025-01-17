@@ -284,7 +284,12 @@ hr {
     padding: 1em 0;
     font-size: 0.8em;
 }
-
+.choicebtn button:focus{
+    background-color: #d32f0f;
+    border: transparent;
+    color: white;
+    scale: 1.09;
+}
 .itemgroup {
     display: grid;
     grid-template-columns: repeat(auto-fit, 255px);
