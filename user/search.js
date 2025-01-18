@@ -85,7 +85,7 @@ const displayItem = (items) => {
                                 <h5 style="margin: auto;">1</h5>
                                 <button class="add" onclick="updateQuantity(this, 1)">+</button>
                             </div>
-                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price})">Cart</button>
+                             <button class="Cart" onclick="addToCart(${item.id}, '${item.name}', ${item.price},this)">Cart</button>
                         </div>
                     </div>
             </div>`;
@@ -137,11 +137,13 @@ function displayCart(items) {
     document.querySelector('.total2').textContent=`$${final.toFixed(2)}`;
 }
 
-async function addToCart(itemId, name, price) {
+async function addToCart(itemId, name, price, button) {
+    const quantityTag = button.closest(".orderitem").querySelector(".noi h5");
+    const quantity = parseInt(quantityTag.textContent);
     await fetch('http://localhost:3000/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ itemId, name, price, quantity: 1})
+        body: JSON.stringify({ itemId, name, price, quantity})
     });
     alert(`${name} added to cart`);
     fetchCount();

@@ -187,7 +187,7 @@ button {
 #page2 header {
     position: relative;
     margin: 5% 0%;
-    height: 59vh;
+    height: 80vh;
 }
 
 #page2 aside {
@@ -195,7 +195,7 @@ button {
     flex-direction: column;
     justify-content: space-evenly;
     padding: 5%;
-    height: 50vh;
+    height: 80vh;
     position: relative;
 }
 
