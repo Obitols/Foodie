@@ -55,7 +55,7 @@
         </section>
         <section id="page2">
             <header>
-                <img src="/images/logo.jpg" alt="image" height="100%" width="100%">
+                <img src="/images/image.png" alt="image" height="100%" width="100%">
                 <div id="topreview">
                     <div id="sep"><img src="/images/logo.jpg" alt="image" width="20%" id="profile">
                         <a href="#page5">See All</a>
@@ -89,8 +89,9 @@
                 <b>
                     <h2>Health food to live a healthier <br> <span>life in the future</span></h2>
                 </b>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br> Aspernatur optio incidunt molestiae dolorum hic facilis, <br>
-                soluta ea ducimus fugiat odit quia dicta odio, ad porro?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br> Aspernatur optio incidunt molestiae
+                    dolorum hic facilis, <br>
+                    soluta ea ducimus fugiat odit quia dicta odio, ad porro?</p>
                 <button class="act"><a href="#page4" style="color: white;">Explore Our Story</a></button>
                 <img src="/images/logo.jpg" alt="image" width="20%" height="30%">
             </aside>
@@ -147,7 +148,7 @@
         </section>
         <section id="page5">
             <header>
-                <img src="/images/logo.jpg" alt="image" width="100%" height="100%">
+                <img src="/images/logo.jpg" alt="image" width="100%" height="100%" id="Customer">
                 <div id="btreview">
                     <h6>Customer Review Raiting</h6>
                     <div>
@@ -165,18 +166,14 @@
                 <b>
                     <h2>Our lovely Customer loves <br><span>our restaurant</span></h2>
                 </b>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate asperiores dicta temporibus
-                    alias
-                    ullam dolore voluptatum dolorem, fugit a corporis eum aliquam aliquid quas iusto quaerat repellendus
-                    aspernatur minus vitae. Provident veniam commodi maiores maxime, aspernatur deserunt aliquid magnam
-                    aperiam.</p>
+                <p id="testimonial-text"></p>
                 <div>
-                    <h4>Brooklyn Simmons</h4>
-                    <p>Dnaka,Bangladesh</p>
+                    <h4 id="customer-name"></h4>
+                    <p id="customer-location"></p>
                 </div>
                 <div id="arrow">
-                    <i class='bx bxs-chevron-left bx-border-circle bx-sm' id="touch"></i>
-                    <i class='bx bxs-chevron-right bx-border-circle bx-sm' id="touch"></i>
+                    <i class='bx bxs-chevron-left bx-border-circle bx-sm' id="prev"></i>
+                    <i class='bx bxs-chevron-right bx-border-circle bx-sm' id="next"></i>
                 </div>
             </aside>
         </section>
@@ -193,19 +190,84 @@
     <script src="script.js"></script>
     <script src="script2.js"></script>
     <script>
-       function toggleheight() {
-    const products = document.getElementById("page3");
-    const explore = document.getElementById("explore");
+        function toggleheight() {
+            const products = document.getElementById("page3");
+            const explore = document.getElementById("explore");
 
-    if (products.style.height === "140vh") {
-        products.style.height = "max-content";
-        explore.textContent = 'Explore Less';
-    } else {
-        products.style.height = "140vh";
-        explore.textContent = 'Explore More';
-        window.location.href = 'index.html#page3';
-    }
-}
+            if (products.style.height === "140vh") {
+                products.style.height = "max-content";
+                explore.textContent = 'Explore Less';
+            } else {
+                products.style.height = "140vh";
+                explore.textContent = 'Explore More';
+                window.location.href = 'index.html#page3';
+            }
+        }
+        const testimonials = [
+            {
+                src: "/images/pngegg (2).png",
+                text: `est temporibus tenetur, ea magni corporis nulla in, qui at tempora. Qui rem eum voluptatibus
+            ipsam, corrupti dolore odit hic eius quae alias architecto accusantium repudiandae
+            iure! Fuga dignissimos a aliquam dicta repellat? Officiis, provident consequatur? Est, inventore,
+            veritatis pariatur consequatur in voluptate nesciunt dolores, assumenda suscipit et impedit
+            repudiandae consequuntur velit voluptatum ducimus placeat. Quo quia molestias, nulla magnam sit sequi iure`,
+                name: "John Doe",
+                location: "London, UK"
+            },
+            {
+                src: "/images/image.png",
+                text: `veniam voluptatum culpa sint ipsum, accusantium iste fugit aliquid. Non aliquam, sunt maxime facilis
+            ullam provident labore, ratione iusto temporibus odio a doloribus expedita blanditiis officiis cupiditate
+            sed, molestias ipsa nostrum corporis architecto reprehenderit rerum velit. Voluptates dolores, possimus
+            officiis quisquam sunt ab commodi quidem obcaecati at consequuntur veniam. Officia temporibus
+            quasi! Libero quae quidem nam temporibus autem totam dolorum, dolore nesciunt? Soluta vitae, dicta veniam`,
+                name: "Brooklyn Simmons",
+                location: "Dhaka, Bangladesh"
+            },
+            {
+                src: "/images/pngegg (1).png",
+                text: `officiis quisquam sunt ab commodi quidem obcaecati at consequuntur veniam. Officia temporibus
+            quasi! Libero quae quidem nam temporibus autem totam dolorum, dolore nesciunt? Soluta vitae, dicta
+            fugit, tempora commodi a eligendi culpa quisquam, corporis sapiente. Consequatur iusto esse ullam,
+            obcaecati ratione facere nostrum in cupiditate hic delectus harum eligendi perferendis nihil sequi
+            fugit aspernatur error sit incidunt, excepturi quos, dolores quae blanditiis. Quidem est ea fugiat quod`,
+                name: "Samugapriyan",
+                location: "Tamilnadu, India"
+            },
+            {
+                src: "/images/pngegg.png",
+                text: `Dolores fuga inventore delectus eos quibusdam nisi pariatur quasi? Exercitationem impedit modi
+            voluptates optio asperiores corporis rerum facilis. Molestiae et nobis in consequuntur hic mollitia.
+            Quo neque velit dolores voluptate nobis voluptates dolorum, facere nam at? Quidem possimus ea eius
+            architecto eveniet. Saepe earum unde illo? Voluptas, natus inventore! Ratione quod cum, itaque officia
+            porro sunt eveniet provident iste reiciendis maiores animi nihil voluptate asperiores quae repellendus`,
+                name: "Edvin madhan raj",
+                location: "Kanchipuram, India"
+            }
+        ];
+
+        let currentIndex = 0;
+        document.getElementById('Customer').src = testimonials[currentIndex].src;
+        document.getElementById('testimonial-text').innerText = testimonials[currentIndex].text;
+        document.getElementById('customer-name').innerText = testimonials[currentIndex].name;
+        document.getElementById('customer-location').innerText = testimonials[currentIndex].location;
+
+        document.getElementById('next').onclick = () => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            updateTestimonial();
+        };
+
+        document.getElementById('prev').onclick = () => {
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial();
+        };
+
+        function updateTestimonial() {
+            document.getElementById('Customer').src = testimonials[currentIndex].src;
+            document.getElementById('testimonial-text').innerText = testimonials[currentIndex].text;
+            document.getElementById('customer-name').innerText = testimonials[currentIndex].name;
+            document.getElementById('customer-location').innerText = testimonials[currentIndex].location;
+        }
     </script>
 </body>
 

@@ -76,7 +76,7 @@ a {
     background-color: white;
 }
 
-#touch:hover{
+#prev:hover,#next:hover,#touch:hover{
     background-color:orangered;
     color: #ffffff;
     border-color: transparent;
@@ -206,7 +206,8 @@ button {
 }
 
 #topreview {
-    background-color: rgb(121, 121, 129);
+    background-color: rgba(0, 0, 0, 0.100);
+    backdrop-filter: blur(5px);
     width: 30%;
     height: 20vh;
     overflow: hidden;
@@ -229,7 +230,8 @@ button {
 }
 
 #review {
-    background-color: rgb(135, 135, 146);
+    background-color: rgba(0, 0, 0, 0.100);
+    backdrop-filter: blur(5px);
     width: 35%;
     height: 9vh;
     padding: 2%;
@@ -467,7 +469,8 @@ header {
 }
 
 #btreview {
-    background-color: rgb(135, 135, 146);
+    background-color: rgba(0, 0, 0, 0.100);
+    backdrop-filter: blur(5px);
     width: 35%;
     height:fit-content;
     padding: 2%;
@@ -525,7 +528,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 5%;
-    background-color: #ea7058;
+    background-color:coral;
 }
 
 #page7 address {
@@ -543,7 +546,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1% 5%;
-    background-color: #ea7058;
+    background-color: coral;
 }
 
 @media (max-width:390px) {
