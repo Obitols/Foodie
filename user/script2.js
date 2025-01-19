@@ -18,7 +18,7 @@ const headder = document.querySelector(".navigation");
         <i class='bx bx-shopping-bag bx-sm' id="cart" onclick="window.location.href='cart.html';">
             <h6 id="count">0</h6>
         </i>
-        <button onclick="signin()">SIGN IN</button>
+        <i class='bx bxs-user-circle bx-md' onclick="document.querySelector('.lsr').style.display='flex';login();"></i>
     </nav>
     <div class="searchalt">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
@@ -28,115 +28,85 @@ const headder = document.querySelector(".navigation");
         onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">
     </section>
 <section class="lsr" style="display: none;">
-        <form action="check.php" method="post" class="login" style="display: none;">
-            <i class='bx bx-x bx-md'
-            onclick="document.querySelector('.lsr').style.display ='none';"></i>
+        <form  action="http://localhost:3000/login" method="POST" enctype="multipart/form-data" class="login" style="display:none;">
+            <i class='bx bx-x bx-md close' onclick="document.querySelector('.lsr').style.display ='none';"></i>
             <h1 style="text-align: center;">Login</h1>
             <div>
                 <div class="info">
-                    <input type="text" placeholder="username" name="username" required autocomplete="off"></input>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(254, 249, 249, 1);">
-                        <path
-                            d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z">
-                        </path>
-                    </svg>
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                    <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
                 </div>
-                <label id="lab"> please complete the field</label>
+                <label class="lab"> please complete the field</label>
             </div>
             <div>
                 <div class="info">
-                    <input type="password" placeholder="password" name="password" required autocomplete="off"></input>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill:rgba(254, 249, 249, 1);">
-                        <path
-                            d="M20 12c0-1.103-.897-2-2-2h-1V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7z">
-                        </path>
-                    </svg>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                    <i class='bx bxs-lock-alt bx-sm' style='color:#ffffff' ></i>
                 </div>
-                <label id="lab"> please complete the field</label>
+                <label class="lab"> please complete the field</label>
             </div>
             <div id="pass">
                 <p><input type="checkbox">Remember me</p><b style="color:white;" onclick="forgot()">Resert password?</b>
             </div>
-            <input type="submit" value="Login" class="log">
+            <button type="button" class="log" onclick="log()">Login</button>
             <p style="text-align: center;">Don't have an account?<b onclick="signin()">Register</b></p>
         </form>
-        <form method="post" action="register.php" class="signup" style="display: none;">
-            <i class='bx bx-x bx-md'
+        <form action="http://localhost:3000/signup" method="POST" enctype="multipart/form-data" class="signup" style="display:none;">
+            <i class='bx bx-x bx-md close'
             onclick="document.querySelector('.lsr').style.display ='none';"></i>
             <h1 style="text-align: center;">Sign up</h1>
             <div>
                 <div class="info">
-                    <input type="text" placeholder="Full name" name="name" autocomplete="off" required></input>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(254, 249, 249, 1);">
-                        <path
-                            d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z">
-                        </path>
-                    </svg>
+                    <input type="text" name="name" required>
+                    <label>Full name</label>
+                    <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
                 </div>
-                <label for=""> please complete the field</label>
+                <label class="lab"> please complete the field</label>
             </div>
             <div>
                 <div class="info">
-                    <input type="password" placeholder="password" name="pass" autocomplete="off" required></input>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(255, 252, 252, 1);">
-                        <path
-                            d="M7 17a5.007 5.007 0 0 0 4.898-4H14v2h2v-2h2v3h2v-3h1v-2h-9.102A5.007 5.007 0 0 0 7 7c-2.757 0-5 2.243-5 5s2.243 5 5 5zm0-8c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3z">
-                        </path>
-                    </svg>
+                    <input type="password" name="pass" required>
+                    <label>Password</label>
+                    <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
                 </div>
-                <label for=""> please complete the field</label>
+                <label class="lab"> please complete the field</label>
             </div>
             <div>
                 <div class="info">
-                    <input type="email" placeholder="Email" name="email" autocomplete="off" required></input>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(255, 255, 255, 1);">
-                        <path
-                            d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64z">
-                        </path>
-                    </svg>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                    <i class='bx bxl-gmail bx-sm'></i>
                 </div>
-                <label for=""> please complete the field</label>
+                <label class="lab"> please complete the field</label>
             </div>
-            <input type="submit" value="Sign up" class="log" style="background-color:white ;">
+            <button type="button" class="log" onclick="signup()">Sign up</button>
             <p style="text-align: center;">Already have an account? <b onclick="login()">Log In</b></p>
         </form>
-        <form action="change.php" method="post" class="forgot" style="display: none;">
-            <i class='bx bx-x bx-md'
+        <form action="http://localhost:3000/forgot_password" method="POST" enctype="multipart/form-data" class="forgot" style="display:none;">
+            <i class='bx bx-x bx-md close'
             onclick="document.querySelector('.lsr').style.display ='none';"></i>
             <h1 style="text-align: center;">Reset Password</h1>
             <div class="info">
-                <input type="text" placeholder="username" name="usname" autocomplete="off" required></input>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: rgba(254, 249, 249, 1);">
-                    <path
-                        d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z">
-                    </path>
-                </svg>
+                <input type="text" name="usname" required>
+                <label>Email</label>
+                <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
             </div>
+            <label class="lab"> please complete the field</label>
             <div class="info">
-                <input type="password" placeholder=" New password" name="npass" autocomplete="off" required></input>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: rgba(255, 252, 252, 1);">
-                    <path
-                        d="M7 17a5.007 5.007 0 0 0 4.898-4H14v2h2v-2h2v3h2v-3h1v-2h-9.102A5.007 5.007 0 0 0 7 7c-2.757 0-5 2.243-5 5s2.243 5 5 5zm0-8c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3z">
-                    </path>
-                </svg>
+                <input type="password" name="newPassword" required>
+                <label>New password</label>
+                <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
             </div>
+            <label class="lab"> please complete the field</label>
             <div class="info">
-                <input type="password" placeholder="Confirm password" name="cpass" autocomplete="off" required></input>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: rgba(255, 252, 252, 1);">
-                    <path
-                        d="M7 17a5.007 5.007 0 0 0 4.898-4H14v2h2v-2h2v3h2v-3h1v-2h-9.102A5.007 5.007 0 0 0 7 7c-2.757 0-5 2.243-5 5s2.243 5 5 5zm0-8c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3z">
-                    </path>
-                </svg>
+                <input type="password" name="confirmPassword" required>
+                <label>Confirm password</label>
+                <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
             </div>
-            <input type="submit" value="Resert" class="log" style="background-color:white ;">
+            <label class="lab"> please complete the field</label>
+            <button type="button" class="log" onclick="resetpass()">Resert</button>
             <p style="text-align: center;">Don't want to resert Back to <b onclick="login()">Log In</b></p>
         </form>
     </section>

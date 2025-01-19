@@ -2,7 +2,8 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 const multer = require("multer");
-// const bodyParser = require('body-parser');
+const bcrypt = require("bcryptjs");
+const bodyParser = require('body-parser');
 
 const app = express();
 const storage = multer.memoryStorage();
@@ -11,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 const db = mysql.createConnection({
     host: '127.0.0.1',
@@ -189,6 +190,73 @@ app.put('/orders/:orderId', async (req, res) => {
     });
 });
 
+
+app.post('/signup', (req, res) => {
+    const { name, pass, email } = req.body;
+    if (!name || !pass || !email) return res.status(400).json({ message: "All fields are required." });
+
+    bcrypt.hash(pass, 10, (err, hashedPassword) => {
+        if (err) return res.status(500).json({ message: "Error hashing password." });
+    
+        const sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
+        db.query(sql, [name, hashedPassword, email], (err) => {
+          if (err) return res.status(500).json({ message: "Database error." });
+          res.json({ message: "User registered successfully!" });
+        });
+      });
+});
+
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+    if (!username || !password) return res.status(400).json({ message: "All fields are required." });
+  
+    const sql = "SELECT * FROM users WHERE username = ?";
+    db.query(sql, [username], (err, results) => {
+      if (err) return res.status(500).json({ message: "Database error." });
+  
+      if (results.length > 0) {
+        bcrypt.compare(password, results[0].password, (err, isMatch) => {
+          if (err) return res.status(500).json({ message: "Error comparing passwords." });
+  
+          isMatch
+            ? res.json({ message: "Login successful!" })
+            : res.status(400).json({ message: "Invalid credentials." });
+        });
+      } else {
+        res.status(400).json({ message: "User not found." });
+      }
+    });
+  });
+
+  app.post("/forgot_password", (req, res) => {
+    const { usname, newPassword, confirmPassword } = req.body;
+    if (!username || !newPassword || !confirmPassword) {
+      return res.status(400).json({ message: "All fields are required." });
+    }
+  
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ message: "Passwords do not match." });
+    }
+  
+    const sql = "SELECT * FROM users WHERE username = ?";
+    db.query(sql, [usname], (err, results) => {
+      if (err) return res.status(500).json({ message: "Database error." });
+  
+      if (results.length > 0) {
+         bcrypt.hash(newPassword, 10, (err, hashedPassword) => {
+            if (err) return res.status(500).json({ message: "Error hashing password." });
+  
+            const updateSql = "UPDATE users SET password = ? WHERE username = ?";
+            db.query(updateSql, [hashedPassword, usname], (err) => {
+              if (err) return res.status(500).json({ message: "Error updating password." });
+              res.json({ message: "Password reset successfully!" });
+            });
+          });
+      } else {
+        res.status(400).json({ message: "User not found." });
+      }
+    });
+  });
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);

@@ -30,7 +30,7 @@
     box-shadow: 1px 1px 10px 5px;
     position: relative;
 }
-form i{
+form .close{
     position: absolute;
     top: 5px;
     right: 5px;
@@ -44,7 +44,6 @@ form b{
     width: 80%;
     align-self: center;
     background-color: white;
-    font-size: medium;
     border: none;
     border-radius: 1.5rem;
 }
@@ -53,14 +52,28 @@ form b{
     display: flex;
     padding: 0 3%;
     border: 0.2rem solid white;
-    border-radius: 1.5rem;
+    border-radius: 0.5em;
     height: 2.3rem;
     align-items: center;
+    position: relative;
 }
 
-.info input::placeholder {
-    color: white;
+.info label{
+    position: absolute; 
+    top: 8px;
+    left: 8px;
+    color: black;
+    transition: .3s;
 }
+
+input:focus ~ label,input:valid ~ label{
+    top: -16px;
+    left: -3px;
+    background-color: hsla(90, 100%, 98%, 0.768);
+    padding: 0 0.3em;
+    border-radius: 0.3em;
+  } 
+
 .info input {
     width: 14rem;
     border: none;
@@ -78,7 +91,7 @@ form b{
     height: 1rem;
     font-size: 0.9em;
 }
-label{
+.lab{
     display:none;
     color: red;
     margin-left: 1rem;
