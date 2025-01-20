@@ -40,13 +40,13 @@ function toggleForms(formToShow) {
                 .then(response => response.text())
                 .then(data => {
                     alert(data);
-                    Loginform.reset();
+                    signinform.reset();
                 })
                 .catch(err => {
                     alert("Error: " + err.message);
                 });
 }
-function log(){
+function logn(){
     const Loginform = document.querySelector('.login');
             const formData = new FormData(Loginform);
 
@@ -86,7 +86,7 @@ function resetpass(){
                 .then(response => response.text())
                 .then(data => {
                     alert(data);
-                    Loginform.reset();
+                    forgotform.reset();
                 })
                 .catch(err => {
                     alert("Error: " + err.message);

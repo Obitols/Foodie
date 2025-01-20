@@ -27,7 +27,7 @@ const headder = document.querySelector(".navigation");
     <section class="aside"
         onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">
     </section>
-<section class="lsr" style="display: none;">
+<section class="lsr" style="display:none;">
         <form  action="http://localhost:3000/login" method="POST" enctype="multipart/form-data" class="login" style="display:none;">
             <i class='bx bx-x bx-md close' onclick="document.querySelector('.lsr').style.display ='none';"></i>
             <h1 style="text-align: center;">Login</h1>
@@ -50,7 +50,7 @@ const headder = document.querySelector(".navigation");
             <div id="pass">
                 <p><input type="checkbox">Remember me</p><b style="color:white;" onclick="forgot()">Resert password?</b>
             </div>
-            <button type="button" class="log" onclick="log()">Login</button>
+            <button type="button" class="log" onclick="logn()">Login</button>
             <p style="text-align: center;">Don't have an account?<b onclick="signin()">Register</b></p>
         </form>
         <form action="http://localhost:3000/signup" method="POST" enctype="multipart/form-data" class="signup" style="display:none;">

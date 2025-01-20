@@ -190,7 +190,6 @@ app.put('/orders/:orderId', async (req, res) => {
     });
 });
 
-
 app.post('/signup', (req, res) => {
     const { name, pass, email } = req.body;
     if (!name || !pass || !email) return res.status(400).json({ message: "All fields are required." });
@@ -230,7 +229,7 @@ app.post("/login", (req, res) => {
 
   app.post("/forgot_password", (req, res) => {
     const { usname, newPassword, confirmPassword } = req.body;
-    if (!username || !newPassword || !confirmPassword) {
+    if (!usname || !newPassword || !confirmPassword) {
       return res.status(400).json({ message: "All fields are required." });
     }
   
