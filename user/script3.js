@@ -17,12 +17,12 @@ function toggleForms(formToShow) {
   }
   function signup(){
     const signinform = document.querySelector('.signup');
-            const formData = new FormData(signinform);
+            const formData1 = new FormData(signinform);
             const patterns = {
                 email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             }
 
-            for (let [key, value] of formData.entries()) {
+            for (let [key, value] of formData1.entries()) {
                 if (typeof value === "string" && !value.trim()) {
                     alert("Please fill all fields.");
                     return;
@@ -33,9 +33,9 @@ function toggleForms(formToShow) {
                     return;
                 }
             }
-            fetch(signinform.action, {
+             fetch(signinform.action, {
                 method: "POST",
-                body: formData
+                body: formData1,
             })
                 .then(response => response.text())
                 .then(data => {
@@ -48,9 +48,9 @@ function toggleForms(formToShow) {
 }
 function logn(){
     const Loginform = document.querySelector('.login');
-            const formData = new FormData(Loginform);
+            const formData2 = new FormData(Loginform);
 
-            for (let [key, value] of formData.entries()) {
+            for (let [key, value] of formData2.entries()) {
                 if (typeof value === "string" && !value.trim()) {
                     alert("Please fill all fields.");
                     return;
@@ -58,7 +58,7 @@ function logn(){
             }
             fetch(Loginform.action, {
                 method: "POST",
-                body: formData
+                body: formData2
             })
                 .then(response => response.text())
                 .then(data => {
@@ -71,9 +71,9 @@ function logn(){
 }
 function resetpass(){
     const forgotform = document.querySelector('.forgot');
-            const formData = new FormData(forgotform);
+            const formData3 = new FormData(forgotform);
 
-            for (let [key, value] of formData.entries()) {
+            for (let [key, value] of formData3.entries()) {
                 if (typeof value === "string" && !value.trim()) {
                     alert("Please fill all fields.");
                     return;
@@ -81,7 +81,7 @@ function resetpass(){
             }
             fetch(forgotform.action, {
                 method: "POST",
-                body: formData
+                body: formData3
             })
                 .then(response => response.text())
                 .then(data => {

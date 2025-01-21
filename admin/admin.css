@@ -7,7 +7,7 @@ nav{
     height: 10vh;
     display: flex;
     width:100%;
-    justify-content: space-between;
+    justify-content:start;
     align-items: center;
     border-style:none none solid none;
 }

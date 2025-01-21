@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style2.css">
     <script src="search.js" defer></script>
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -15,19 +14,25 @@
             height: clamp(fit-content, 100vh, max-content);
         }
 
-        main table {
+        .table {
+            min-height: 50vh;
             width: 90%;
             margin: 5%;
             overflow-y: auto;
-            text-align: left;
             border-collapse: collapse;
         }
 
-        main table tr td {
+        .table tr td {
             padding: 0.5em 0;
+            text-align: center;
             border-bottom: 2px solid antiquewhite;
         }
         
+        .table tr th{
+            text-align: center;
+            padding: 1.5rem;
+        }
+
         main a {
             margin-left: 70%;
         }
@@ -53,37 +58,43 @@
             }
         }
 
-        @media (max-width:550px) {
+        @media (max-width:650px) {
 
          main{
-            font-size: 0.6em;
+            font-size: 0.7em;
          }
          .bill{
-            height: 20vh;
+            height: 25vh;
+            width: 90%;
+         }
+         .carttable{
+            width: 100%;
+            overflow: auto;
          }
         }
+       
     </style>
 </head>
 
 <body>
     <header class="navigation"></header>
     <main>
+        <section class="carttable">
         <table class="table">
             <thead>
                 <tr>
                     <th>Image</th>
-                    <th>Item Name</th>
-                    <!-- <th>Title</th> -->
+                    <th>Item</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
                     <th>Remove</th>
                 </tr>
             </thead>
-            <tbody id="cartTableBody"></tbody>
-            
+            <tbody id="cartTableBody"></tbody> 
         </table>
-        <a href="/user/index.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to Products</button></a>
+    </section>
+        <a href="/user/home.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to Products</button></a>
         <section class="bill">
             <h2>cart Totals</h2>
             <div>

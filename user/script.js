@@ -13,16 +13,6 @@ function displayMenu(items) {
                     <img src='http://localhost:3000/food_menu/${item.id}' alt="${item.name}" class="image">
                     <h4>${item.name}</h4>
                     <h6>${item.title}</h6>
-                    <div class="rr">
-                        <div>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star-half'></i>
-                            <i class='bx bx-star'></i>
-                        </div>
-                        <h6>(${item.review} Reviews)</h6>
-                    </div>
                     <div class="ac">
                         <h3>$${item.price}</h3>
                         <button class="addtc" onclick="showcart(this)">Add To Cart</button>
@@ -49,13 +39,8 @@ function filterMenu(element,type) {
         button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
         button.setAttribute('onclick', `filterByCategory('${names[index].btname}')`);
     });
-    if(type === 'all'){
-        displayMenu(foodMenu); 
-    }
-    else{
         const filteredData = foodMenu.filter(item => item.meal_type === type);
-        displayMenu(filteredData);
-    }     
+        displayMenu(filteredData);   
 }
 
 const filterByCategory = (category) => {

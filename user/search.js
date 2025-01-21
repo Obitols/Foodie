@@ -41,23 +41,13 @@ const displayItem = (items) => {
         container.style.display = "grid";
         container.className = 'itemgroup';
         container.innerHTML = items.map((item) => {
-            const { name, title, review, price, image } = item;
+            const { name, title, price} = item;
             return `
             <div class="orderitem">
                     <div class="rot"></div>
                     <img src='http://localhost:3000/food_menu/${item.id}' alt="${name}" class="image">
                     <h4>${name}</h4>
                     <h6>${title}</h6>
-                    <div class="rr">
-                        <div>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star-half'></i>
-                            <i class='bx bx-star'></i>
-                        </div>
-                        <h6>(${review} Reviews)</h6>
-                    </div>
                     <div class="ac">
                         <h3>$${price}</h3>
                         <button class="addtc" onclick="showcart(this)">Add To Cart</button>
@@ -142,6 +132,9 @@ async function removeFromCart(itemId) {
 if (window.location.pathname.includes('cart.html')) {
     fetchCart();
 }
-
+if (window.location.pathname.includes('delivery.html')) {
+    document.querySelector('.search').style.visibility='hidden';
+    document.querySelector('.searchalt').style.display='none';
+}
 loadFoodMenu();
 

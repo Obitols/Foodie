@@ -1,0 +1,133 @@
+        <!-- <img src="/images/bubble.png" alt="image" style="margin-right: 3%;"> -->
+<section id="page6">
+            <h2>Join our member and get <br>discount up to 50%</h2>
+            <form id="inputs">
+                <input type="email" name="" placeholder="Enter your email" required>
+                <button class="act" type="submit">SIGN IN</button>
+            </form>
+            <a href="">I'm new member</a>
+        </section>
+
+        #page6 {
+    margin: 5% 4%;
+    padding: 4%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    background-color: aqua;
+    border-radius: 1em;
+    justify-content: space-around;
+}
+
+#page6 a {
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+#inputs {
+    display: flex;
+    width: 30vw;
+    background-color: white;
+    width: fit-content;
+    align-self: center;
+    border-radius: 5px;
+    height: 3rem;
+}
+#inputs button {
+    line-height: 1.7rem;
+    border-radius: 5px;
+}
+ if(type === 'all'){
+        displayMenu(foodMenu); 
+    }
+
+    else{
+        const filteredData = foodMenu.filter(item => item.meal_type === type);
+        displayMenu(filteredData);
+    }
+                        <li onclick="filterMenu(this,'all')" >All</li>
+,
+     "all": [
+      {"btname": "SetMenu","cname": "bx bx-baguette","review":"68"},
+      {"btname": "Bread","cname": "bx bx-bowl-rice","review":"77"},
+      {"btname": "Sandwich","cname": "bx bx-baguette","review":"55"},
+      {"btname": "Burger","cname": "bx bx-bowl-rice","review":"57"},
+      {"btname": "Pasta","cname": "bx bx-baguette","review":"58"},
+      {"btname": "Pizza","cname": "bx bx-bowl-rice","review":"75"}
+     ]
+
+     <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(${item.review} Reviews)</h6>
+                    </div>
+
+                    .rr {
+    display: grid;
+    gap: 5%;
+    grid-template-columns: 1fr 1fr;
+}
+ <div class="rr">
+                        <div>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <h6>(${review} Reviews)</h6>
+                    </div>
+
+                    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const final =totalPrice + totalQuantity*5;
+            document.querySelector('.total').textContent=`$${final.toFixed(2)}`;
+            document.querySelector('.items').innerHTML = cart.map(item => `
+                <div class="itemdetail">
+                    <p>${item.name}</p><span>$${item.total}</span>
+                    <p>Qty: ${item.quantity}</p><span>$${item.price} each</span>
+                </div>
+            `).join("");
+
+             function deleteDetails() {
+            fetch('http://localhost:3000/address', {
+                method: 'DELETE',
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    window.location.href = '/user/delivery.html';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to delete recent entry');
+                });
+        }
+        app.delete("/address", (req, res) => {
+    const query = `DELETE FROM address ORDER BY id DESC LIMIT 1;`;
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error('Error deleting address:', err);
+            return res.status(500).send('Failed to delete address');
+        }
+        res.send('please Re-enter your address!');
+    });
+});
+            window.location.href = '/user/payment.html';
+<!-- <section class="home">
+            <header>
+                <h5>Get 25% off your First order</h5>
+                <h1>Welcome to our <br><b>Cuisine restaurant</b></h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam debitis <br>
+                    tempora optio amet nihil tenetur autem ipsa? Nisi, animi enim!</p>
+                <button class="act" id="sev"><a href="#page3" style="color: white;">Explore Food Menu</a></button>
+            </header>
+            <aside>
+                <img src="/images/image.png" alt="image" width="80%" height="80%">
+            </aside>
+        </section> -->

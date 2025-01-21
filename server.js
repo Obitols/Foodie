@@ -85,18 +85,7 @@ app.post("/address", (req, res) => {
             console.error('Error uploading address:', err);
             return res.status(500).send('Failed to upload address');
         }
-        res.send('Address submitted successfully!');
-    });
-});
-
-app.delete("/address", (req, res) => {
-    const query = `DELETE FROM address ORDER BY id DESC LIMIT 1;`;
-    db.query(query, (err, result) => {
-        if (err) {
-            console.error('Error deleting address:', err);
-            return res.status(500).send('Failed to delete address');
-        }
-        res.send('please Re-enter your address!');
+        res.json({ success: true });
     });
 });
 
@@ -158,10 +147,10 @@ app.get('/cart/:id', (req, res) => {
 });
 
 app.post('/order', (req, res) => {
-    const { items, finalprice, totalQuantity } = req.body;
+    const { itemsp, finalprice, totalQuantity } = req.body;
     db.query(
         'INSERT INTO orders (items, total_price, total_quantity, status) VALUES (?, ?, ?, ?)',
-        [items, finalprice, totalQuantity, 'food processing'],
+        [itemsp, finalprice, totalQuantity, 'food processing'],
         (err, result) => {
             if (err) throw err;
             db.query('DELETE FROM cart', (clearErr) => {

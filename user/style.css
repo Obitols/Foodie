@@ -14,6 +14,11 @@
 .navtop button{
     padding: 0.9em;
 }
+.navigation{
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
 .search,.searchalt {
     width: 30%;
     padding-left: 1rem;
@@ -345,12 +350,6 @@ hr {
     filter: drop-shadow(-2px -2px 5px rgb(188, 165, 165));
 }
 
-.rr {
-    display: grid;
-    gap: 5%;
-    grid-template-columns: 1fr 1fr;
-}
-
 .ac {
     display: grid;
     width: inherit;
@@ -460,7 +459,6 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-self: center;
-    height: 50vh;
 }
 
 #arrow {
@@ -484,46 +482,17 @@ header {
     bottom: 3%;
     right: 0;
 }
-
-#page6 {
-    margin: 5% 4%;
-    padding: 4%;
-    text-align: center;
+.gotop{
     display: flex;
-    flex-direction: column;
-    height: 25vh;
-    background-color: aqua;
-    border-radius: 1em;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-
-#page6 a {
-    text-decoration: underline;
-    color: rgb(255, 255, 255);
-}
-
-#inputs {
-    display: flex;
-    width: 30vw;
-    background-color: white;
-    width: fit-content;
-    align-self: center;
-    border-radius: 5px;
-    height: 3rem;
-}
-
-#inputs input,.search input,.searchalt input {
+.search input,.searchalt input {
     border: none;
     margin-left: 0.8rem;
     outline: none;
     padding: 0.7rem 0;
     font-size: 1em;
     letter-spacing: 0.1em;
-}
-
-#inputs button {
-    line-height: 1.7rem;
-    border-radius: 5px;
 }
 
 #page7 {
@@ -555,17 +524,11 @@ header {
     #page5 aside header{
         height: 80vh;
     }
-    #page7 {
-        flex-direction: column;
-        margin: 0;
+        
+    #page8{
+        width: 90%;
         align-items: center;
-        height: 40vh;
-    }
-    /* #page7 table,p,h5, */
-    #page8 h5 {
-        width: 100%;
-        align-self: center;
-        text-align: center;
+        font-size: 0.8rem;
     }
 
     #inputs button {
@@ -582,6 +545,15 @@ header {
 
     .choice li {
         margin: 0.5em;
+    }
+    #page7 {
+        height: 22vh;
+        flex-direction: column;
+        margin: 0;
+        font-size: 0.8rem;
+    }
+    #page7 table{
+        width: 100%;
     }
 
     #page2 header {
@@ -627,7 +599,7 @@ header {
     }
 
     .search {
-        width: 60%;
+        width: 50%;
     }
 
     #page7 table{

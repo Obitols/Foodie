@@ -5,11 +5,11 @@ const headder = document.querySelector(".navigation");
             onclick="document.querySelector('.side').style.display ='flex';document.querySelector('.aside').style.display ='block';"></i>
         <h3 class="topic">Foodie</h3>
         <ul class="Service">
-            <li><a href="index.html" onclick="document.querySelector('.aside').style.display ='none';">Home</a></li>
-            <li><a href="index.html#page3" onclick="document.querySelector('.aside').style.display ='none';">Categories</a></li>
+            <li><a href="home.html" onclick="document.querySelector('.aside').style.display ='none';">Home</a></li>
+            <li><a href="home.html#page3" onclick="document.querySelector('.aside').style.display ='none';">Categories</a></li>
             <li><a href="order.html" onclick="document.querySelector('.aside').style.display ='none';">Myorder</a></li>
-            <li><a href="index.html#page7" onclick="document.querySelector('.aside').style.display ='none';">Content</a></li>
-            <li><a href="index.html#sev" onclick="document.querySelector('.aside').style.display ='none';">Service</a></li>
+            <li><a href="home.html#page7" onclick="document.querySelector('.aside').style.display ='none';">Content</a></li>
+            <li><a href="home.html#sev" onclick="document.querySelector('.aside').style.display ='none';">Service</a></li>
         </ul>
         <div class="search">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
@@ -18,7 +18,7 @@ const headder = document.querySelector(".navigation");
         <i class='bx bx-shopping-bag bx-sm' id="cart" onclick="window.location.href='cart.html';">
             <h6 id="count">0</h6>
         </i>
-        <i class='bx bxs-user-circle bx-md' onclick="document.querySelector('.lsr').style.display='flex';login();"></i>
+        <i class='bx bxs-user-circle bx-md'></i>
     </nav>
     <div class="searchalt">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
@@ -27,89 +27,6 @@ const headder = document.querySelector(".navigation");
     <section class="aside"
         onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';">
     </section>
-<section class="lsr" style="display:none;">
-        <form  action="http://localhost:3000/login" method="POST" enctype="multipart/form-data" class="login" style="display:none;">
-            <i class='bx bx-x bx-md close' onclick="document.querySelector('.lsr').style.display ='none';"></i>
-            <h1 style="text-align: center;">Login</h1>
-            <div>
-                <div class="info">
-                    <input type="text" name="username" required>
-                    <label>Username</label>
-                    <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
-                </div>
-                <label class="lab"> please complete the field</label>
-            </div>
-            <div>
-                <div class="info">
-                    <input type="password" name="password" required>
-                    <label>Password</label>
-                    <i class='bx bxs-lock-alt bx-sm' style='color:#ffffff' ></i>
-                </div>
-                <label class="lab"> please complete the field</label>
-            </div>
-            <div id="pass">
-                <p><input type="checkbox">Remember me</p><b style="color:white;" onclick="forgot()">Resert password?</b>
-            </div>
-            <button type="button" class="log" onclick="logn()">Login</button>
-            <p style="text-align: center;">Don't have an account?<b onclick="signin()">Register</b></p>
-        </form>
-        <form action="http://localhost:3000/signup" method="POST" enctype="multipart/form-data" class="signup" style="display:none;">
-            <i class='bx bx-x bx-md close'
-            onclick="document.querySelector('.lsr').style.display ='none';"></i>
-            <h1 style="text-align: center;">Sign up</h1>
-            <div>
-                <div class="info">
-                    <input type="text" name="name" required>
-                    <label>Full name</label>
-                    <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
-                </div>
-                <label class="lab"> please complete the field</label>
-            </div>
-            <div>
-                <div class="info">
-                    <input type="password" name="pass" required>
-                    <label>Password</label>
-                    <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
-                </div>
-                <label class="lab"> please complete the field</label>
-            </div>
-            <div>
-                <div class="info">
-                    <input type="email" name="email" required>
-                    <label>Email</label>
-                    <i class='bx bxl-gmail bx-sm'></i>
-                </div>
-                <label class="lab"> please complete the field</label>
-            </div>
-            <button type="button" class="log" onclick="signup()">Sign up</button>
-            <p style="text-align: center;">Already have an account? <b onclick="login()">Log In</b></p>
-        </form>
-        <form action="http://localhost:3000/forgot_password" method="POST" enctype="multipart/form-data" class="forgot" style="display:none;">
-            <i class='bx bx-x bx-md close'
-            onclick="document.querySelector('.lsr').style.display ='none';"></i>
-            <h1 style="text-align: center;">Reset Password</h1>
-            <div class="info">
-                <input type="text" name="usname" required>
-                <label>Email</label>
-                <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
-            </div>
-            <label class="lab"> please complete the field</label>
-            <div class="info">
-                <input type="password" name="newPassword" required>
-                <label>New password</label>
-                <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
-            </div>
-            <label class="lab"> please complete the field</label>
-            <div class="info">
-                <input type="password" name="confirmPassword" required>
-                <label>Confirm password</label>
-                <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
-            </div>
-            <label class="lab"> please complete the field</label>
-            <button type="button" class="log" onclick="resetpass()">Resert</button>
-            <p style="text-align: center;">Don't want to resert Back to <b onclick="login()">Log In</b></p>
-        </form>
-    </section>
     <nav class="side">
         <div>
             <h3 class="topic">Foodie</h3>
@@ -117,11 +34,11 @@ const headder = document.querySelector(".navigation");
                 onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';"></i>
         </div>
         <ul class="SService">
-            <li><a href="index.html" onclick="document.querySelector('.aside').style.display ='none';">Home</a></li>
-            <li><a href="index.html#page3" onclick="document.querySelector('.aside').style.display ='none';">Categories</a></li>
+            <li><a href="home.html" onclick="document.querySelector('.aside').style.display ='none';">Home</a></li>
+            <li><a href="home.html#page3" onclick="document.querySelector('.aside').style.display ='none';document.querySelector('.side').style.display ='none';">Categories</a></li>
             <li><a href="order.html" onclick="document.querySelector('.aside').style.display ='none';">Myorder</a></li>
-            <li><a href="index.html#page7" onclick="document.querySelector('.aside').style.display ='none';">Content</a></li>
-            <li><a href="index.html#sev" onclick="document.querySelector('.aside').style.display ='none';">Service</a></li>
+            <li><a href="home.html#page7" onclick="document.querySelector('.aside').style.display ='none';document.querySelector('.side').style.display ='none';">Content</a></li>
+            <li><a href="home.html#sev" onclick="document.querySelector('.aside').style.display ='none';document.querySelector('.side').style.display ='none';">Service</a></li>
         </ul>
         <footer>
             <i class='bx bxl-facebook bx-sm bx-border' id="touch"></i>
