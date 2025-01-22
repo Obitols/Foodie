@@ -131,3 +131,6 @@
                 <img src="/images/image.png" alt="image" width="80%" height="80%">
             </aside>
         </section> -->
+
+        <!-- <i class='bx bx-x bx-md close'
+                onclick="document.querySelector('.lsr').style.display ='none';"></i> -->

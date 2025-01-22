@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
+const nodemailer = require("nodemailer");
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -25,7 +26,25 @@ db.connect((err) => {
     if (err) throw err;
     console.log('Database connected!');
 });
-
+const transporter = nodemailer.createTransport(
+    {
+        secure:true,
+        host:'smtp.gmail.com',
+        port:465,//587 and false,465
+        auth:{
+            user:'edvinlokesh@gmail.com',
+            pass:'lywu bmpx sptz wbup'
+        }
+    }
+);
+  
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("SMTP connection error:", error);
+    } else {
+      console.log("SMTP is working fine!");
+    }
+  });
 app.get('/food_menu', (req, res) => {
     query = ` SELECT * FROM food_menu`;
     db.query(query, (err, results) => {
@@ -180,14 +199,14 @@ app.put('/orders/:orderId', async (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-    const { name, pass, email } = req.body;
-    if (!name || !pass || !email) return res.status(400).json({ message: "All fields are required." });
+    const { name, pass, uemail } = req.body;
+    if (!name || !pass || !uemail) return res.status(400).json({ message: "All fields are required." });
 
     bcrypt.hash(pass, 10, (err, hashedPassword) => {
         if (err) return res.status(500).json({ message: "Error hashing password." });
     
         const sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
-        db.query(sql, [name, hashedPassword, email], (err) => {
+        db.query(sql, [name, hashedPassword, uemail], (err) => {
           if (err) return res.status(500).json({ message: "Database error." });
           res.json({ message: "User registered successfully!" });
         });
@@ -208,17 +227,71 @@ app.post("/login", (req, res) => {
   
           isMatch
             ? res.json({ message: "Login successful!" })
-            : res.status(400).json({ message: "Invalid credentials." });
+            : res.status(400).json({ message: "Invalid password." });
         });
       } else {
-        res.status(400).json({ message: "User not found." });
+        res.json({ message: "User not found." });
       }
     });
   });
 
-  app.post("/forgot_password", (req, res) => {
-    const { usname, newPassword, confirmPassword } = req.body;
-    if (!usname || !newPassword || !confirmPassword) {
+  app.post("/forgot-password", (req, res) => {
+    const { username } = req.body;
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    const sql = "SELECT * FROM users WHERE username = ?";
+    db.query(sql, [username], (err, results) => {
+      if (err) return res.status(500).json({ message: "Server error", error: err });
+  
+      if (results.length > 0) {
+        const user = results[0];
+  
+        const updateSql = "UPDATE users SET otp = ?, otp_timestamp = NOW() WHERE username = ?";
+        db.query(updateSql, [otp, username], (err, result) => {
+          if (err) return res.status(500).json({ message: "Error updating OTP", error: err });
+  
+          const mailOptions = {
+            from: "edvinlokesh@gmail.com", // Replace with your email
+            to: user.email,
+            subject: "Your OTP for Password Reset",
+            text: `Your OTP is: ${otp}`
+          };
+  
+          transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+              console.error(err);
+              return res.status(500).json({ message: "Error sending OTP email", error: err });
+            }
+            res.json({ message: "OTP sent to your email!" });
+          });
+        });
+      } else {
+        res.json({ message: "User not found!" });
+      }
+    });
+  });
+  app.post("/verify-otp", (req, res) => {
+    const { username, otp} = req.body;
+    const sql = "SELECT * FROM users WHERE username = ?";
+    db.query(sql, [username], (err, results) => {
+      if (err) throw err;
+        const user = results[0];
+        // Check if OTP is correct and not expired (Assuming 10-minute expiration) 600000
+        if (user.otp === otp && new Date() - new Date(user.otp_timestamp) < 300000) {
+            if (err) throw err;
+            const updateSql = "UPDATE users SET otp = NULL WHERE username = ?";
+            db.query(updateSql, [username], (err, result) => {
+              if (err) throw err;
+          });
+        } else {
+            res.json({ message: "Invalid OTP or OTP expired." });
+        }
+      
+    });
+  });
+  
+  app.post("/reset-password", (req, res) => {
+    const { username, newPassword, confirmPassword } = req.body;
+    if (!username || !newPassword || !confirmPassword) {
       return res.status(400).json({ message: "All fields are required." });
     }
   
@@ -227,7 +300,7 @@ app.post("/login", (req, res) => {
     }
   
     const sql = "SELECT * FROM users WHERE username = ?";
-    db.query(sql, [usname], (err, results) => {
+    db.query(sql, [username], (err, results) => {
       if (err) return res.status(500).json({ message: "Database error." });
   
       if (results.length > 0) {
@@ -235,7 +308,7 @@ app.post("/login", (req, res) => {
             if (err) return res.status(500).json({ message: "Error hashing password." });
   
             const updateSql = "UPDATE users SET password = ? WHERE username = ?";
-            db.query(updateSql, [hashedPassword, usname], (err) => {
+            db.query(updateSql, [hashedPassword, username], (err) => {
               if (err) return res.status(500).json({ message: "Error updating password." });
               res.json({ message: "Password reset successfully!" });
             });

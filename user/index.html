@@ -12,7 +12,6 @@
     <main >
         <section class="lsr" style="display:flex;">
             <form  action="http://localhost:3000/login" method="POST" enctype="multipart/form-data" class="login" style="display:flex;">
-                <!-- <i class='bx bx-x bx-md close' onclick="document.querySelector('.lsr').style.display ='none';"></i> -->
                 <h1 style="text-align: center;">Login</h1>
                 <div>
                     <div class="info">
@@ -20,7 +19,6 @@
                         <label>Username</label>
                         <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
                     </div>
-                    <label class="lab"> please complete the field</label>
                 </div>
                 <div>
                     <div class="info">
@@ -28,7 +26,6 @@
                         <label>Password</label>
                         <i class='bx bxs-lock-alt bx-sm' style='color:#ffffff' ></i>
                     </div>
-                    <label class="lab"> please complete the field</label>
                 </div>
                 <div id="pass">
                     <p><input type="checkbox">Remember me</p><b style="color:white;" onclick="forgot()">Resert password?</b>
@@ -36,9 +33,7 @@
                 <button type="button" class="log" onclick="logn()">Login</button>
                 <p style="text-align: center;">Don't have an account? <b onclick="signin()">Register</b></p>
             </form>
-            <form action="http://localhost:3000/signup" method="POST" enctype="multipart/form-data" class="signup" style="display:none;">
-                <!-- <i class='bx bx-x bx-md close'
-                onclick="document.querySelector('.lsr').style.display ='none';"></i> -->
+            <form action="http://localhost:3000/signup" method="POST"  class="signup" style="display:none;">
                 <h1 style="text-align: center;">Sign up</h1>
                 <div>
                     <div class="info">
@@ -46,7 +41,6 @@
                         <label>Full name</label>
                         <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
                     </div>
-                    <label class="lab"> please complete the field</label>
                 </div>
                 <div>
                     <div class="info">
@@ -54,43 +48,55 @@
                         <label>Password</label>
                         <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
                     </div>
-                    <label class="lab"> please complete the field</label>
                 </div>
                 <div>
                     <div class="info">
-                        <input type="text" name="email" required>
+                        <input type="text" name="uemail" required>
                         <label>Email</label>
                         <i class='bx bxl-gmail bx-sm'></i>
                     </div>
-                    <label class="lab"> please complete the field</label>
                 </div>
                 <button type="button" class="log" onclick="signup()">Sign up</button>
                 <p style="text-align: center;">Already have an account? <b onclick="login()">Log In</b></p>
             </form>
-            <form action="http://localhost:3000/forgot_password" method="POST" enctype="multipart/form-data" class="forgot" style="display:none;">
-                <!-- <i class='bx bx-x bx-md close'
-                onclick="document.querySelector('.lsr').style.display ='none';"></i> -->
-                <h1 style="text-align: center;">Reset Password</h1>
+
+            <form class="forgot" style="display:none;">
+                <h4 style="text-align: center;">To resert your password, type your <br>
+                     username and follow instruction</h4>
                 <div class="info">
-                    <input type="text" name="usname" required>
+                    <input type="text" name="username" id="forgot_user">
                     <label>Username</label>
                     <i class='bx bxs-user bx-sm' style='color:#ffffff'></i>
                 </div>
-                <label class="lab"> please complete the field</label>
+                <button type="button" class="log" id="getotp" onclick="getOtp()">Get OTP</button>
+                <p style="text-align: center;">Don't want to resert Back to <b onclick="login()">Log In</b></p>
+            </form>
+
+            <form class="putotp" style="display:none;">
+                <h4 style="text-align: center;">The OTP sended to your <br> Email Address</h4>
+                <div>
                 <div class="info">
-                    <input type="password" name="newPassword" required>
+                    <input type="text" id="otp" pattern="\d{6}" maxlength="6" required>
+                    <label>OTP</label>
+                    <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
+                </div>
+                <span style="padding-left: .5em;">only valid for 5 minutes</span>
+            </div>
+                <button type="button" class="log" id="submitotp" onclick="submitOtp()">SUBMIT</button>
+            </form>
+            <form class="resert" style="display:none;">
+                <h4 style="text-align: center;">Password must includes 1 character,<br>1 number and 8 length</h4>
+                <div class="info">
+                    <input type="password" id="nPassword" required>
                     <label>New password</label>
                     <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
                 </div>
-                <label class="lab"> please complete the field</label>
                 <div class="info">
-                    <input type="password" name="confirmPassword" required>
+                    <input type="password" id="cPassword" required>
                     <label>Confirm password</label>
                     <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
                 </div>
-                <label class="lab"> please complete the field</label>
                 <button type="button" class="log" onclick="resetpass()">Resert</button>
-                <p style="text-align: center;">Don't want to resert Back to <b onclick="login()">Log In</b></p>
             </form>
         </section>
     </main>
