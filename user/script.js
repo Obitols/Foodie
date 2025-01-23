@@ -1,8 +1,8 @@
 let products = {};
 const fetchData = async () => {
-        const response = await fetch(`http://localhost:3000/food_menu`);
-        let foodMenu = await response.json();
-        displayMenu(foodMenu);
+    const response = await fetch(`http://localhost:3000/food_menu`);
+    let foodMenu = await response.json();
+    displayMenu(foodMenu);
 };
 
 function displayMenu(items) {
@@ -29,18 +29,18 @@ function displayMenu(items) {
     ).join("");
 }
 
-function filterMenu(element,type) {
+function filterMenu(element, type) {
     const items = document.querySelectorAll(".choice li");
     items.forEach(item => item.classList.remove("active"));
     element.classList.add("active");
-    const names=products[type];
+    const names = products[type];
     const buttons = document.querySelectorAll('.choicebtn button');
     buttons.forEach((button, index) => {
         button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
         button.setAttribute('onclick', `filterByCategory('${names[index].btname}')`);
     });
-        const filteredData = foodMenu.filter(item => item.meal_type === type);
-        displayMenu(filteredData);   
+    const filteredData = foodMenu.filter(item => item.meal_type === type);
+    displayMenu(filteredData);
 }
 
 const filterByCategory = (category) => {

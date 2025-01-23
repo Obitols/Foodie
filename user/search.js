@@ -41,7 +41,7 @@ const displayItem = (items) => {
         container.style.display = "grid";
         container.className = 'itemgroup';
         container.innerHTML = items.map((item) => {
-            const { name, title, price} = item;
+            const { name, title, price } = item;
             return `
             <div class="orderitem">
                     <div class="rot"></div>
@@ -88,7 +88,7 @@ async function fetchCart() {
 
 function displayCart(items) {
     const cartTableBody = document.getElementById('cartTableBody');
-     cartTableBody.innerHTML = items.map(item => {
+    cartTableBody.innerHTML = items.map(item => {
         return `
             <tr>
                 <td><img src='http://localhost:3000/cart/${item.id}' alt="${item.name}" style="width:50px;height:50px;"></td>
@@ -99,14 +99,14 @@ function displayCart(items) {
                 <td><span onclick="removeFromCart(${item.itemId})">X</span></td>
             </tr>
         `;
-    }).join(''); 
+    }).join('');
     const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    document.querySelector('.total').textContent=`$${totalPrice.toFixed(2)}`;
+    document.querySelector('.total').textContent = `$${totalPrice.toFixed(2)}`;
     const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('count').textContent=totalQuantity;
-    document.querySelector('.dfee').textContent=`$${totalQuantity*5}`;
-    const final =totalPrice + totalQuantity*5;
-    document.querySelector('.total2').textContent=`$${final.toFixed(2)}`;
+    document.getElementById('count').textContent = totalQuantity;
+    document.querySelector('.dfee').textContent = `$${totalQuantity * 5}`;
+    const final = totalPrice + totalQuantity * 5;
+    document.querySelector('.total2').textContent = `$${final.toFixed(2)}`;
 }
 
 async function addToCart(itemId, name, price, button) {
@@ -115,7 +115,7 @@ async function addToCart(itemId, name, price, button) {
     await fetch('http://localhost:3000/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ itemId, name, price, quantity})
+        body: JSON.stringify({ itemId, name, price, quantity })
     });
     alert(`${name} added to cart`);
     fetchCount();
@@ -132,9 +132,11 @@ async function removeFromCart(itemId) {
 if (window.location.pathname.includes('cart.html')) {
     fetchCart();
 }
+
 if (window.location.pathname.includes('delivery.html')) {
-    document.querySelector('.search').style.visibility='hidden';
-    document.querySelector('.searchalt').style.display='none';
+    document.querySelector('.search').style.visibility = 'hidden';
+    document.querySelector('.searchalt').style.display = 'none';
 }
+
 loadFoodMenu();
 

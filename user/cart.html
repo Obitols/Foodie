@@ -27,8 +27,8 @@
             text-align: center;
             border-bottom: 2px solid antiquewhite;
         }
-        
-        .table tr th{
+
+        .table tr th {
             text-align: center;
             padding: 1.5rem;
         }
@@ -60,19 +60,20 @@
 
         @media (max-width:650px) {
 
-         main{
-            font-size: 0.7em;
-         }
-         .bill{
-            height: 25vh;
-            width: 90%;
-         }
-         .carttable{
-            width: 100%;
-            overflow: auto;
-         }
+            main {
+                font-size: 0.7em;
+            }
+
+            .bill {
+                height: 25vh;
+                width: 90%;
+            }
+
+            .carttable {
+                width: 100%;
+                overflow: auto;
+            }
         }
-       
     </style>
 </head>
 
@@ -80,21 +81,22 @@
     <header class="navigation"></header>
     <main>
         <section class="carttable">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody id="cartTableBody"></tbody> 
-        </table>
-    </section>
-        <a href="/user/home.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to Products</button></a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody"></tbody>
+            </table>
+        </section>
+        <a href="/user/home.html"><button style="background-color: rgb(255, 0, 0);border: none; color: white;">Back to
+                Products</button></a>
         <section class="bill">
             <h2>cart Totals</h2>
             <div>
@@ -106,7 +108,8 @@
             </div>
             <hr>
             <div><b>Total</b> <span class="total2"></span></div>
-            <button style="background-color: rgb(255, 0, 0);border: none; color: white;"  onclick="window.location.href='/user/delivery.html';" >PROCESSED TO CHECKOUT</button>
+            <button style="background-color: rgb(255, 0, 0);border: none; color: white;"
+                onclick="window.location.href='/user/delivery.html';">PROCESSED TO CHECKOUT</button>
         </section>
     </main>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>

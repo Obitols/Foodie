@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Foodie</title>
@@ -8,10 +9,28 @@
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    <main >
-        <section class="lsr" style="display:flex;">
-            <form  action="http://localhost:3000/login" method="POST" enctype="multipart/form-data" class="login" style="display:flex;">
+    <main>
+        <section class="home">
+            <nav>
+                <h1>Welcome to Your Favorite <br> Food Destination!</h1>
+                <p>
+                    Thank you for visiting us! At Foodie, we bring you an incredible <br> variety of
+                    mouth-watering dishes, all crafted with love and <br>fresh ingredients. Whether you’re planning a
+                    cozy meal <br> at home or a feast with friends, we’ve got you covered. With our easy-to-use <br> platform
+                    and quick delivery service, satisfying <br> your hunger has never been easier. Take a look around and treat
+                    <br>yourself to flavors you’ll never forget!</p>
+                <div class="navbtn">
+                    <button onclick="document.querySelector('.lsr').style.display='flex';document.querySelector('.login').style.display='flex';">Login</button>
+                    <button onclick="document.querySelector('.lsr').style.display='flex';document.querySelector('.signup').style.display='flex';">Signup</button>
+                </div>
+            </nav>
+        </section>
+        <section class="lsr" style="display:none;">
+            
+            <form action="http://localhost:3000/login" method="POST" enctype="multipart/form-data" class="login"
+                style="display:none;">
                 <h1 style="text-align: center;">Login</h1>
                 <div>
                     <div class="info">
@@ -24,7 +43,7 @@
                     <div class="info">
                         <input type="password" name="password" required>
                         <label>Password</label>
-                        <i class='bx bxs-lock-alt bx-sm' style='color:#ffffff' ></i>
+                        <i class='bx bxs-lock-alt bx-sm' style='color:#ffffff'></i>
                     </div>
                 </div>
                 <div id="pass">
@@ -33,7 +52,8 @@
                 <button type="button" class="log" onclick="logn()">Login</button>
                 <p style="text-align: center;">Don't have an account? <b onclick="signin()">Register</b></p>
             </form>
-            <form action="http://localhost:3000/signup" method="POST"  class="signup" style="display:none;">
+
+            <form action="http://localhost:3000/signup" method="POST" class="signup" style="display:none;">
                 <h1 style="text-align: center;">Sign up</h1>
                 <div>
                     <div class="info">
@@ -51,7 +71,7 @@
                 </div>
                 <div>
                     <div class="info">
-                        <input type="text" name="uemail" required>
+                        <input type="email" name="uemail" required>
                         <label>Email</label>
                         <i class='bx bxl-gmail bx-sm'></i>
                     </div>
@@ -62,7 +82,7 @@
 
             <form class="forgot" style="display:none;">
                 <h4 style="text-align: center;">To resert your password, type your <br>
-                     username and follow instruction</h4>
+                    username and follow instruction</h4>
                 <div class="info">
                     <input type="text" name="username" id="forgot_user">
                     <label>Username</label>
@@ -75,17 +95,18 @@
             <form class="putotp" style="display:none;">
                 <h4 style="text-align: center;">The OTP sended to your <br> Email Address</h4>
                 <div>
-                <div class="info">
-                    <input type="text" id="otp" pattern="\d{6}" maxlength="6" required>
-                    <label>OTP</label>
-                    <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
+                    <div class="info">
+                        <input type="text" id="otp" pattern="\d{6}" maxlength="6">
+                        <label>OTP</label>
+                        <i class='bx bx-key bx-sm' style='color:#ffffff'></i>
+                    </div>
+                    <span style="padding-left: .5em;">only valid for 5 minutes</span>
                 </div>
-                <span style="padding-left: .5em;">only valid for 5 minutes</span>
-            </div>
                 <button type="button" class="log" id="submitotp" onclick="submitOtp()">SUBMIT</button>
             </form>
+
             <form class="resert" style="display:none;">
-                <h4 style="text-align: center;">Password must includes 1 character,<br>1 number and 8 length</h4>
+                <h4 style="text-align: center;">Password must contain 1 character,<br>1 number and 8 length</h4>
                 <div class="info">
                     <input type="password" id="nPassword" required>
                     <label>New password</label>
@@ -98,8 +119,10 @@
                 </div>
                 <button type="button" class="log" onclick="resetpass()">Resert</button>
             </form>
+
         </section>
     </main>
     <script src="script3.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 const headder = document.querySelector(".navigation");
-    headder.innerHTML =
-            ` <nav class="navtop">
+headder.innerHTML =
+    ` <nav class="navtop">
         <i class='bx bx-menu bx-md' id="has"
             onclick="document.querySelector('.side').style.display ='flex';document.querySelector('.aside').style.display ='block';"></i>
         <h3 class="topic">Foodie</h3>
@@ -18,7 +18,10 @@ const headder = document.querySelector(".navigation");
         <i class='bx bx-shopping-bag bx-sm' id="cart" onclick="window.location.href='cart.html';">
             <h6 id="count">0</h6>
         </i>
-        <i class='bx bxs-user-circle bx-md'></i>
+        <details>
+        <summary><i class='bx bxs-user-circle bx-md'></i></summary>
+        <a href="index.html" >Logout</a>
+        </details>
     </nav>
     <div class="searchalt">
             <i class='bx bx-search bx-sm' style='color:#ab9d9d;align-self: center;'></i>
@@ -49,8 +52,9 @@ const headder = document.querySelector(".navigation");
     </nav>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
       `;
+
 const footer = document.querySelector(".contact");
-footer.innerHTML =`   
+footer.innerHTML = `   
 <footer id="page7">
         <address>
             <b>
@@ -99,12 +103,13 @@ footer.innerHTML =`
     <footer id="page8">
         <h5>&copy 2025 Foodie.All rights reseved</h5>
         <img src="/images/logo.jpg" alt="image" width="40%" height="40px">
-    </footer>  `;   
+    </footer>  `;
 
-async function fetchCount() {  
-const response5 = await fetch('http://localhost:3000/cart');
-const items = await response5.json();
-const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
-document.getElementById('count').textContent=totalQuantity;
+async function fetchCount() {
+    const response5 = await fetch('http://localhost:3000/cart');
+    const items = await response5.json();
+    const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('count').textContent = totalQuantity;
 }
+
 fetchCount();
