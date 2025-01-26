@@ -2,6 +2,7 @@ let products = {};
 const fetchData = async () => {
     const response = await fetch(`http://localhost:3000/food_menu`);
     let foodMenu = await response.json();
+    foodMenu = foodMenu.filter(item => item.meal_type === 'breakfast');
     displayMenu(foodMenu);
 };
 
