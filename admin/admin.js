@@ -50,12 +50,12 @@ function showDiv(classname) {
 const categorySelect = document.getElementById("category");
 const typeSelect = document.getElementById("type");
 const productTypes = {
-    breakfast: ["Bread-1", "Bread-2", "Bread-3", "Bread-4", "Bread-5", "Bread-6"],
-    dinner: ["Sandwich-1", "Sandwich-2", "Sandwich-3", "Sandwich-4", "Sandwich-5", "Sandwich-6"],
-    lunch: ["Burger-1", "Burger-2", "Burger-3", "Burger-4", "Burger-5", "Burger-6"],
-    dessert: ["Pasta-1", "Pasta-2", "Pasta-3", "Pasta-4", "Pasta-5", "Pasta-6"],
-    beverage: ["Pizza-1", "Pizza-2", "Pizza-3", "Pizza-4", "Pizza-5", "Pizza-6"]
-};
+    breakfast: ["Pancake", "Waffle", "Sandwich", "Burgers", "Dosa"],
+    dinner: ["Pizza", "Soups", "chicken 65", "Pasta", "Chapathi"],
+    lunch: ["Biriyani", "Salads", "Pasta", "Noodles", "Meals"],
+    dessert: ["Cake", "Ice Cream", "Brownie", "Doughnut", "Chocolate"],
+    beverage: ["Tea", "Juice", "Coffee", "Lassi", "Soda"]
+  };
 
 categorySelect.addEventListener("change", () => {
     typeSelect.innerHTML = '<option value="">Select Type</option>';

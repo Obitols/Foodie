@@ -37,7 +37,7 @@ function filterMenu(element, type) {
     const names = products[type];
     const buttons = document.querySelectorAll('.choicebtn button');
     buttons.forEach((button, index) => {
-        button.innerHTML = `<i class="${names[index].cname}"></i>${names[index].btname}`;
+        button.innerHTML = `${names[index].btname}`;
         button.setAttribute('onclick', `filterByCategory('${names[index].btname}')`);
     });
     const filteredData = foodMenu.filter(item => item.meal_type === type);

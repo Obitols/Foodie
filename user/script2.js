@@ -102,7 +102,7 @@ footer.innerHTML = `
     </footer>
     <footer id="page8">
         <h5>&copy 2025 Foodie.All rights reseved</h5>
-        <img src="/images/logo.jpg" alt="image" width="40%" height="40px">
+        <img src="/images/pay.png" alt="image" width="30%" height="40px">
     </footer>  `;
 
 async function fetchCount() {

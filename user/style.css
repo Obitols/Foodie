@@ -222,7 +222,7 @@ details a {
 
 #page2 header {
     position: relative;
-    margin: 5% 0%;
+    margin: 5% 5% 5% 0;
     height: 80vh;
 }
 
@@ -242,10 +242,11 @@ details a {
 }
 
 #topreview {
-    background-color: rgba(0, 0, 0, 0.100);
+    background-color: rgba(211, 210, 210, 0.452);
     backdrop-filter: blur(5px);
     width: 30%;
-    height: 20vh;
+    font-size: 0.9rem;
+    /* height: 20vh; */
     overflow: hidden;
     padding: 2%;
     border-radius: 0.5em;
@@ -266,10 +267,10 @@ details a {
 }
 
 #review {
-    background-color: rgba(0, 0, 0, 0.100);
+    background-color: rgba(255, 255, 255, 0.397);
     backdrop-filter: blur(5px);
     width: 35%;
-    height: 9vh;
+    /* height: 9vh; */
     padding: 2%;
     display: flex;
     flex-direction: column;
@@ -343,7 +344,7 @@ hr {
     box-shadow: 2px 2px 2px rgb(220, 200, 200), -2px -2px 2px rgb(220, 200, 200);
     background-color: white;
     border-radius: 0.5em;
-    height: 45vh;
+    height: 40vh;
     /* width:30vh; */
     display: flex;
     gap: 0.5em;
@@ -431,7 +432,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 5%;
-    height: 70vh;
+    height: 90vh;
     padding: 5%;
     align-items: center;
     position: relative;
@@ -456,27 +457,25 @@ hr {
     text-align: center;
 }
 
-.About {
+.About {margin-top: 3%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     gap: 5%;
 }
 
 .About div {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: white;
+    border-radius: .3em;
     width: 30vw;
     height: 40vh;
     padding: 2% 2% 3% 2%;
-    box-shadow: 1px 1px 2px 2px rgb(180, 176, 176);
+    box-shadow:inset 1px 1px 50px 20px rgb(180, 176, 176);
     gap: 6%;
     z-index: 5;
-}
-
-.About div b {
-    text-align: center;
 }
 
 #page5 aside,
@@ -504,7 +503,7 @@ header {
 }
 
 #btreview {
-    background-color: rgba(0, 0, 0, 0.100);
+    background-color: rgba(115, 115, 115, 0.266);
     backdrop-filter: blur(5px);
     width: 35%;
     height: fit-content;

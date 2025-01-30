@@ -1,42 +1,37 @@
 {
     "breakfast": [
-      {"btname": "Bread-1","cname": "bx bx-baguette"},
-      {"btname": "Bread-2","cname": "bx bx-bowl-rice"},
-      {"btname": "Bread-3","cname": "bx bx-baguette"},
-      {"btname": "Bread-4","cname": "bx bx-bowl-rice"},
-      {"btname": "Bread-5","cname": "bx bx-baguette"},
-      {"btname": "Bread-6","cname": "bx bx-bowl-rice"}
+      {"btname": "Pancake"},
+      {"btname": "Waffle"},
+      {"btname": "Sandwich"},
+      {"btname": "Burgers"},
+      {"btname": "Dosa"}
      ],
      "dinner": [
-      {"btname": "Sandwich-1","cname": "bx bx-baguette"},
-      {"btname": "Sandwich-2","cname": "bx bx-bowl-rice"},
-      {"btname": "Sandwich-3","cname": "bx bx-baguette"},
-      {"btname": "Sandwich-4","cname": "bx bx-bowl-rice"},
-      {"btname": "Sandwich-5","cname": "bx bx-baguette"},
-      {"btname": "Sandwich-6","cname": "bx bx-bowl-rice"}
+      {"btname": "Pizza"},
+      {"btname": "Soups"},
+      {"btname": "chicken 65"},
+      {"btname": "Pasta"},
+      {"btname": "Chapathi"}
      ],
      "lunch": [
-      {"btname": "Burger-1","cname": "bx bx-baguette"},
-      {"btname": "Burger-2","cname": "bx bx-bowl-rice"},
-      {"btname": "Burger-3","cname": "bx bx-baguette"},
-      {"btname": "Burger-4","cname": "bx bx-bowl-rice"},
-      {"btname": "Burger-5","cname": "bx bx-baguette"},
-      {"btname": "Burger-6","cname": "bx bx-bowl-rice"}
+      {"btname": "Biriyani"},
+      {"btname": "Salads"},
+      {"btname": "Pasta"},
+      {"btname": "Noodles"},
+      {"btname": "Meals"}
      ],
      "dessert": [
-      {"btname": "Pasta-1","cname": "bx bx-baguette"},
-      {"btname": "Pasta-2","cname": "bx bx-bowl-rice"},
-      {"btname": "Pasta-3","cname": "bx bx-baguette"},
-      {"btname": "Pasta-4","cname": "bx bx-bowl-rice"},
-      {"btname": "Pasta-5","cname": "bx bx-baguette"},
-      {"btname": "Pasta-6","cname": "bx bx-bowl-rice"}
+      {"btname": "Cake"},
+      {"btname": "Ice Cream"},
+      {"btname": "Brownie"},
+      {"btname": "Doughnut"},
+      {"btname": "Chocolate"}
     ],
      "beverage":  [
-      {"btname": "Pizza-1","cname": "bx bx-baguette"},
-      {"btname": "Pizza-2","cname": "bx bx-bowl-rice"},
-      {"btname": "Pizza-3","cname": "bx bx-baguette"},
-      {"btname": "Pizza-4","cname": "bx bx-bowl-rice"},
-      {"btname": "Pizza-5","cname": "bx bx-baguette"},
-      {"btname": "Pizza-6","cname": "bx bx-bowl-rice"}
+      {"btname": "Tea"},
+      {"btname": "Juice"},
+      {"btname": "Coffee"},
+      {"btname": "Lassi"},
+      {"btname": "Soda"}
     ]
   }
