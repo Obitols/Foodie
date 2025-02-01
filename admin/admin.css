@@ -22,7 +22,9 @@ aside {
 }
 
 aside div {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
     padding: 1%;
     width: 7em;
     border: 2px solid gray;
@@ -30,8 +32,10 @@ aside div {
 }
 
 aside div:hover {
-    background-color: rgb(116, 165, 42);
+    background-color: orangered;
     scale: 1.05;
+    color: white;
+    border-color: transparent;
 }
 
 .box1 form {
@@ -88,6 +92,14 @@ td {
     border: 2px solid black;
 }
 
+.row button{
+    background-color:orangered;
+    color: white;
+    border: none;
+    padding: 10%;
+    border-radius: .3em;
+}
+
 .box3 {
     margin: 0 4%;
     width: 90%;
@@ -103,7 +115,12 @@ td {
 
 #process {
     height: 2rem;
-    background-color: orange;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 0 2%;
+    overlay: none;
+    border-radius: 5%;
 }
 
 @media (max-width:450px) {

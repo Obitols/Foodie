@@ -3,7 +3,7 @@ headder.innerHTML =
     ` <nav class="navtop">
         <i class='bx bx-menu bx-md' id="has"
             onclick="document.querySelector('.side').style.display ='flex';document.querySelector('.aside').style.display ='block';"></i>
-        <h3 class="topic">Foodie</h3>
+        <h1 class="topic">Foodie</h1>
         <ul class="Service">
             <li><a href="home.html" onclick="document.querySelector('.aside').style.display ='none';">Home</a></li>
             <li><a href="home.html#page3" onclick="document.querySelector('.aside').style.display ='none';">Categories</a></li>
@@ -32,7 +32,7 @@ headder.innerHTML =
     </section>
     <nav class="side">
         <div>
-            <h3 class="topic">Foodie</h3>
+            <h1 class="topic">Foodie</h1>
             <i class='bx bx-x bx-md'
                 onclick="document.querySelector('.side').style.display ='none';document.querySelector('.aside').style.display ='none';"></i>
         </div>
@@ -57,9 +57,7 @@ const footer = document.querySelector(".contact");
 footer.innerHTML = `   
 <footer id="page7">
         <address>
-            <b>
-                <h5>Foodie</h5>
-            </b>
+            <h3>Foodie</h3>
             <p>Make a connection<br>with Social media</p>
             <div class="socm">
                 <i class='bx bxl-facebook bx-sm bx-border' id="touch"></i>

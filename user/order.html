@@ -7,7 +7,7 @@
     <title>Foodie</title>
     <link rel="stylesheet" href="style.css">
     <script src="search.js" defer></script>
-    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/image.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         main {
@@ -33,7 +33,7 @@
         }
 
         #orderitems tr td:nth-child(2) {
-            width: 65%;
+            width: 55%;
             padding-right: 2em;
         }
 
@@ -72,7 +72,7 @@
             const ordersList = document.getElementById('ordersList');
             ordersList.innerHTML = orders.map(order => `
                 <tr>
-                    <td><img src="/images/bubble.png" alt="image"></td>
+                    <td><img src="/images/order.jpeg" width="40%"></td>
                     <td>${order.items}</td>
                     <td>$${order.total_price}</td>
                     <td>items:${order.total_quantity}</td>

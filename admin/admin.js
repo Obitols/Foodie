@@ -70,7 +70,7 @@ async function displayOrders(addresses, orders) {
         const userAddress = addresses[index];
         return `
                 <div class="order" data-order-id="${order.id}">
-                    <img src="/images/bubble.png" alt="image">
+                    <img src="/images/order.jpeg" alt="image" width="50%">
                     <div>
                         <p>${order.items}</p>
                         <address>

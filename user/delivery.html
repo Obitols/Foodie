@@ -7,7 +7,7 @@
     <title>Foodie</title>
     <link rel="stylesheet" href="style.css">
     <script src="search.js" defer></script>
-    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/image.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         .main {
@@ -177,7 +177,7 @@
                 </div>
                 <hr>
                 <div><b>Total</b> <span class="totalAmount"></span></div>
-                <button style="background-color: rgb(255, 0, 0);border: none; color: white;" id="uploadButton"
+                <button style="background-color:orangered;border: none; color: white;" id="uploadButton"
                     type="button">PROCESSED TO ORDER</button>
             </aside>
         </div>
@@ -190,6 +190,7 @@
         async function fetchCart() {
             const response = await fetch('http://localhost:3000/cart');
             items = await response.json();
+            displayamount();
         }
 
         document.getElementById("uploadButton").addEventListener("click", () => {
@@ -225,7 +226,7 @@
             }
         });
 
-        async function displayamount() {
+        function displayamount() {
             const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
             document.querySelector('.subtotal').textContent = `$${totalPrice.toFixed(2)}`;
             const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -252,8 +253,6 @@
             alert('Order placed successfully!');
             window.location.href = '/user/order.html';
         }
-
-        displayamount();
         fetchCart();
     </script>
 </body>

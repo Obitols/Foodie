@@ -205,16 +205,24 @@ app.put('/orders/:orderId', async (req, res) => {
 
 app.post('/signup', (req, res) => {
   const { name, pass, uemail } = req.body;
-  if (!name || !pass || !uemail) return res.status(400).json({ message: "All fields are required." });
 
-  bcrypt.hash(pass, 10, (err, hashedPassword) => {
-    if (err) return res.status(500).json({ message: "Error hashing password." });
+  const sql1 = "SELECT * FROM users WHERE username = ?";
+  db.query(sql1, [name], (err, results) => {
+    if (err) return res.status(500).json({ message: "Database error." });
 
-    const sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
-    db.query(sql, [name, hashedPassword, uemail], (err) => {
-      if (err) return res.status(500).json({ message: "Database error." });
-      res.json({ success: true });
-    });
+    if (results.length > 0) { res.json("user already exist!");}
+
+    else {
+      bcrypt.hash(pass, 10, (err, hashedPassword) => {
+        if (err) return res.status(500).json({ message: "Error hashing password." });
+
+        const sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
+        db.query(sql, [name, hashedPassword, uemail], (err) => {
+          if (err) return res.status(500).json({ message: "Database error." });
+          res.json({ success: true });
+        });
+      });
+    }
   });
 });
 

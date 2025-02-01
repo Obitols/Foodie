@@ -5,13 +5,16 @@ function login() {
 function signin() {
   toggleForms('.signup');
 }
+
 function forgot() {
   toggleForms('.forgot');
 }
+
 function getOtp() {
   document.querySelector('.forgot').style.display = "none";
   document.querySelector('.putotp').style.display = "flex";
 }
+
 function submitOtp() {
   document.querySelector('.putotp').style.display = "none";
   document.querySelector('.resert').style.display = "flex";
@@ -23,12 +26,14 @@ function toggleForms(formToShow) {
     document.querySelector(form).style.display = form === formToShow ? 'flex' : 'none';
   });
 }
+
 function signup() {
   const signinform = document.querySelector('.signup');
   const formData1 = new FormData(signinform);
   const patterns = {
+    name: /^[a-zA-Z0-9]{3,25}$/,
     uemail: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    pass: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/
+    pass: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,25}$/
   };
 
   for (let [key, value] of formData1.entries()) {
@@ -39,7 +44,7 @@ function signup() {
     }
 
     if (patterns[key] && !patterns[key].test(value)) {
-      alert(`${key.replace('pass', 'Password must have 1 character, 1 number and 8 length').replace('uemail', 'Email must end with @gmail.com')}`);
+      alert(`${key.replace('name', 'Username must have morethan 3 length').replace('pass', 'Password must have 1 character, 1 number and 8 length').replace('uemail', 'Email must end with @gmail.com')}`);
       return;
     }
   }
@@ -47,11 +52,24 @@ function signup() {
     method: "POST",
     body: formData1,
   })
-  alert("User registered successfully!");
-  signinform.reset();
-  document.querySelector('.signup').style.display = "none";
-  document.querySelector('.login').style.display = "flex";
-}
+    .then(response => response.text())
+    .then(data => {
+      if (`"user already exist!"` === data) {
+        alert('User already exist!');
+        signinform.reset();
+      }
+      else {
+        alert("User registered successfully!");
+        signinform.reset();
+        document.querySelector('.signup').style.display = "none";
+        document.querySelector('.login').style.display = "flex";
+      }
+    })
+    .catch(err => {
+      alert("Error: " + err.message);
+    });
+  }
+
 function logn() {
   const Loginform = document.querySelector('.login');
   const formData2 = new FormData(Loginform);
@@ -81,6 +99,7 @@ function logn() {
       alert("Error: " + err.message);
     });
 }
+
 let forgotuser = "";
 function getOtp() {
   forgotuser = document.getElementById('forgot_user').value;
@@ -143,7 +162,7 @@ function resetpass() {
   const newPassword = document.getElementById('nPassword').value;
   const confirmPassword = document.getElementById('cPassword').value;
   const patterns = {
-    pass: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/
+    pass: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,25}$/
   };
   if (!newPassword || !confirmPassword) {
     alert("All fields are required.");
