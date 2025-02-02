@@ -50,7 +50,7 @@ function showDiv(classname) {
 const categorySelect = document.getElementById("category");
 const typeSelect = document.getElementById("type");
 const productTypes = {
-    breakfast: ["Pancake", "Waffle", "Sandwich", "Burgers", "Dosa"],
+    breakfast: ["Pancake", "Waffle", "Sandwich", "Burger", "Dosa"],
     dinner: ["Pizza", "Soups", "chicken 65", "Pasta", "Chapathi"],
     lunch: ["Biriyani", "Salads", "Pasta", "Noodles", "Meals"],
     dessert: ["Cake", "Ice Cream", "Brownie", "Doughnut", "Chocolate"],

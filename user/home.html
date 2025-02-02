@@ -108,7 +108,7 @@
                     <button onclick="filterByCategory('Pancake')">Pancake</button>
                     <button onclick="filterByCategory('Waffle')">Waffle</button>
                     <button onclick="filterByCategory('Sandwich')">Sandwich</button>
-                    <button onclick="filterByCategory('Burgers')">Burgers</button>
+                    <button onclick="filterByCategory('Burger')">Burger</button>
                     <button onclick="filterByCategory('Dosa')">Dosa</button>
                 </div>
             </nav>
@@ -140,7 +140,7 @@
         </section>
         <section id="page5">
             <header>
-                <img src="/images/logo.jpg" alt="image" width="80%" height="100%" id="Customer" style="margin-left:15%;">
+                <img src="" alt="image" width="80%" height="100%" id="Customer" style="margin-left:15%;">
                 <div id="btreview">
                     <h6>Customer Review Raiting</h6>
                     <div style="color: orangered;">
@@ -179,11 +179,11 @@
             const products = document.getElementById("page3");
             const explore = document.getElementById("explore");
 
-            if (products.style.height === "140vh") {
+            if (products.style.height === "143vh") {
                 products.style.height = "max-content";
                 explore.textContent = 'Explore Less';
             } else {
-                products.style.height = "140vh";
+                products.style.height = "143vh";
                 explore.textContent = 'Explore More';
                 window.location.href = 'home.html#page3';
             }
