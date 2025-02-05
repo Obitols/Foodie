@@ -44,10 +44,10 @@ headder.innerHTML =
             <li><a href="home.html#sev" onclick="document.querySelector('.aside').style.display ='none';document.querySelector('.side').style.display ='none';">Service</a></li>
         </ul>
         <footer>
-            <i class='bx bxl-facebook bx-sm bx-border' id="touch"></i>
-            <i class='bx bxl-twitter bx-sm bx-border' id="touch"></i>
-            <i class='bx bxl-instagram bx-sm bx-border' id="touch"></i>
-            <i class='bx bxl-linkedin bx-sm bx-border' id="touch"></i>
+            <a href="https://m.facebook.com/profile.php?id=100082993273446" target="_blank"><i class='bx bxl-facebook bx-sm bx-border' id="touch"></i></a>
+                <a href="https://github.com/Obitols" target="_blank"><i class='bx bxl-github bx-sm bx-border' id="touch"></i></a>
+                <a href="https://www.instagram.com/ls__square?utm_source=qr&igsh=MTFhYTVwMzM5MTRvdg%3D%3D" target="_blank"><i class='bx bxl-instagram bx-sm bx-border' id="touch"></i></a>
+                <a href="https://www.linkedin.com/in/lokesh-p-51b762293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class='bx bxl-linkedin bx-sm bx-border' id="touch"></i></a>
         </footer>
     </nav>
     <section id="searchitems" style="display: none; margin: 0 4%; height:max-content"></section>
@@ -60,10 +60,10 @@ footer.innerHTML = `
             <h3>Foodie</h3>
             <p>Make a connection<br>with Social media</p>
             <div class="socm">
-                <i class='bx bxl-facebook bx-sm bx-border' id="touch"></i>
-                <i class='bx bxl-twitter bx-sm bx-border' id="touch"></i>
-                <i class='bx bxl-instagram bx-sm bx-border' id="touch"></i>
-                <i class='bx bxl-linkedin bx-sm bx-border' id="touch"></i>
+                <a href="https://m.facebook.com/profile.php?id=100082993273446" target="_blank"><i class='bx bxl-facebook bx-sm bx-border' id="touch"></i></a>
+                <a href="https://github.com/Obitols" target="_blank"><i class='bx bxl-github bx-sm bx-border' id="touch"></i></a>
+                <a href="https://www.instagram.com/ls__square?utm_source=qr&igsh=MTFhYTVwMzM5MTRvdg%3D%3D" target="_blank"><i class='bx bxl-instagram bx-sm bx-border' id="touch"></i></a>
+                <a href="https://www.linkedin.com/in/lokesh-p-51b762293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class='bx bxl-linkedin bx-sm bx-border' id="touch"></i></a>
             </div>
         </address>
         <table>
