@@ -1,0 +1,6 @@
+id,items,total_price,total_quantity,status
+27,"McDonaid Cheeseburger x 12",102.00,12,processing
+28,"McDonaid Cheeseburger x 2, Classic burger x 1, Hamburger x 8",92.50,11,delivered
+29,"Burger with chicken x 1, McDonaid Cheeseburger x 1, Classic burger x 1",25.50,3,out_of_order
+30,"Burger with lettuce x 1, Classic burger x 1, Burger with chicken x 1, McDonaid Cheeseburger x 1, Heartin Pancake x 1, caramel pancake x 1, Chocolate waffle x 1, Delicious sandwich x 1, Traditional sandwich x 1",91.25,9,out_of_order
+31,"Black Forest Cake x 1",9.86,1,"food processing"
