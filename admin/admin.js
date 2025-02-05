@@ -52,7 +52,7 @@ const typeSelect = document.getElementById("type");
 const productTypes = {
     breakfast: ["Pancake", "Waffle", "Sandwich", "Burger", "Dosa"],
     dinner: ["Pizza", "Soups", "chicken 65", "Pasta", "Chapathi"],
-    lunch: ["Biriyani", "Salads", "Pasta", "Noodles", "Meals"],
+    lunch: ["Biriyani", "Salads", "Grill", "Noodles", "Meals"],
     dessert: ["Cake", "Ice Cream", "Brownie", "Doughnut", "Chocolate"],
     beverage: ["Tea", "Juice", "Coffee", "Lassi", "Soda"]
   };
